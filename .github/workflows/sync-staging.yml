@@ -1,0 +1,27 @@
+# Mantiene la rama staging al día con production.
+# Cada push a production (commits de shopify[bot] por cambios hechos en el admin, o merges
+# desde staging) se mergea automáticamente en staging.
+name: Sincronizar staging con production
+
+on:
+  push:
+    branches: [production]
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: staging
+          fetch-depth: 0
+
+      - name: Mergear production en staging
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git merge origin/production --no-edit
+          git push origin staging
