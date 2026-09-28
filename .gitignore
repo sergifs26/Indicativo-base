@@ -1,0 +1,39 @@
+# === Credenciales y secretos (NUNCA subir a GitHub) ===
+.env
+.env.local
+.env.*.local
+*.token
+client_secret_*.json
+.secrets/
+secrets/
+
+# === Ficheros de proveedor (tarifas, exports): fuera del repo ===
+# Viven en la carpeta padre (../). Por si alguien los copia aquí:
+*.xlsx
+*.xls
+*.pdf
+*.PDF
+fuentes/
+
+# === Salidas regenerables de los scripts ===
+# data/ se regenera con la cadena scripts/limpiar_catalogo.py → precios_icom.py → exportar_shopify.py.
+# Solo se versionan los ficheros editados A MANO (fuente de verdad), listados abajo con "!".
+data/*
+!data/precios_icom_revisado.csv
+.cache/
+scripts/out/
+tmp/
+*.log
+
+# === Dependencias ===
+node_modules/
+__pycache__/
+*.pyc
+
+# === Sistema y editores ===
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+.claude/settings.local.json

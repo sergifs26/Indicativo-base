@@ -1,0 +1,11 @@
+{
+  "name": "indicativo-base",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Operaciones de la tienda Shopify Indicativo Base (radiocomunicación)",
+  "scripts": {
+    "test:shopify": "node scripts/test_conexion.mjs",
+    "catalogo": "python scripts/limpiar_catalogo.py && python scripts/precios_icom.py && python scripts/exportar_shopify.py"
+  }
+}
