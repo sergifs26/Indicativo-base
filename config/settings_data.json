@@ -11,7 +11,7 @@
   "current": "Default",
   "presets": {
     "Default": {
-      "logo_width": 50,
+      "logo_width": 220,
       "colors_solid_button_labels": "#ffffff",
       "colors_accent_1": "#121212",
       "gradient_accent_1": "",
@@ -150,7 +150,9 @@
             "color_scheme": "background-1"
           }
         }
-      }
+      },
+      "logo": "shopify://shop_images/logo-indicativo-base-blanco.png",
+      "favicon": "shopify://shop_images/favicon-indicativo-base.png"
     }
   }
 }
