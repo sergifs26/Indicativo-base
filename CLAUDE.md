@@ -21,7 +21,11 @@ Ramas: **`production`** = tema publicado · **`staging`** = vista previa.
 3. Si el push se rechaza: `git pull --rebase`. **Nunca `reset --hard` ni force-push.**
 4. Ficheros de escritura exclusiva (uno a la vez): `config/settings_data.json`,
    `sections/header-group.json`, `sections/footer-group.json`, `templates/index.json`.
-5. Mientras la GitHub Integration no esté conectada, subir a un tema **no publicado** con
+5. Estado (29/09/2026): publicado «Indicativo Base» `190088544584` (subido por CLI desde
+   `production`); vista previa «Indicativo Base (staging)» `190088151368`; demo original
+   `test-data` `190048174408` como respaldo. Al conectar la GitHub Integration, publicar el tema
+   enlazado a `production` y borrar los dos subidos por CLI.
+6. Mientras la GitHub Integration no esté conectada, subir a un tema **no publicado** con
    `shopify theme push -s indicativo-base.myshopify.com -t <id> -n -o <fichero>` y publicarlo
    desde el admin. El conector MCP de claude.ai no puede escribir en el tema publicado.
 
