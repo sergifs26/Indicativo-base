@@ -99,3 +99,14 @@ columnas desplazadas, tarifa Falcon corrupta. Pipeline de catálogo (Fase 0) y C
   profesionales, ventajas, antenas base, microauriculares), pie sin demo, barra «tienda en
   pruebas», menú mega. Probado en un tema de vista previa, pasado a `production` y publicado
   como «Indicativo Base» (`190088544584`). `test-data` queda sin publicar como respaldo.
+- Menú de escritorio en desplegable lateral (☰) a petición del usuario: las 10 secciones
+  ocupaban dos filas.
+- **Enfoque montañismo** (petición del usuario, estilo The North Face): banner a pantalla
+  completa con alpinista en arista nevada, franja en blanco y negro «Donde no hay cobertura, hay
+  radio», categorías y destacados de montaña. Colección automática `montana` (217 productos) y
+  primera sección del menú, aplicada con el nuevo `aplicar_menu.mjs` (su dry-run evitó borrar
+  «Contacto» del pie, que no estaba en `menu_shopify.py`).
+- Fotos de Unsplash (Mike Markov, Giacomo Berardi). `fileCreate` exige que el nombre coincida con
+  la extensión de la URL de origen; las de Unsplash no la llevan → se suben sin nombre.
+- Error del tema: `image_overlay_opacity` del banner va en pasos de 10; con 35 Shopify rechazó la
+  plantilla entera (la tienda siguió con la portada anterior).

@@ -16,7 +16,7 @@ La metodología completa está en `Agents-IA/FORMA_DE_TRABAJO.md`: **léela ante
 1. **Los precios son PROVISIONALES (inventados)** salvo los 159 de la lista Icom. Llevan el tag
    `precio-provisional`. La tienda no puede abrirse al público con ellos.
 2. **`menuUpdate` reemplaza el árbol entero.** Nunca escribir menús a mano: el menú se define en
-   `scripts/menu_shopify.py` y se aplica desde ahí. Antes de cualquier cambio de menú, leer los
+   `scripts/menu_shopify.py` y se aplica con `scripts/aplicar_menu.mjs` (dry-run, luego `--apply`). Antes de cualquier cambio de menú, leer los
    3 niveles (`items{ items{ items{ title } } }`).
 3. **Tema: git es la fuente de verdad.** `git pull` antes de editar, commit, push. Ficheros de
    escritura exclusiva (uno a la vez): `config/settings_data.json`, `sections/header-group.json`,
@@ -47,6 +47,7 @@ el final parecer correcto.
 | `exportar_shopify.py` | CSV de importación + `colecciones.csv` + `menu.json` en `data/shopify/` |
 | `shopify_bulk.py` | JSONL para operaciones masivas (`productos`, `colecciones`, `publicar`, `mapa`, `errores`) |
 | `menu_shopify.py` | Define el menú principal y el del pie (variables de `menuUpdate`) |
+| `aplicar_menu.mjs` | Aplica esos menús: compara en dry-run, y con `--apply` guarda copia y hace `menuUpdate` |
 | `admin.mjs` | Cliente Admin API por la CLI (lo importan los demás `.mjs`) |
 | `test_conexion.mjs` | `npm run test:shopify`: datos de la tienda y avisos de configuración |
 | `bulk_cli.mjs` | Lanza una bulk mutation (`scripts/graphql/*.graphql` + JSONL) |
@@ -58,6 +59,8 @@ Cadena de catálogo completa: `npm run catalogo`.
 - Canal Tienda online: `gid://shopify/Publication/302436352328`
 - Ubicaciones: `gid://shopify/Location/112428384584` (Shop location) · `…/112428450120` (My Custom Location, de la demo)
 - Menús: principal `gid://shopify/Menu/307524960584` · pie `gid://shopify/Menu/307524993352`
+- **Enfoque de la tienda: montañismo** (29/09/2026). Colección `montana` (`gid://shopify/Collection/672921092424`, OR de tags de walkies PMR-446, GPS, linternas, intercomunicadores, radio outdoor, prismáticos, teléfonos satélite, baterías externas, cargadores solares) y primera sección del menú.
+- Fotos de la portada (licencia Unsplash, uso comercial libre): `photo-1643903096045-07741be1f245.jpg` (Mike Markov) y `photo-1563442162585-fa1426255ea9.jpg` (Giacomo Berardi), en Ficheros de la tienda.
 - Colecciones: 237 automáticas por tag, ids en `data/shopify/colecciones_ids.json` (no versionado: regenerar con `shopify_bulk.py mapa` o consultando la API)
 - Productos: 2.618 cargados y publicados (29/09/2026) por `bulk_cli.mjs`; 2.459 con `precio-provisional`; 251 sin foto (107 del Excel + 144 Icom nuevos). Las 10.403 imágenes, en estado READY.
 - Temas: **`Indicativo Base` publicado `190088544584`** (rama `production`, subido por CLI) · `Indicativo Base (staging)` `190088151368` (vista previa, rama `staging`) · `test-data` `190048174408` (demo original, respaldo) · Horizon `190048108872` · debut-vintage `190048141640` · Tinker `190048305480`. Cuando se conecte la GitHub Integration aparecerán dos temas nuevos enlazados a las ramas: publicar el de `production` y borrar entonces los subidos por CLI.

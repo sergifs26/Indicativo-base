@@ -16,6 +16,17 @@ IDS: dict[str, str] = json.loads((SHOP / "colecciones_ids.json").read_text(encod
 
 # (título, handle de colección | None, hijos)
 MENU = [
+    ("Montaña", "montana", [
+        ("Walkies PMR-446 de ocio", "walkies-pmr-446-uso-libre-ocio", []),
+        ("Walkies PMR-446 profesionales", "walkies-pmr-446-uso-libre-profesional", []),
+        ("GPS y orientación", "outdoor-gps-gnss", []),
+        ("Linternas", "outdoor-linternas", []),
+        ("Intercomunicadores", "outdoor-intercomunicadores", []),
+        ("Radio outdoor", "outdoor-radio-outdoor", []),
+        ("Teléfonos satélite", "telefonia-y-conectividad-telefonos-satelite", []),
+        ("Baterías externas", "alimentacion-baterias-externas", []),
+        ("Cargadores solares", "alimentacion-cargadores-solares", []),
+    ]),
     ("Walkies", "walkies", [
         ("PMR-446 uso libre ocio", "walkies-pmr-446-uso-libre-ocio", []),
         ("PMR-446 uso libre profesional", "walkies-pmr-446-uso-libre-profesional", []),
@@ -157,6 +168,7 @@ MENU = [
 PIE = [
     ("Buscar", "SEARCH", "/search"),
     ("Todos los productos", "CATALOG", "/collections/all"),
+    ("Contacto", "PAGE", "gid://shopify/Page/157018980680"),
     ("Office", "COLLECTION", "office"),
     ("Medición", "COLLECTION", "medicion"),
     ("Varios", "COLLECTION", "varios"),
@@ -181,6 +193,8 @@ def main() -> None:
     for titulo, tipo, ref in PIE:
         if tipo == "COLLECTION":
             pie.append({"title": titulo, "type": tipo, "resourceId": IDS[ref]})
+        elif tipo == "PAGE":
+            pie.append({"title": titulo, "type": tipo, "resourceId": ref})
         else:
             pie.append({"title": titulo, "type": tipo, "url": ref})
     (SHOP / "menu_principal.json").write_text(json.dumps(principal, ensure_ascii=False), encoding="utf-8")

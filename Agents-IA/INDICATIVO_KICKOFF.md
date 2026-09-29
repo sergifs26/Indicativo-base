@@ -44,6 +44,8 @@ de la carpeta del proyecto): confirmar.
 | Categorías | Colecciones automáticas por tag `cat:` y `marca:` | Colecciones manuales | Se llenan solas al importar y al cambiar productos |
 | Carga masiva | CLI `shopify store bulk execute` | MCP (bloqueado), CSV del admin | Automatizable, idempotente por handle y re-ejecutable |
 | Estilo | Tema `test-data` actual | Otros temas | Petición expresa del usuario |
+| Enfoque | Montañismo: portada, colección y primera sección del menú | Radiocomunicación genérica | Petición del usuario (29/09); el catálogo completo sigue disponible |
+| Fotos de portada | Unsplash (licencia libre para uso comercial) | Generación con IA | Higgsfield sin créditos; fotos reales de alpinismo con el estilo pedido |
 
 ## 5. Primeros pasos
 
