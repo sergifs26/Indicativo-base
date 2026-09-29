@@ -1,26 +1,77 @@
-{%- for block in section.blocks -%}
-  {%- case block.type -%}
-    {%- when 'announcement' -%}
-      <div class="announcement-bar color-{{ block.settings.color_scheme }} gradient" role="region" aria-label="{{ 'sections.header.announcement' | t }}" {{ block.shopify_attributes }}>
-        {%- if block.settings.text != blank -%}
-          {%- if block.settings.link != blank -%}
-            <a href="{{ block.settings.link }}" class="announcement-bar__link link link--text focus-inset animate-arrow">
+{%- comment -%}
+  Barra de anuncios ROTATIVA (Indicativo Base): con varios bloques se muestra uno cada vez y
+  rotan cada `segundos`. Todos ocupan la misma celda de un grid, así la barra no cambia de alto.
+  Pausa con el ratón encima o con el foco dentro. Sin JavaScript se ve solo el primero.
+{%- endcomment -%}
+<div class="announcement-rotator" role="region" aria-label="{{ 'sections.header.announcement' | t }}" data-segundos="{{ section.settings.segundos | default: 5 }}">
+  {%- for block in section.blocks -%}
+    {%- case block.type -%}
+      {%- when 'announcement' -%}
+        <div class="announcement-bar color-{{ block.settings.color_scheme }} gradient{% if forloop.first %} is-active{% endif %}"{% unless forloop.first %} aria-hidden="true"{% endunless %} {{ block.shopify_attributes }}>
+          {%- if block.settings.text != blank -%}
+            {%- if block.settings.link != blank -%}
+              <a href="{{ block.settings.link }}" class="announcement-bar__link link link--text focus-inset animate-arrow">
+            {%- endif -%}
+                <div class="page-width">
+                  <p class="announcement-bar__message {{ block.settings.text_alignment }} h5">
+                    <span>{{ block.settings.text | escape }}</span>
+                    {%- if block.settings.link != blank -%}
+                      {% render 'icon-arrow' %}
+                    {%- endif -%}
+                  </p>
+                </div>
+            {%- if block.settings.link != blank -%}
+              </a>
+            {%- endif -%}
           {%- endif -%}
-              <div class="page-width">
-                <p class="announcement-bar__message {{ block.settings.text_alignment }} h5">
-                  <span>{{ block.settings.text | escape }}</span>
-                  {%- if block.settings.link != blank -%}
-                    {% render 'icon-arrow' %}
-                  {%- endif -%}
-                </p>
-              </div>
-          {%- if block.settings.link != blank -%}
-            </a>
-          {%- endif -%}
-        {%- endif -%}
-      </div>
-  {%- endcase -%}
-{%- endfor -%}
+        </div>
+    {%- endcase -%}
+  {%- endfor -%}
+</div>
+
+<style>
+  .announcement-rotator { display: grid; }
+  .announcement-rotator > .announcement-bar {
+    grid-area: 1 / 1;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease, visibility 0s linear 0.6s;
+  }
+  .announcement-rotator > .announcement-bar.is-active {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.6s ease, visibility 0s;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .announcement-rotator > .announcement-bar,
+    .announcement-rotator > .announcement-bar.is-active { transition: none; }
+  }
+</style>
+
+{%- if section.blocks.size > 1 -%}
+  <script>
+    (function () {
+      document.querySelectorAll('.announcement-rotator:not([data-iniciado])').forEach(function (barra) {
+        barra.setAttribute('data-iniciado', '');
+        var anuncios = barra.querySelectorAll(':scope > .announcement-bar');
+        if (anuncios.length < 2) return;
+        var actual = 0;
+        var pausa = false;
+        var espera = Math.max(3, parseInt(barra.dataset.segundos, 10) || 5) * 1000;
+        ['mouseenter', 'focusin'].forEach(function (e) { barra.addEventListener(e, function () { pausa = true; }); });
+        ['mouseleave', 'focusout'].forEach(function (e) { barra.addEventListener(e, function () { pausa = false; }); });
+        setInterval(function () {
+          if (pausa || document.hidden) return;
+          anuncios[actual].classList.remove('is-active');
+          anuncios[actual].setAttribute('aria-hidden', 'true');
+          actual = (actual + 1) % anuncios.length;
+          anuncios[actual].classList.add('is-active');
+          anuncios[actual].removeAttribute('aria-hidden');
+        }, espera);
+      });
+    })();
+  </script>
+{%- endif -%}
 
 {% schema %}
 {
@@ -100,6 +151,19 @@
         "type": "announcement"
       }
     ]
-  }
+  },
+  "settings": [
+    {
+      "type": "range",
+      "id": "segundos",
+      "min": 3,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "label": "Segundos entre mensajes",
+      "default": 5,
+      "info": "Con más de un anuncio, se muestran de uno en uno y van rotando. Se pausa al pasar el ratón."
+    }
+  ]
 }
 {% endschema %}

@@ -15,20 +15,52 @@
       "type": "announcement-bar",
       "disabled": false,
       "blocks": {
-        "announcement-bar-0": {
+        "envios": {
           "type": "announcement",
           "settings": {
-            "text": "Tienda en pruebas · Los precios son provisionales",
+            "text": "Envíos a toda España e internacionales",
             "text_alignment": "center",
             "color_scheme": "accent-2",
             "link": ""
           }
+        },
+        "telefono": {
+          "type": "announcement",
+          "settings": {
+            "text": "Atención al cliente: +34 960 000 000",
+            "text_alignment": "center",
+            "color_scheme": "accent-2",
+            "link": ""
+          }
+        },
+        "asesoramiento": {
+          "type": "announcement",
+          "settings": {
+            "text": "Asesoramiento técnico para tus rutas de montaña",
+            "text_alignment": "center",
+            "color_scheme": "accent-2",
+            "link": "shopify://pages/contact"
+          }
+        },
+        "pmr": {
+          "type": "announcement",
+          "settings": {
+            "text": "Walkies PMR-446 de uso libre: sin licencia ni cuotas",
+            "text_alignment": "center",
+            "color_scheme": "accent-2",
+            "link": "shopify://collections/walkies-pmr-446-uso-libre-ocio"
+          }
         }
       },
       "block_order": [
-        "announcement-bar-0"
+        "envios",
+        "telefono",
+        "asesoramiento",
+        "pmr"
       ],
-      "settings": {}
+      "settings": {
+        "segundos": 5
+      }
     },
     "header": {
       "type": "header",
