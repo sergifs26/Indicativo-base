@@ -1,0 +1,20 @@
+/* ==========================================================================
+   Estilos globales — Indicativo Base
+   Se carga en layout/theme.liquid después de base.css.
+   ========================================================================== */
+
+/* Fotos de producto en tarjetas (colecciones, búsqueda, destacados, relacionados, categorías)
+   El catálogo mezcla fotos cuadradas, verticales y apaisadas (solo la mitad son cuadradas).
+   Todas van en el mismo marco cuadrado (image_ratio "square" en las plantillas), SIN recortar:
+   el producto se ve entero, centrado, con un pequeño margen y sobre blanco, que es el fondo de
+   las propias fotos. */
+.card__media,
+.card__media .media {
+  background-color: #fff;
+}
+
+.card__media .media img {
+  object-fit: contain;
+  padding: 6%;
+  box-sizing: border-box;
+}

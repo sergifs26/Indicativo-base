@@ -74,3 +74,11 @@
     border-radius: 3px;
   }
 }
+
+/* 3. Galería de la ficha -------------------------------------------------
+   Todas las fotos en marco cuadrado (snippets/product-thumbnail.liquid), el producto entero
+   (media_fit contain) y fondo blanco, que es el de las propias fotos. */
+.product-media-container.media-type-image,
+.product-media-container.media-type-image .media {
+  background-color: #fff;
+}
