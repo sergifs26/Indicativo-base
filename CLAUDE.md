@@ -31,6 +31,13 @@ Ramas: **`production`** = tema publicado · **`staging`** = vista previa.
 
 ## Gotchas conocidos
 
+- **Barra de anuncios rotativa** (código propio en `sections/announcement-bar.liquid`): con varios
+  bloques muestra uno cada vez (ajuste `segundos` de la sección). Al subirla, primero el `.liquid`
+  y después `sections/header-group.json`, que usa el ajuste nuevo.
+- El teléfono de la barra (`+34 960 000 000`) es **inventado y provisional**: cambiarlo por el real.
+- `git push` a veces no sube nada justo después de un `shopify theme push`, sin dar error visible:
+  **comprobar siempre con `git ls-remote origin production staging`** y repetir si hace falta.
+
 - Tema antiguo de Dawn: los esquemas de color se llaman `background-1`, `background-2`,
   `inverse`, `accent-1`, `accent-2` (no `scheme-1…`). Poner siempre el valor explícito.
 - Las imágenes `shopify://shop_images/…` no viajan en un export/import de tema.
