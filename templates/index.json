@@ -10,54 +10,51 @@
 {
   "sections": {
     "hero": {
-      "type": "rich-text",
+      "type": "image-banner",
       "blocks": {
-        "caption": {
-          "type": "caption",
-          "settings": {
-            "caption": "Radiocomunicación",
-            "text_style": "caption-with-letter-spacing",
-            "text_size": "medium"
-          }
-        },
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Walkies, emisoras y antenas para trabajar y para la radioafición",
+            "heading": "Comunicación que llega a la cumbre",
             "heading_size": "h0"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Más de 2.600 productos de Icom, Yaesu, Kenwood, Motorola, Midland, Diamond y más de 50 marcas.</p>"
+            "text": "Walkies, GPS, linternas y energía para la montaña. Donde no llega la cobertura, llega tu radio.",
+            "text_style": "subtitle"
           }
         },
-        "button": {
-          "type": "button",
+        "buttons": {
+          "type": "buttons",
           "settings": {
-            "button_label": "Ver walkies",
-            "button_link": "shopify://collections/walkies",
-            "button_style_secondary": false,
-            "button_label_2": "Ver emisoras",
-            "button_link_2": "shopify://collections/emisoras",
+            "button_label_1": "Equipo de montaña",
+            "button_link_1": "shopify://collections/montana",
+            "button_style_secondary_1": false,
+            "button_label_2": "Walkies para montaña",
+            "button_link_2": "shopify://collections/walkies-pmr-446-uso-libre-ocio",
             "button_style_secondary_2": true
           }
         }
       },
       "block_order": [
-        "caption",
         "heading",
         "text",
-        "button"
+        "buttons"
       ],
       "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
+        "image": "shopify://shop_images/photo-1643903096045-07741be1f245.jpg",
+        "image_overlay_opacity": 35,
+        "image_height": "large",
+        "desktop_content_position": "middle-left",
+        "show_text_box": false,
+        "desktop_content_alignment": "left",
         "color_scheme": "inverse",
-        "full_width": true,
-        "padding_top": 80,
-        "padding_bottom": 80
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
       }
     },
     "categorias": {
@@ -66,37 +63,37 @@
         "col_0": {
           "type": "featured_collection",
           "settings": {
-            "collection": "walkies"
+            "collection": "montana"
           }
         },
         "col_1": {
           "type": "featured_collection",
           "settings": {
-            "collection": "emisoras"
+            "collection": "walkies-pmr-446-uso-libre-ocio"
           }
         },
         "col_2": {
           "type": "featured_collection",
           "settings": {
-            "collection": "antenas"
+            "collection": "outdoor-gps-gnss"
           }
         },
         "col_3": {
           "type": "featured_collection",
           "settings": {
-            "collection": "accesorios-walkies"
+            "collection": "outdoor-linternas"
           }
         },
         "col_4": {
           "type": "featured_collection",
           "settings": {
-            "collection": "receptores-y-scanners"
+            "collection": "outdoor-intercomunicadores"
           }
         },
         "col_5": {
           "type": "featured_collection",
           "settings": {
-            "collection": "alimentacion"
+            "collection": "telefonia-y-conectividad-telefonos-satelite"
           }
         }
       },
@@ -109,27 +106,135 @@
         "col_5"
       ],
       "settings": {
-        "title": "Compra por categoría",
+        "title": "Prepárate para la montaña",
         "heading_size": "h1",
         "image_ratio": "square",
         "columns_desktop": 3,
         "color_scheme": "background-1",
-        "show_view_all": true,
+        "show_view_all": false,
         "columns_mobile": "2",
         "swipe_on_mobile": false,
         "padding_top": 48,
         "padding_bottom": 36
       }
     },
-    "walkies_pro": {
+    "walkies_montana": {
       "type": "featured-collection",
       "settings": {
-        "title": "Walkies PMR-446 profesionales",
+        "title": "Walkies para montaña",
         "heading_size": "h1",
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "collection": "walkies-pmr-446-uso-libre-profesional",
+        "collection": "walkies-pmr-446-uso-libre-ocio",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "background-1",
+        "image_ratio": "square",
+        "show_secondary_image": true,
+        "show_vendor": true,
+        "show_rating": false,
+        "enable_quick_add": true,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "sin_cobertura": {
+      "type": "image-with-text",
+      "blocks": {
+        "caption": {
+          "type": "caption",
+          "settings": {
+            "caption": "PMR-446 · Uso libre",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Donde no hay cobertura, hay radio",
+            "heading_size": "h1"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>En la montaña el móvil se queda sin señal. Un walkie PMR-446 te mantiene en contacto con tu grupo sin licencias ni cuotas, y un GPS te devuelve al camino.</p>",
+            "text_style": "body"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Ver walkies PMR-446",
+            "button_link": "shopify://collections/walkies-pmr-446-uso-libre-ocio"
+          }
+        }
+      },
+      "block_order": [
+        "caption",
+        "heading",
+        "text",
+        "button"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/photo-1563442162585-fa1426255ea9.jpg",
+        "height": "large",
+        "desktop_image_width": "large",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "color_scheme": "inverse",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "gps": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "GPS y orientación",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "outdoor-gps-gnss",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "background-1",
+        "image_ratio": "square",
+        "show_secondary_image": true,
+        "show_vendor": true,
+        "show_rating": false,
+        "enable_quick_add": true,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "linternas": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Linternas",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "outdoor-linternas",
         "products_to_show": 8,
         "columns_desktop": 4,
         "full_width": false,
@@ -154,8 +259,8 @@
         "c1": {
           "type": "column",
           "settings": {
-            "title": "Catálogo completo",
-            "text": "<p>Walkies, emisoras, antenas, accesorios, receptores y alimentación en una sola tienda.</p>",
+            "title": "Sin cobertura, sin problema",
+            "text": "<p>Los walkies PMR-446 son de uso libre: sin licencia, sin cuotas y sin depender de la red móvil.</p>",
             "link_label": "",
             "link": ""
           }
@@ -164,7 +269,7 @@
           "type": "column",
           "settings": {
             "title": "Marcas de referencia",
-            "text": "<p>Icom, Yaesu, Kenwood, Motorola, Hytera, Midland, Alinco, Diamond, Dynascan y muchas más.</p>",
+            "text": "<p>Midland, Motorola, Garmin, Dynascan, Icom, Yaesu y más de 50 marcas.</p>",
             "link_label": "",
             "link": ""
           }
@@ -172,8 +277,8 @@
         "c3": {
           "type": "column",
           "settings": {
-            "title": "Asesoramiento técnico",
-            "text": "<p>¿Dudas con frecuencias, compatibilidades o accesorios? Escríbenos y te ayudamos a elegir.</p>",
+            "title": "Te ayudamos a elegir",
+            "text": "<p>¿Alcance, autonomía, resistencia al agua? Cuéntanos tu ruta y te recomendamos el equipo.</p>",
             "link_label": "Contactar",
             "link": "shopify://pages/contact"
           }
@@ -197,71 +302,18 @@
         "color_scheme": "background-1",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "antenas_base": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "Antenas base",
-        "heading_size": "h1",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "antenas-base",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "color_scheme": "background-1",
-        "image_ratio": "square",
-        "show_secondary_image": true,
-        "show_vendor": true,
-        "show_rating": false,
-        "enable_quick_add": true,
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "microauriculares": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "Microauriculares para walkies",
-        "heading_size": "h1",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "accesorios-walkies-microauriculares",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "color_scheme": "background-1",
-        "image_ratio": "square",
-        "show_secondary_image": true,
-        "show_vendor": true,
-        "show_rating": false,
-        "enable_quick_add": true,
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 48,
+        "padding_bottom": 48
       }
     }
   },
   "order": [
     "hero",
     "categorias",
-    "walkies_pro",
-    "ventajas",
-    "antenas_base",
-    "microauriculares"
+    "walkies_montana",
+    "sin_cobertura",
+    "gps",
+    "linternas",
+    "ventajas"
   ]
 }
