@@ -31,6 +31,13 @@ Ramas: **`production`** = tema publicado · **`staging`** = vista previa.
 
 ## Gotchas conocidos
 
+- **Ficha de producto**: la descripción se pinta en desplegables con
+  `snippets/descripcion-desplegable.liquid` (parte por h2/h3/h4; títulos de más de 40 caracteres
+  quedan dentro; máximo 6 más el resto agrupado; «Datos del producto» al final). Estilos y scroll
+  propio de la columna de información en `assets/indicativo-producto.css`.
+- La tienda tiene contraseña y no se puede ver renderizada desde aquí: la lógica Liquid se prueba
+  en local con `liquidjs` y descripciones reales antes de publicar (ver `PROYECTO_INDICATIVO_BASE.md`).
+
 - **Barra de anuncios rotativa** (código propio en `sections/announcement-bar.liquid`): con varios
   bloques muestra uno cada vez (ajuste `segundos` de la sección). Al subirla, primero el `.liquid`
   y después `sections/header-group.json`, que usa el ajuste nuevo.
