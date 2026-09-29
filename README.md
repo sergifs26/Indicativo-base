@@ -14,6 +14,7 @@ espejoled.com, grifos.es y almacendelbaño.com.
 Agents-IA/     Base de conocimiento (docs en español, con fecha).
                EMPIEZA POR AQUÍ: FORMA_DE_TRABAJO.md e INDICATIVO_KICKOFF.md
 scripts/       Pipeline de catálogo (Python) y herramientas de Admin API (Node .mjs)
+imagen-corporativa/  Logo original y sus variantes (ver su README)
 data/          Salidas de los scripts (regenerables, fuera de git salvo lo editado a mano)
 .env.example   Configuración local opcional
 ```

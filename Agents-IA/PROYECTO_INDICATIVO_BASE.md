@@ -110,3 +110,8 @@ columnas desplazadas, tarifa Falcon corrupta. Pipeline de catálogo (Fase 0) y C
   la extensión de la URL de origen; las de Unsplash no la llevan → se suben sin nombre.
 - Error del tema: `image_overlay_opacity` del banner va en pasos de 10; con 35 Shopify rechazó la
   plantilla entera (la tienda siguió con la portada anterior).
+- Banner de portada solo con el titular (sin texto ni botones), a petición del usuario.
+- **Logo** entregado por el usuario (montaña + «INDICATIVO BASE», gris oscuro sobre crema). Como
+  la cabecera es negra, `procesar_logo.py` saca la transparencia por luminosidad, limpia las motas
+  del papel con una apertura morfológica, recorta y genera versión blanca, oscura, icono y favicon.
+  Subidos con el nuevo `subir_fichero.mjs` y puestos en el tema (logo blanco 220 px + favicon).

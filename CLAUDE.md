@@ -47,6 +47,8 @@ el final parecer correcto.
 | `exportar_shopify.py` | CSV de importación + `colecciones.csv` + `menu.json` en `data/shopify/` |
 | `shopify_bulk.py` | JSONL para operaciones masivas (`productos`, `colecciones`, `publicar`, `mapa`, `errores`) |
 | `menu_shopify.py` | Define el menú principal y el del pie (variables de `menuUpdate`) |
+| `procesar_logo.py` | Variantes del logo (blanco, oscuro, icono, favicon) desde `imagen-corporativa/logo-original.jpg` |
+| `subir_fichero.mjs` | Sube una imagen local a Ficheros de la tienda (idempotente por nombre) |
 | `aplicar_menu.mjs` | Aplica esos menús: compara en dry-run, y con `--apply` guarda copia y hace `menuUpdate` |
 | `admin.mjs` | Cliente Admin API por la CLI (lo importan los demás `.mjs`) |
 | `test_conexion.mjs` | `npm run test:shopify`: datos de la tienda y avisos de configuración |
@@ -59,6 +61,7 @@ Cadena de catálogo completa: `npm run catalogo`.
 - Canal Tienda online: `gid://shopify/Publication/302436352328`
 - Ubicaciones: `gid://shopify/Location/112428384584` (Shop location) · `…/112428450120` (My Custom Location, de la demo)
 - Menús: principal `gid://shopify/Menu/307524960584` · pie `gid://shopify/Menu/307524993352`
+- **Logo** (29/09/2026): `imagen-corporativa/` (ver su README). En el tema: logo blanco `logo-indicativo-base-blanco.png` a 220 px en la cabecera negra y favicon `favicon-indicativo-base.png`.
 - **Enfoque de la tienda: montañismo** (29/09/2026). Colección `montana` (`gid://shopify/Collection/672921092424`, OR de tags de walkies PMR-446, GPS, linternas, intercomunicadores, radio outdoor, prismáticos, teléfonos satélite, baterías externas, cargadores solares) y primera sección del menú.
 - Fotos de la portada (licencia Unsplash, uso comercial libre): `photo-1643903096045-07741be1f245.jpg` (Mike Markov) y `photo-1563442162585-fa1426255ea9.jpg` (Giacomo Berardi), en Ficheros de la tienda.
 - Colecciones: 237 automáticas por tag, ids en `data/shopify/colecciones_ids.json` (no versionado: regenerar con `shopify_bulk.py mapa` o consultando la API)
