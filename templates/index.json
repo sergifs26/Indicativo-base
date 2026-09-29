@@ -18,30 +18,10 @@
             "heading": "Comunicación que llega a la cumbre",
             "heading_size": "h0"
           }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "Walkies, GPS, linternas y energía para la montaña. Donde no llega la cobertura, llega tu radio.",
-            "text_style": "subtitle"
-          }
-        },
-        "buttons": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Equipo de montaña",
-            "button_link_1": "shopify://collections/montana",
-            "button_style_secondary_1": false,
-            "button_label_2": "Walkies para montaña",
-            "button_link_2": "shopify://collections/walkies-pmr-446-uso-libre-ocio",
-            "button_style_secondary_2": true
-          }
         }
       },
       "block_order": [
-        "heading",
-        "text",
-        "buttons"
+        "heading"
       ],
       "settings": {
         "image": "shopify://shop_images/photo-1643903096045-07741be1f245.jpg",
