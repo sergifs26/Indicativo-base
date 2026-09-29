@@ -28,7 +28,7 @@ de la carpeta del proyecto): confirmar.
 | Conector Shopify (claude.ai) | ⚠️ Conectado pero caduca; reautorizar en claude.ai → Conectores |
 | CLI de Shopify, temas | ✅ `shopify theme …` funciona con la sesión de la cuenta |
 | CLI de Shopify, Admin API | ❌ Falta `shopify store auth` (ver `scripts/README.md`) |
-| Repos GitHub | ❌ Pendiente crear `Indicativo-base` e `indicativo-base-theme` en `intertorrentshopify-design` |
+| Repo GitHub | ✅ `sergifs26/Indicativo-base` (main = operaciones; production/staging = tema) |
 | GitHub Integration del tema | ❌ Pendiente conectar las ramas desde el admin |
 | Dominio propio, tienda de pago | ❌ Cuando haya precios reales |
 | GTM / GA4 / GSC / GMC | ❌ Pendiente |
@@ -51,7 +51,7 @@ de la carpeta del proyecto): confirmar.
 2. ✅ Precios provisionales
 3. ✅ Tienda de pruebas limpia de demo; colecciones y menús creados
 4. ✅ Forma de trabajo replicada de Almacén del Baño (este repo + repo del tema)
-5. ⬜ Repos en GitHub + GitHub Integration del tema
+5. ✅ Repo en GitHub · ⬜ GitHub Integration del tema (conectar `production` y `staging` desde el admin)
 6. ⬜ `shopify store auth` y carga de los 2.618 productos por `bulk_cli.mjs`
 7. ⬜ Portada y textos del tema en español con el estilo actual
 8. ⬜ Ajustes: idioma por defecto español, zona horaria Madrid, nombre sin espacio final

@@ -18,7 +18,7 @@
   Shopify  indicativo-base.myshopify.com  (tienda de desarrollo = entorno de pruebas)
     237 colecciones automáticas por tag · menú de 3 niveles · 2.618 productos (pendiente de carga)
                                                   ▲
-  indicativo-base-theme/   production ↔ tema publicado · staging ↔ vista previa (GitHub Integration)
+  GitHub sergifs26/Indicativo-base: main = operaciones · production ↔ tema publicado · staging ↔ vista previa
 ```
 
 ## 2. Catálogo

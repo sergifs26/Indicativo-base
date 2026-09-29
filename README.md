@@ -4,8 +4,9 @@ Repo de **operaciones** de la tienda Shopify Indicativo Base: radiocomunicación
 emisoras, antenas, accesorios y receptores). Cuarta tienda del Grupo Intertorrent, tras
 espejoled.com, grifos.es y almacendelbaño.com.
 
-> ⚠️ Este repo **no contiene el tema**. El tema vive en `../indicativo-base-theme`, conectado a
-> Shopify con la GitHub Integration.
+> ⚠️ La rama `main` **no contiene el tema**. El tema vive en las ramas `production` y `staging`
+> de este mismo repo (en local, carpeta `../indicativo-base-theme`), conectadas a Shopify con la
+> GitHub Integration. Son historias independientes: no se mergean con `main`.
 
 ## Estructura
 

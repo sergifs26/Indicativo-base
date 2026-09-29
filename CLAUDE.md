@@ -5,9 +5,11 @@ Grupo Intertorrent. Tienda **`indicativo-base.myshopify.com`**: es una **tienda 
 (plan "Basic App Development") → sirve de tienda de pruebas; no cobra y no se puede convertir en
 la tienda real. Al lanzar se creará la definitiva con plan de pago y se re-desplegará todo por script.
 
-El tema vive en el repo hermano `../indicativo-base-theme` (ramas `production` = tema publicado,
-`staging` = espejo). La metodología completa está en `Agents-IA/FORMA_DE_TRABAJO.md`: **léela
-antes de tocar nada**.
+GitHub: **`sergifs26/Indicativo-base`**, un solo repo con dos historias independientes:
+rama `main` = este repo de operaciones · ramas `production` (tema publicado) y `staging`
+(vista previa) = el tema, que en local está en la carpeta hermana `../indicativo-base-theme`.
+**Nunca mergear `main` con `production`/`staging`**: no comparten historia ni ficheros.
+La metodología completa está en `Agents-IA/FORMA_DE_TRABAJO.md`: **léela antes de tocar nada**.
 
 ## ⚠️ Reglas que ya nos han costado algo (leer siempre)
 

@@ -30,11 +30,16 @@
 
 ## 3. Repositorios
 
-| Repo (carpeta) | Contenido |
+Un solo repo en GitHub, **`sergifs26/Indicativo-base`**, con dos historias independientes
+(a diferencia de Almacén, que usa dos repos; la separación es la misma, solo cambia el contenedor):
+
+| Rama (carpeta local) | Contenido |
 |---|---|
-| `Indicativo-base/` | Operaciones: `Agents-IA/`, `scripts/`, `data/`. **Sin tema.** Rama `main`. |
-| `indicativo-base-theme/` | El tema Shopify, con GitHub Integration. Ramas `production` y `staging`. |
+| `main` (`Indicativo-base/`) | Operaciones: `Agents-IA/`, `scripts/`, `data/`. **Sin tema.** |
+| `production` / `staging` (`indicativo-base-theme/`) | El tema Shopify, con GitHub Integration. |
 | Carpeta padre (`Pagina indicativobase/`) | Ficheros de proveedor (Excel, tarifas PDF). **Fuera de git.** |
+
+`main` y las ramas del tema **nunca se mergean entre sí**.
 
 ## 4. Scripts
 
