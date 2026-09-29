@@ -123,3 +123,9 @@ columnas desplazadas, tarifa Falcon corrupta. Pipeline de catálogo (Fase 0) y C
   Antes de publicar se simuló la partición sobre todo el catálogo (0 títulos-frase, máximo 7
   desplegables) y se renderizó el snippet con `liquidjs` sobre 5 productos reales, porque la
   tienda con contraseña no se puede abrir desde aquí.
+- **Fotos uniformes**: de 10.403 imágenes, 5.129 cuadradas, 1.814 verticales y 3.460 apaisadas; las
+  tarjetas las recortaban (marco vertical + cover). Ahora todas en marco cuadrado, enteras, con
+  margen y sobre blanco, en listados y en la galería de la ficha (solo tema, sin tocar las fotos).
+- **Tienda en español**: `locales/en.default.json` relleno con el español del tema adaptado a España
+  (la API no permite cambiar el idioma por defecto); plantillas y `lang="es"`. El checkout y los
+  correos siguen en inglés hasta que el usuario cambie el idioma por defecto en el admin.

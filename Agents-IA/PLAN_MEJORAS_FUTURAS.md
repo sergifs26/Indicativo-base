@@ -26,6 +26,11 @@
 
 ## Tema y contenido
 
+- **Idioma por defecto a español en el admin** (Ajustes → Idiomas): el tema ya sale en español,
+  pero el checkout y los correos de pedido siguen el idioma por defecto de la tienda (inglés).
+- 1.011 fotos tienen menos de 500 px de lado mayor y se verán algo blandas en grande: pedir
+  originales al proveedor si se quiere mejorar.
+
 - Poner el teléfono real en la barra de anuncios (hoy `+34 960 000 000`, inventado) y confirmar que se hacen envíos internacionales antes de lanzar.
 - Conectar la GitHub Integration y retirar los temas subidos por CLI.
 - Imágenes de marca (hero, tarjetas de categoría).
