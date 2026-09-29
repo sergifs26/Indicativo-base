@@ -115,3 +115,6 @@ columnas desplazadas, tarifa Falcon corrupta. Pipeline de catálogo (Fase 0) y C
   la cabecera es negra, `procesar_logo.py` saca la transparencia por luminosidad, limpia las motas
   del papel con una apertura morfológica, recorta y genera versión blanca, oscura, icono y favicon.
   Subidos con el nuevo `subir_fichero.mjs` y puestos en el tema (logo blanco 220 px + favicon).
+- Fuera el aviso «Tienda en pruebas». Barra de anuncios **rotativa** (el tema apilaba los
+  anuncios): envíos a España e internacionales, teléfono provisional inventado, asesoramiento y
+  PMR-446 de uso libre; rota cada 5 s y se pausa con el ratón.

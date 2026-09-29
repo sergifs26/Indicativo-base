@@ -26,7 +26,7 @@
 
 ## Tema y contenido
 
-- Quitar la barra «Tienda en pruebas · Los precios son provisionales» cuando los precios sean reales.
+- Poner el teléfono real en la barra de anuncios (hoy `+34 960 000 000`, inventado) y confirmar que se hacen envíos internacionales antes de lanzar.
 - Conectar la GitHub Integration y retirar los temas subidos por CLI.
 - Imágenes de marca (hero, tarjetas de categoría).
 

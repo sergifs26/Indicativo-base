@@ -61,6 +61,7 @@ Cadena de catálogo completa: `npm run catalogo`.
 - Canal Tienda online: `gid://shopify/Publication/302436352328`
 - Ubicaciones: `gid://shopify/Location/112428384584` (Shop location) · `…/112428450120` (My Custom Location, de la demo)
 - Menús: principal `gid://shopify/Menu/307524960584` · pie `gid://shopify/Menu/307524993352`
+- **Barra de anuncios rotativa** (29/09/2026): envíos a España e internacionales, teléfono, asesoramiento y PMR-446. El teléfono `+34 960 000 000` es **inventado**, pedido así por el usuario: sustituirlo por el real.
 - **Logo** (29/09/2026): `imagen-corporativa/` (ver su README). En el tema: logo blanco `logo-indicativo-base-blanco.png` a 220 px en la cabecera negra y favicon `favicon-indicativo-base.png`.
 - **Enfoque de la tienda: montañismo** (29/09/2026). Colección `montana` (`gid://shopify/Collection/672921092424`, OR de tags de walkies PMR-446, GPS, linternas, intercomunicadores, radio outdoor, prismáticos, teléfonos satélite, baterías externas, cargadores solares) y primera sección del menú.
 - Fotos de la portada (licencia Unsplash, uso comercial libre): `photo-1643903096045-07741be1f245.jpg` (Mike Markov) y `photo-1563442162585-fa1426255ea9.jpg` (Giacomo Berardi), en Ficheros de la tienda.
