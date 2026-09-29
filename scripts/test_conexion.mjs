@@ -11,27 +11,25 @@ const QUERY = `{
     primaryDomain { url }
     plan { publicDisplayName partnerDevelopment }
   }
-  shopLocales { locale primary published }
   productsCount { count }
   collectionsCount { count }
   publications(first: 10) { nodes { id catalog { title } } }
-  locations(first: 5) { nodes { id name } }
+  locations(first: 5) { nodes { id } }  # el nombre necesita read_locations
 }`;
 
 try {
   console.log(`\n🔌 Conectando a ${STORE}…\n`);
   const d = await adminGraphQL(QUERY);
   const s = d.shop;
-  const idioma = d.shopLocales.find((l) => l.primary)?.locale;
   console.log(`✅ ${s.name.trim()} (${s.myshopifyDomain})`);
   console.log(`   Web:          ${s.primaryDomain?.url}`);
   console.log(`   Plan:         ${s.plan.publicDisplayName}${s.plan.partnerDevelopment ? '  ⚠️ tienda de DESARROLLO (no cobra)' : ''}`);
   console.log(`   Moneda:       ${s.currencyCode} · IVA incluido: ${s.taxesIncluded ? 'sí' : 'NO'}`);
   console.log(`   Zona horaria: ${s.ianaTimezone}${s.ianaTimezone !== 'Europe/Madrid' ? '  ⚠️ debería ser Europe/Madrid' : ''}`);
-  console.log(`   Idioma:       ${idioma}${idioma !== 'es' ? '  ⚠️ debería ser es' : ''}`);
+  // El idioma por defecto (debe ser es) no se consulta: necesita el scope read_locales.
   console.log(`   Productos:    ${d.productsCount.count} · Colecciones: ${d.collectionsCount.count}`);
   for (const p of d.publications.nodes) console.log(`   Canal:        ${p.catalog?.title} → ${p.id}`);
-  for (const l of d.locations.nodes) console.log(`   Ubicación:    ${l.name} → ${l.id}`);
+  for (const l of d.locations.nodes) console.log(`   Ubicación:    ${l.id}`);
   console.log('');
 } catch (e) {
   console.error('❌ No se pudo conectar:\n' + e.message);

@@ -4,7 +4,7 @@
  * La CLI guarda su propio token por tienda, así que aquí no hay credenciales.
  * Una vez por máquina (abre el navegador para aprobar):
  *   shopify store auth --store indicativo-base.myshopify.com \
- *     --scopes read_products,write_products,read_publications,write_publications,read_online_store_navigation,write_online_store_navigation,read_content,write_content,read_themes,write_themes,read_files,write_files,read_inventory,write_inventory
+ *     --scopes read_products,write_products,read_publications,write_publications,read_online_store_navigation,write_online_store_navigation,read_content,write_content,read_themes,write_themes,read_files,write_files,read_inventory,write_inventory,read_locales
  *
  * Uso desde otro script:
  *   import { adminGraphQL, STORE } from './admin.mjs';

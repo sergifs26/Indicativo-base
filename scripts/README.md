@@ -14,7 +14,7 @@ Obligatorias para todo script de este repo (detalle en `Agents-IA/FORMA_DE_TRABA
 ## Acceso a la Admin API (una vez por máquina)
 
 ```bash
-shopify store auth --store indicativo-base.myshopify.com --scopes read_products,write_products,read_publications,write_publications,read_online_store_navigation,write_online_store_navigation,read_content,write_content,read_themes,write_themes,read_files,write_files,read_inventory,write_inventory
+shopify store auth --store indicativo-base.myshopify.com --scopes read_products,write_products,read_publications,write_publications,read_online_store_navigation,write_online_store_navigation,read_content,write_content,read_themes,write_themes,read_files,write_files,read_inventory,write_inventory,read_locales
 npm run test:shopify
 ```
 
