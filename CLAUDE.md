@@ -31,6 +31,18 @@ Ramas: **`production`** = tema publicado · **`staging`** = vista previa.
 
 ## Gotchas conocidos
 
+- **Idioma**: la tienda tiene el inglés como idioma por defecto (la API no deja cambiarlo), así que
+  `locales/en.default.json` contiene **los textos en español** (español de España: «Añadir al
+  carrito»…) con las mismas claves que el inglés. Cualquier cambio de texto va en `en.default.json`
+  **y** en `es.json`. `<html lang>` sale como `es` mientras el idioma servido sea el de por defecto.
+- **Fotos**: todas en marco cuadrado, enteras y sobre blanco — tarjetas por
+  `assets/indicativo-base.css` (global) + `image_ratio: square` en las plantillas; galería de la
+  ficha por `snippets/product-thumbnail.liquid` (ratio 1 para imágenes).
+- Las tiendas de desarrollo muestran una página de contraseña genérica de Shopify (en inglés) que
+  el tema no controla: `templates/password.json` solo se verá en la tienda definitiva.
+- **Antes de cada commit, `git checkout staging`**: si la sesión se quedó en `production`, el
+  commit acaba ahí y `staging` se desalinea (pasó el 29/09; se arregló con un fast-forward).
+
 - **Ficha de producto**: la descripción se pinta en desplegables con
   `snippets/descripcion-desplegable.liquid` (parte por h2/h3/h4; títulos de más de 40 caracteres
   quedan dentro; máximo 6 más el resto agrupado; «Datos del producto» al final). Estilos y scroll
