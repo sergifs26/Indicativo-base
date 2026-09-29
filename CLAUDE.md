@@ -59,7 +59,8 @@ Cadena de catálogo completa: `npm run catalogo`.
 - Ubicaciones: `gid://shopify/Location/112428384584` (Shop location) · `…/112428450120` (My Custom Location, de la demo)
 - Menús: principal `gid://shopify/Menu/307524960584` · pie `gid://shopify/Menu/307524993352`
 - Colecciones: 237 automáticas por tag, ids en `data/shopify/colecciones_ids.json` (no versionado: regenerar con `shopify_bulk.py mapa` o consultando la API)
-- Temas: `test-data` publicado `190048174408` (estilo que el usuario quiere conservar) · Horizon `190048108872` · debut-vintage `190048141640` · Tinker `190048305480`
+- Productos: 2.618 cargados y publicados (29/09/2026) por `bulk_cli.mjs`; 2.459 con `precio-provisional`; 251 sin foto (107 del Excel + 144 Icom nuevos). Las 10.403 imágenes, en estado READY.
+- Temas: **`Indicativo Base` publicado `190088544584`** (rama `production`, subido por CLI) · `Indicativo Base (staging)` `190088151368` (vista previa, rama `staging`) · `test-data` `190048174408` (demo original, respaldo) · Horizon `190048108872` · debut-vintage `190048141640` · Tinker `190048305480`. Cuando se conecte la GitHub Integration aparecerán dos temas nuevos enlazados a las ramas: publicar el de `production` y borrar entonces los subidos por CLI.
 - Precios siempre **PVP con IVA** (la tienda tiene `taxesIncluded: true`). Inventario sin seguimiento hasta tener stock.
 
 ## Commits

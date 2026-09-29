@@ -27,7 +27,7 @@ de la carpeta del proyecto): confirmar.
 | Tienda Shopify | ✅ `indicativo-base.myshopify.com`, tienda de desarrollo, EUR, España |
 | Conector Shopify (claude.ai) | ⚠️ Conectado pero caduca; reautorizar en claude.ai → Conectores |
 | CLI de Shopify, temas | ✅ `shopify theme …` funciona con la sesión de la cuenta |
-| CLI de Shopify, Admin API | ❌ Falta `shopify store auth` (ver `scripts/README.md`) |
+| CLI de Shopify, Admin API | ✅ `shopify store auth` hecho el 29/09 (sin `read_locales` ni `read_locations`) |
 | Repo GitHub | ✅ `sergifs26/Indicativo-base` (main = operaciones; production/staging = tema) |
 | GitHub Integration del tema | ❌ Pendiente conectar las ramas desde el admin |
 | Dominio propio, tienda de pago | ❌ Cuando haya precios reales |
@@ -52,8 +52,8 @@ de la carpeta del proyecto): confirmar.
 3. ✅ Tienda de pruebas limpia de demo; colecciones y menús creados
 4. ✅ Forma de trabajo replicada de Almacén del Baño (este repo + repo del tema)
 5. ✅ Repo en GitHub · ⬜ GitHub Integration del tema (conectar `production` y `staging` desde el admin)
-6. ⬜ `shopify store auth` y carga de los 2.618 productos por `bulk_cli.mjs`
-7. ⬜ Portada y textos del tema en español con el estilo actual
+6. ✅ `shopify store auth` y carga de los 2.618 productos por `bulk_cli.mjs` (29/09)
+7. ✅ Portada y textos del tema en español con el estilo actual, tema publicado (29/09)
 8. ⬜ Ajustes: idioma por defecto español, zona horaria Madrid, nombre sin espacio final
 9. ⬜ Precios reales (Falcon + Pihernz), stock, datos legales de empresa
 10. ⬜ Tienda de pago, dominio, analítica y lanzamiento

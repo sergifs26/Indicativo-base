@@ -23,6 +23,7 @@ import json
 import re
 import sys
 from pathlib import Path
+from urllib.parse import quote
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from exportar_shopify import cargar, slug  # noqa: E402
@@ -34,6 +35,12 @@ BULK.mkdir(parents=True, exist_ok=True)
 
 # Categorías que no se publican como colección propia (cajones internos del Excel).
 CATS_SIN_COLECCION = {"Descatalogados"}
+
+
+def url_segura(url: str) -> str:
+    """Codifica caracteres no ASCII ("–", "ñ"…) del nombre de archivo: Shopify rechaza la URL
+    («La URL del archivo no es válida») si van sin codificar. Lo ya codificado no se toca."""
+    return quote(url, safe=":/?&=%#+,;@!$'()*[]~")
 
 
 def producto_input(p: dict) -> dict:
@@ -66,7 +73,7 @@ def producto_input(p: dict) -> dict:
     }
     if p["imagenes"]:
         entrada["files"] = [
-            {"originalSource": url, "contentType": "IMAGE", "alt": p["titulo"][:500]}
+            {"originalSource": url_segura(url), "contentType": "IMAGE", "alt": p["titulo"][:500]}
             for url in p["imagenes"]
         ]
     # identifier por handle: si el producto ya existe se actualiza (re-ejecutable sin duplicar)

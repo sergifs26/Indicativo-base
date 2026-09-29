@@ -26,9 +26,8 @@
 
 ## Tema y contenido
 
-- Portada en español con el estilo de `test-data`: hero sin foto demo, destacados, categorías.
-- Pie de página: quitar el bloque «Resources» de la demo y el © de Shopify.
-- Barra de anuncio que avise de «tienda en pruebas» mientras haya precios provisionales.
+- Quitar la barra «Tienda en pruebas · Los precios son provisionales» cuando los precios sean reales.
+- Conectar la GitHub Integration y retirar los temas subidos por CLI.
 - Imágenes de marca (hero, tarjetas de categoría).
 
 ## Analítica y posicionamiento

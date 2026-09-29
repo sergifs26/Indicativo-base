@@ -16,7 +16,7 @@
                                                   │  (CLI de Shopify: bulk_cli.mjs · conector MCP)
                                                   ▼
   Shopify  indicativo-base.myshopify.com  (tienda de desarrollo = entorno de pruebas)
-    237 colecciones automáticas por tag · menú de 3 niveles · 2.618 productos (pendiente de carga)
+    237 colecciones automáticas por tag · menú de 3 niveles · 2.618 productos publicados
                                                   ▲
   GitHub sergifs26/Indicativo-base: main = operaciones · production ↔ tema publicado · staging ↔ vista previa
 ```
@@ -57,6 +57,8 @@
 | 5 | Colecciones creadas invisibles | Las colecciones creadas por API no se publican solas | `publishablePublish` por colección (`publicationUpdate` solo admite productos) |
 | 6 | El conector deja de responder a mitad | El token del conector caduca | Reautorizar en claude.ai → Conectores; los scripts por CLI no dependen de él |
 | 7 | El tema publicado no se puede editar por MCP | Política del conector | Tema no publicado o flujo git (GitHub Integration) |
+| 9 | 1 de 2.618 productos rechazado al cargar | Nombre de imagen con «–» (y otro con «ñ») sin codificar: «La URL del archivo no es válida» | `url_segura()` en `shopify_bulk.py` codifica los caracteres no ASCII |
+| 10 | La prueba de conexión fallaba tras autorizar la CLI | `shopLocales` pide `read_locales` y el nombre de las ubicaciones `read_locations` | La prueba solo pide campos con permiso |
 | 8 | Copiar docs de otro repo del grupo, bloqueado | Control de permisos sobre contenido de otro proyecto | Docs propios con la misma metodología; los playbooks genéricos se enlazan, no se copian |
 
 ## 6. Referencias
@@ -85,3 +87,15 @@ columnas desplazadas, tarifa Falcon corrupta. Pipeline de catálogo (Fase 0) y C
 - Forma de trabajo replicada de Almacén del Baño: carpeta reorganizada en `Indicativo-base/`
   (operaciones) e `indicativo-base-theme/` (tema), ficheros de proveedor fuera de git,
   `CLAUDE.md`, documentación en `Agents-IA/`, cliente Admin API por CLI y carga masiva por CLI.
+
+## Actualización 2026-09-29
+
+- Repo en GitHub `sergifs26/Indicativo-base`: `main` (operaciones) + `production`/`staging` (tema).
+- CLI autorizada (`shopify store auth`). Carga masiva de los 2.618 productos por
+  `bulk_cli.mjs` en 1 min 36 s: 2.617 a la primera; el restante tras codificar su URL de imagen.
+  Publicados los 2.618 en la Tienda online con una segunda operación masiva. Imágenes: 10.403
+  READY, 0 fallidas; 251 productos sin foto (ya venían así).
+- Tema: portada en español con el estilo de `test-data` (titular en negro, categorías, walkies
+  profesionales, ventajas, antenas base, microauriculares), pie sin demo, barra «tienda en
+  pruebas», menú mega. Probado en un tema de vista previa, pasado a `production` y publicado
+  como «Indicativo Base» (`190088544584`). `test-data` queda sin publicar como respaldo.
