@@ -118,3 +118,8 @@ columnas desplazadas, tarifa Falcon corrupta. Pipeline de catálogo (Fase 0) y C
 - Fuera el aviso «Tienda en pruebas». Barra de anuncios **rotativa** (el tema apilaba los
   anuncios): envíos a España e internacionales, teléfono provisional inventado, asesoramiento y
   PMR-446 de uso libre; rota cada 5 s y se pausa con el ratón.
+- **Ficha de producto**: descripción en desplegables (1.603 de 2.474 descripciones tienen
+  apartados con título; 486 ninguno) y columna de información con scroll propio bajo la cabecera.
+  Antes de publicar se simuló la partición sobre todo el catálogo (0 títulos-frase, máximo 7
+  desplegables) y se renderizó el snippet con `liquidjs` sobre 5 productos reales, porque la
+  tienda con contraseña no se puede abrir desde aquí.
