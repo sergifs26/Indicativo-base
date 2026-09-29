@@ -117,8 +117,8 @@
       "sale_badge_color_scheme": "accent-2",
       "sold_out_badge_color_scheme": "inverse",
       "accent_icons": "text",
-      "brand_headline": "© 2023 / Shopify, Inc.",
-      "brand_description": "<p>©2023/ Shopify, Inc.</p>",
+      "brand_headline": "Indicativo Base",
+      "brand_description": "<p>Radiocomunicación para profesionales y radioaficionados: walkies, emisoras, antenas y accesorios.</p>",
       "brand_image_width": 100,
       "social_facebook_link": "",
       "social_instagram_link": "",
@@ -136,7 +136,7 @@
       "cart_type": "drawer",
       "show_vendor": false,
       "show_cart_note": false,
-      "cart_drawer_collection": "hydrogen",
+      "cart_drawer_collection": "accesorios-walkies",
       "sections": {
         "main-password-header": {
           "type": "main-password-header",

@@ -13,7 +13,7 @@
       "type": "main-list-collections",
       "disabled": true,
       "settings": {
-        "title": "Collections",
+        "title": "Todas las colecciones",
         "sort": "alphabetical",
         "image_ratio": "square",
         "columns_desktop": 2,
@@ -23,31 +23,101 @@
     "07c5541b-f8e9-4e48-9d3c-06973d977a3a": {
       "type": "collection-list",
       "blocks": {
-        "template--18521947767080__07c5541b-f8e9-4e48-9d3c-06973d977a3a-1681309838ff78aa4b-0": {
+        "col_0": {
           "type": "featured_collection",
           "settings": {
-            "collection": "hydrogen"
+            "collection": "walkies"
           }
         },
-        "template--18521947767080__07c5541b-f8e9-4e48-9d3c-06973d977a3a-1681309838ff78aa4b-1": {
+        "col_1": {
           "type": "featured_collection",
           "settings": {
-            "collection": "automated-collection"
+            "collection": "emisoras"
+          }
+        },
+        "col_2": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "antenas"
+          }
+        },
+        "col_3": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "antenas-base"
+          }
+        },
+        "col_4": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "accesorios-walkies"
+          }
+        },
+        "col_5": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "accesorios-emisoras"
+          }
+        },
+        "col_6": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "accesorios-de-antenas"
+          }
+        },
+        "col_7": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "receptores-y-scanners"
+          }
+        },
+        "col_8": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "alimentacion"
+          }
+        },
+        "col_9": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "telefonia-y-conectividad"
+          }
+        },
+        "col_10": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "outdoor"
+          }
+        },
+        "col_11": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "outlet-oportunidades"
           }
         }
       },
       "block_order": [
-        "template--18521947767080__07c5541b-f8e9-4e48-9d3c-06973d977a3a-1681309838ff78aa4b-0",
-        "template--18521947767080__07c5541b-f8e9-4e48-9d3c-06973d977a3a-1681309838ff78aa4b-1"
+        "col_0",
+        "col_1",
+        "col_2",
+        "col_3",
+        "col_4",
+        "col_5",
+        "col_6",
+        "col_7",
+        "col_8",
+        "col_9",
+        "col_10",
+        "col_11"
       ],
       "settings": {
-        "title": "Collections",
+        "title": "Categorías",
         "heading_size": "h1",
         "image_ratio": "square",
-        "columns_desktop": 2,
+        "columns_desktop": 3,
         "color_scheme": "background-1",
         "show_view_all": false,
-        "columns_mobile": "1",
+        "columns_mobile": "2",
         "swipe_on_mobile": false,
         "padding_top": 36,
         "padding_bottom": 36

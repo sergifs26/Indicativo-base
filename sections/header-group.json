@@ -13,14 +13,14 @@
   "sections": {
     "announcement-bar": {
       "type": "announcement-bar",
-      "disabled": true,
+      "disabled": false,
       "blocks": {
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "Welcome to our store",
+            "text": "Tienda en pruebas · Los precios son provisionales",
             "text_alignment": "center",
-            "color_scheme": "background-1",
+            "color_scheme": "accent-2",
             "link": ""
           }
         }
@@ -38,7 +38,7 @@
       "settings": {
         "logo_position": "middle-center",
         "menu": "main-menu",
-        "menu_type_desktop": "dropdown",
+        "menu_type_desktop": "mega",
         "sticky_header_type": "always",
         "show_line_separator": true,
         "color_scheme": "inverse",
