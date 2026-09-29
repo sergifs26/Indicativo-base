@@ -1,0 +1,76 @@
+/* ==========================================================================
+   Ficha de producto — Indicativo Base
+   1. Descripción en desplegables (snippets/descripcion-desplegable.liquid)
+   2. Columna de información con scroll propio en escritorio
+   ========================================================================== */
+
+/* 1. Desplegables de la descripción ------------------------------------- */
+.descripcion-desplegable {
+  margin-top: 2.5rem;
+}
+
+.descripcion-desplegable .accordion__title {
+  font-size: 1.4rem;
+  letter-spacing: 0.08em;
+}
+
+/* Las descripciones vienen de otra web con estilos pegados (Georgia 12 pt, sangrías de 40 px…):
+   se neutralizan para que usen la tipografía y los márgenes del tema. */
+.descripcion-desplegable .accordion__content [style] {
+  font-family: inherit !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+  color: inherit !important;
+  background: none !important;
+}
+
+.descripcion-desplegable .accordion__content ul,
+.descripcion-desplegable .accordion__content ol {
+  margin: 0 0 1rem !important;
+  padding-left: 2rem !important;
+}
+
+.descripcion-desplegable .accordion__content table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto;
+  margin: 0 0 1rem;
+}
+
+.descripcion-desplegable .accordion__content td,
+.descripcion-desplegable .accordion__content th {
+  border: none;
+  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
+  padding: 0.6rem 0.8rem 0.6rem 0;
+  text-align: left;
+  vertical-align: top;
+}
+
+.descripcion-desplegable__datos th {
+  width: 40%;
+  font-weight: 600;
+}
+
+/* 2. Scroll independiente de la columna de información -----------------
+   El tema la deja fija («sticky») mientras bajan las fotos; si era más alta que la pantalla,
+   lo de abajo no se veía hasta acabar las fotos. Ahora se queda bajo la cabecera y tiene su
+   propio scroll. Al llegar a su final, la rueda sigue bajando la página con normalidad. */
+@media screen and (min-width: 750px) {
+  .product__info-container.product__column-sticky {
+    top: calc(var(--header-height, 0px) + 2rem);
+    max-height: calc(100vh - var(--header-height, 0px) - 4rem);
+    overflow-y: auto;
+    padding-right: 1.2rem;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(var(--color-foreground), 0.25) transparent;
+  }
+
+  .product__info-container.product__column-sticky::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .product__info-container.product__column-sticky::-webkit-scrollbar-thumb {
+    background: rgba(var(--color-foreground), 0.25);
+    border-radius: 3px;
+  }
+}

@@ -1,0 +1,86 @@
+{%- comment -%}
+  Descripción del producto en desplegables (Indicativo Base).
+
+  Parte product.description por sus títulos (h2, h3 o h4) y pinta cada apartado como un
+  desplegable cerrado con el acordeón del tema (snippets/descripcion-desplegable-item.liquid):
+  - Lo anterior al primer título es «DESCRIPCIÓN»; cada título abre su propio desplegable
+    («CARACTERÍSTICAS», «ESPECIFICACIONES», «CONTENIDO»…), en mayúsculas para que todos se vean
+    iguales vengan como vengan del catálogo.
+  - Un título de más de MAX_TITULO caracteres es una frase, no un apartado: se queda como
+    subtítulo dentro del desplegable en curso.
+  - Como mucho MAX_DESPLEGABLES desplegables; a partir de ahí, el resto va dentro del último.
+  - Al final, «DATOS DEL PRODUCTO»: marca, referencia, EAN y peso de la variante.
+
+  Uso: {% render 'descripcion-desplegable', product: product, section_id: section.id %}
+{%- endcomment -%}
+{%- liquid
+  assign MAX_TITULO = 40
+  assign MAX_DESPLEGABLES = 6
+  assign html = product.description | replace: '<H2', '<h2' | replace: '</H2>', '</h2>' | replace: '<h3', '<h2' | replace: '</h3>', '</h2>' | replace: '<H3', '<h2' | replace: '</H3>', '</h2>' | replace: '<h4', '<h2' | replace: '</h4>', '</h2>'
+  assign trozos = html | split: '<h2'
+  assign variante = product.selected_or_first_available_variant
+  assign salida = ''
+  assign abiertos = 0
+  assign actual_titulo = 'DESCRIPCIÓN'
+  assign actual_cuerpo = ''
+
+  for trozo in trozos
+    if forloop.first
+      assign actual_cuerpo = trozo
+      continue
+    endif
+
+    if trozo contains '</h2>'
+      assign partes = trozo | split: '</h2>'
+      assign titulo = '<h2' | append: partes.first | append: '</h2>' | strip_html | replace: '&nbsp;', ' ' | remove: ':' | strip
+      assign cuerpo = trozo | remove_first: partes.first | remove_first: '</h2>'
+    else
+      assign apertura = trozo | split: '>' | first
+      assign titulo = ''
+      assign cuerpo = trozo | remove_first: apertura | remove_first: '>'
+    endif
+
+    if titulo == blank or titulo.size > MAX_TITULO or abiertos >= MAX_DESPLEGABLES
+      if titulo != blank
+        assign actual_cuerpo = actual_cuerpo | append: '<h3>' | append: titulo | append: '</h3>'
+      endif
+      assign actual_cuerpo = actual_cuerpo | append: cuerpo
+    else
+      assign texto_actual = actual_cuerpo | strip_html | replace: '&nbsp;', '' | strip
+      if texto_actual != blank or actual_cuerpo contains '<table' or actual_cuerpo contains '<img'
+        assign id = 'Desc-' | append: section_id | append: '-' | append: forloop.index
+        capture item
+          render 'descripcion-desplegable-item', titulo: actual_titulo, cuerpo: actual_cuerpo, id: id
+        endcapture
+        assign salida = salida | append: item
+        assign abiertos = abiertos | plus: 1
+      endif
+      assign actual_titulo = titulo | upcase | replace: 'CARACTERISTICAS', 'CARACTERÍSTICAS' | replace: 'TECNICAS', 'TÉCNICAS'
+      assign actual_cuerpo = cuerpo
+    endif
+  endfor
+
+  assign id = 'Desc-' | append: section_id | append: '-ultimo'
+  capture item
+    render 'descripcion-desplegable-item', titulo: actual_titulo, cuerpo: actual_cuerpo, id: id
+  endcapture
+  assign salida = salida | append: item
+-%}
+<div class="descripcion-desplegable quick-add-hidden">
+  {{ salida }}
+
+  {%- if product.vendor != blank or variante.sku != blank or variante.barcode != blank or variante.weight > 0 -%}
+    {%- capture datos -%}
+      <table class="descripcion-desplegable__datos">
+        <tbody>
+          {%- if product.vendor != blank -%}<tr><th>Marca</th><td>{{ product.vendor }}</td></tr>{%- endif -%}
+          {%- if variante.sku != blank -%}<tr><th>Referencia</th><td>{{ variante.sku }}</td></tr>{%- endif -%}
+          {%- if variante.barcode != blank -%}<tr><th>Código EAN</th><td>{{ variante.barcode }}</td></tr>{%- endif -%}
+          {%- if variante.weight > 0 -%}<tr><th>Peso</th><td>{{ variante.weight | weight_with_unit }}</td></tr>{%- endif -%}
+        </tbody>
+      </table>
+    {%- endcapture -%}
+    {%- assign id = 'Desc-' | append: section_id | append: '-datos' -%}
+    {% render 'descripcion-desplegable-item', titulo: 'DATOS DEL PRODUCTO', cuerpo: datos, id: id %}
+  {%- endif -%}
+</div>

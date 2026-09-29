@@ -5,6 +5,7 @@
 >
   {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
   {{ 'component-accordion.css' | asset_url | stylesheet_tag }}
+  {{ 'indicativo-producto.css' | asset_url | stylesheet_tag }}
   {{ 'component-price.css' | asset_url | stylesheet_tag }}
   {{ 'component-slider.css' | asset_url | stylesheet_tag }}
   {{ 'component-rating.css' | asset_url | stylesheet_tag }}
@@ -163,9 +164,10 @@
                 {%- endif -%}
               </p>
             {%- when 'description' -%}
+              {%- comment -%} Indicativo Base: descripción partida en desplegables {%- endcomment -%}
               {%- if product.description != blank -%}
-                <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
-                  {{ product.description }}
+                <div class="product__description quick-add-hidden" {{ block.shopify_attributes }}>
+                  {% render 'descripcion-desplegable', product: product, section_id: section.id %}
                 </div>
               {%- endif -%}
             {%- when 'sku' -%}
