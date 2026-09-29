@@ -5,6 +5,9 @@ Base: "Generated Data Theme" 1.0.0 de Shopify, de la familia **Dawn** (secciones
 image-banner, rich-text, multicolumn, featured-collection, collection-list, image-with-text…).
 Ramas: **`production`** = tema publicado · **`staging`** = vista previa.
 
+> GitHub: `sergifs26/Indicativo-base`, ramas `production` y `staging`. La rama `main` de ese
+> mismo repo es el repo de operaciones: historia independiente, **nunca se mergea con estas**.
+
 **El usuario quiere conservar el estilo de este tema** (cabecera y pie en negro, fondo claro
 `#fafaf9`, acento `#45c0b6`, Helvetica, botones con radio 2) y sustituir todo el contenido demo
 («Generated test data», snowboard, cera de esquí, enlaces a shopify.dev, © Shopify).

@@ -3,6 +3,9 @@
 Tema Shopify de **Indicativo Base** (tienda de radiocomunicación), versionado con la
 **GitHub Integration** de Shopify. Base: "Generated Data Theme" 1.0.0 de Shopify (familia Dawn).
 
+> GitHub: `sergifs26/Indicativo-base`, ramas `production` y `staging`. La rama `main` de ese
+> mismo repo es el repo de operaciones: historia independiente, **nunca se mergea con estas**.
+
 > Metodología completa: `Agents-IA/FORMA_DE_TRABAJO.md` §6 en el repo de operaciones
 > (`../Indicativo-base`).
 
