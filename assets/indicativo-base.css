@@ -89,6 +89,10 @@ html:not(.ib-cabecera-solida) .ib-portada .section-header:not(:has(details[open]
   text-shadow: 0 2px 18px rgba(0, 0, 0, 0.35);
 }
 
+[id$="__hero"] .banner__text {
+  font-size: 1.7rem;
+}
+
 [id$="__hero"] .banner__buttons .button {
   background-color: rgba(18, 18, 18, 0.55);
   color: #fff;
