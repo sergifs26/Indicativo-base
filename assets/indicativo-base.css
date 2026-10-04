@@ -30,3 +30,63 @@
   object-fit: cover;
   padding: 0;
 }
+
+/* Carrusel de portada: controles ENCIMA de la foto (cápsula translúcida abajo, en blanco) en vez
+   de la franja blanca que el tema pone debajo; zoom lento en las fotos. */
+slideshow-component {
+  position: relative;
+}
+
+slideshow-component .slideshow__controls {
+  --color-foreground: 255, 255, 255;
+  position: absolute;
+  left: 50%;
+  bottom: 2rem;
+  transform: translateX(-50%);
+  z-index: 3;
+  border: 0;
+  border-radius: 4rem;
+  padding: 0 0.8rem;
+  background: rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+slideshow-component .slideshow__controls .slider-button {
+  color: rgb(255, 255, 255);
+  border: 0;
+}
+
+slideshow-component .slideshow__autoplay.slider-button {
+  border-left: 0;
+}
+
+slideshow-component .slider-counter__link--dots .dot {
+  border-color: rgba(255, 255, 255, 0.85);
+}
+
+slideshow-component .slider-counter__link--active.slider-counter__link--dots .dot {
+  background-color: #fff;
+}
+
+@media screen and (max-width: 749px) {
+  slideshow-component .slideshow__controls {
+    bottom: 1.2rem;
+  }
+}
+
+/* Encuadre por foto: la del alpinista se recortaba por la cabeza */
+.slideshow__media img[src*="photo-1643903096045"] {
+  object-position: 50% 15%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .slideshow__media img {
+    animation: ib-zoom-lento 14s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes ib-zoom-lento {
+  from { transform: scale(1); }
+  to { transform: scale(1.07); }
+}
