@@ -129,3 +129,33 @@ columnas desplazadas, tarifa Falcon corrupta. Pipeline de catálogo (Fase 0) y C
 - **Tienda en español**: `locales/en.default.json` relleno con el español del tema adaptado a España
   (la API no permite cambiar el idioma por defecto); plantillas y `lang="es"`. El checkout y los
   correos siguen en inglés hasta que el usuario cambie el idioma por defecto en el admin.
+
+## Actualización 2026-10-04
+
+**Giro outdoor** (plan aprobado por el usuario): la tienda hablaba sobre todo a profesionales. Pasa
+a un tono cercano para quien empieza y quien ya tiene experiencia, y a 5 entornos: Montaña,
+Náutica, Nieve, Camping y familia, Caza y pesca. Portada con carrusel por entornos; guías y
+glosario ahora, recomendador más adelante.
+
+- **Normativa verificada** antes de etiquetar licencias: CB-27 de uso común sin licencia
+  (BOE-A-1996-5272, cb27.com/legal/reglamentocb, Ley 9/2014); PMR-446 0,5 W sin licencia
+  (onedirect.es); VHF marina: licencia de estación de barco en zonas 1-3 y certificado de operador
+  restringido SMSSM (transportes.gob.es, BOE-A-2006-18968); VHF/UHF profesional con autorización
+  (tecnitran.es). Resumen usable en `GUIA_DE_TONO.md`.
+- **Fase 1 (datos)**: `scripts/entornos.py` clasifica por categoría + señales del texto (grado IP,
+  «sumergible», marina, caza) + `data/entornos_excepciones.csv`. Resultado del dry-run: 506
+  productos etiquetados (montaña 161, náutica 66, nieve 55, camping 91, caza y pesca 86; para
+  empezar 38, para expertos 167; licencia no 156, sí 101, marina 18). El título manda sobre la
+  categoría del proveedor: 3 equipos UHF profesionales metidos en categorías PMR salen como
+  licencia:si. Caza y pesca solo coge walkies **VHF** profesionales (los UHF/DMR compactos son de
+  empresa) y PMR IPx5 o más. **Pendiente de revisión del usuario antes de aplicar.**
+- `scripts/colecciones_entorno.mjs` (7 colecciones: `montana` conserva handle y pasa a la
+  etiqueta; `nautica`, `nieve`, `camping-y-familia`, `caza-y-pesca`, `para-empezar`,
+  `para-expertos`). `shopify_bulk.py` reinyecta las etiquetas en futuras recargas.
+- 11 fotos de Unsplash (licencia libre comprobada en cada página) subidas a Ficheros como
+  `entorno-*.jpg`; créditos en `imagen-corporativa/fotos/CREDITOS.md`.
+- Textos en `contenido/`: 6 guías (750-880 palabras, con preguntas frecuentes), glosario de 34
+  términos, textos de portada y microtextos de ficha. Guía de tono en `Agents-IA/GUIA_DE_TONO.md`.
+- Errores: `CollectionRuleSet` expone `appliedDisjunctively` (no `appliedDisjunctive`); en Git Bash
+  de esta máquina un heredoc de Python convirtió `\b` en un retroceso (0x08) dentro de una regex:
+  los scripts con barras invertidas se escriben con la herramienta de ficheros, no con heredoc.

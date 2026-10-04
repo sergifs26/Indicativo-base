@@ -36,6 +36,12 @@ BULK.mkdir(parents=True, exist_ok=True)
 # Categorías que no se publican como colección propia (cajones internos del Excel).
 CATS_SIN_COLECCION = {"Descatalogados"}
 
+# Etiquetas entorno:/nivel:/licencia: de scripts/entornos.py. productSet REEMPLAZA los tags: una
+# recarga sin ellas las borraría de la tienda y vaciaría las colecciones de entorno.
+_ENTORNOS = ROOT / "data" / "entornos_tags.json"
+TAGS_ENTORNO: dict[str, list[str]] = (
+    json.loads(_ENTORNOS.read_text(encoding="utf-8")) if _ENTORNOS.exists() else {})
+
 
 def url_segura(url: str) -> str:
     """Codifica caracteres no ASCII ("–", "ñ"…) del nombre de archivo: Shopify rechaza la URL
@@ -65,7 +71,7 @@ def producto_input(p: dict) -> dict:
         "descriptionHtml": p["descripcion_html"],
         "vendor": p["vendor"] or "Indicativo Base",
         "productType": p["tipo"],
-        "tags": p["tags"],
+        "tags": p["tags"] + TAGS_ENTORNO.get(p["handle"], []),
         "status": "ACTIVE" if precio else "DRAFT",
         "seo": {"title": p["titulo"][:70], "description": (p["descripcion_corta"] or p["titulo"])[:320]},
         "productOptions": [{"name": "Title", "values": [{"name": "Default Title"}]}],

@@ -24,6 +24,10 @@ La metodología completa está en `Agents-IA/FORMA_DE_TRABAJO.md`: **léela ante
 4. **Nunca `git reset --hard` ni force-push** sin mirar qué hay en remoto.
 5. Los ficheros de proveedor (Excel de Pihernz, tarifas PDF) **no entran en git**: viven en la
    carpeta padre `../`.
+6. **Etiquetas `entorno:`/`nivel:`/`licencia:`** (`scripts/entornos.py`): `productSet` REEMPLAZA los
+   tags, así que `shopify_bulk.py productos` las vuelve a meter desde `data/entornos_tags.json`.
+   Nunca recargar productos sin ese fichero: se vaciarían las colecciones de entorno. Correcciones
+   por producto en `data/entornos_excepciones.csv` (en git), no a mano en la tienda.
 
 ## Cómo llegar a la Admin API
 
@@ -53,6 +57,8 @@ el final parecer correcto.
 | `admin.mjs` | Cliente Admin API por la CLI (lo importan los demás `.mjs`) |
 | `test_conexion.mjs` | `npm run test:shopify`: datos de la tienda y avisos de configuración |
 | `bulk_cli.mjs` | Lanza una bulk mutation (`scripts/graphql/*.graphql` + JSONL) |
+| `entornos.py` | Etiquetas `entorno:<montana\|nautica\|nieve\|camping\|caza-pesca>`, `nivel:<empezar\|experto>`, `licencia:<no\|si\|marina>` → informe `data/entornos_informe.md`; `--jsonl` genera `tags_add`/`tags_remove` para `bulk_cli.mjs`; `--aplicado` guarda la foto de lo aplicado |
+| `colecciones_entorno.mjs` | Colecciones automáticas por esas etiquetas (crea o actualiza por handle, publica, imagen desde `data/shopify/imagenes_entorno.json`). Se niega a aplicar si la etiqueta no tiene productos |
 
 Cadena de catálogo completa: `npm run catalogo`.
 
@@ -63,7 +69,11 @@ Cadena de catálogo completa: `npm run catalogo`.
 - Menús: principal `gid://shopify/Menu/307524960584` · pie `gid://shopify/Menu/307524993352`
 - **Barra de anuncios rotativa** (29/09/2026): envíos a España e internacionales, teléfono, asesoramiento y PMR-446. El teléfono `+34 960 000 000` es **inventado**, pedido así por el usuario: sustituirlo por el real.
 - **Logo** (29/09/2026): `imagen-corporativa/` (ver su README). En el tema: logo blanco `logo-indicativo-base-blanco.png` a 220 px en la cabecera negra y favicon `favicon-indicativo-base.png`.
-- **Enfoque de la tienda: montañismo** (29/09/2026). Colección `montana` (`gid://shopify/Collection/672921092424`, OR de tags de walkies PMR-446, GPS, linternas, intercomunicadores, radio outdoor, prismáticos, teléfonos satélite, baterías externas, cargadores solares) y primera sección del menú.
+- **Giro outdoor** (04/10/2026, plan aprobado por el usuario): tono cercano para quien empieza y
+  quien ya tiene experiencia, 5 entornos (Montaña, Náutica, Nieve, Camping y familia, Caza y
+  pesca), carrusel por entornos en portada, guías y glosario (blog `aprende`). Textos en
+  `contenido/`, fotos en `imagen-corporativa/fotos/CREDITOS.md`, tono en `Agents-IA/GUIA_DE_TONO.md`.
+- **Enfoque de la tienda: montañismo** (29/09/2026, sustituido por el giro outdoor). Colección `montana` (`gid://shopify/Collection/672921092424`, OR de tags de walkies PMR-446, GPS, linternas, intercomunicadores, radio outdoor, prismáticos, teléfonos satélite, baterías externas, cargadores solares) y primera sección del menú.
 - Fotos de la portada (licencia Unsplash, uso comercial libre): `photo-1643903096045-07741be1f245.jpg` (Mike Markov) y `photo-1563442162585-fa1426255ea9.jpg` (Giacomo Berardi), en Ficheros de la tienda.
 - Colecciones: 237 automáticas por tag, ids en `data/shopify/colecciones_ids.json` (no versionado: regenerar con `shopify_bulk.py mapa` o consultando la API)
 - Productos: 2.618 cargados y publicados (29/09/2026) por `bulk_cli.mjs`; 2.459 con `precio-provisional`; 251 sin foto (107 del Excel + 144 Icom nuevos). Las 10.403 imágenes, en estado READY.

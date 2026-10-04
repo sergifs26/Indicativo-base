@@ -20,6 +20,7 @@ fuentes/
 # Solo se versionan los ficheros editados A MANO (fuente de verdad), listados abajo con "!".
 data/*
 !data/precios_icom_revisado.csv
+!data/entornos_excepciones.csv
 .cache/
 scripts/out/
 tmp/
@@ -37,3 +38,6 @@ desktop.ini
 .vscode/
 .idea/
 .claude/settings.local.json
+
+# Fotos de ambiente: se regeneran desde Unsplash (ver imagen-corporativa/fotos/CREDITOS.md)
+imagen-corporativa/fotos/*.jpg
