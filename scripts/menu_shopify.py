@@ -15,18 +15,9 @@ SHOP = ROOT / "data" / "shopify"
 IDS: dict[str, str] = json.loads((SHOP / "colecciones_ids.json").read_text(encoding="utf-8"))
 
 # (título, handle de colección | None, hijos)
-MENU = [
-    ("Montaña", "montana", [
-        ("Walkies PMR-446 de ocio", "walkies-pmr-446-uso-libre-ocio", []),
-        ("Walkies PMR-446 profesionales", "walkies-pmr-446-uso-libre-profesional", []),
-        ("GPS y orientación", "outdoor-gps-gnss", []),
-        ("Linternas", "outdoor-linternas", []),
-        ("Intercomunicadores", "outdoor-intercomunicadores", []),
-        ("Radio outdoor", "outdoor-radio-outdoor", []),
-        ("Teléfonos satélite", "telefonia-y-conectividad-telefonos-satelite", []),
-        ("Baterías externas", "alimentacion-baterias-externas", []),
-        ("Cargadores solares", "alimentacion-cargadores-solares", []),
-    ]),
+# Secciones por tipo de producto. Hasta el 04/10/2026 eran el primer nivel del menú; ahora van
+# dentro de «Productos» (ver MENU al final de la lista).
+SECCIONES = [
     ("Walkies", "walkies", [
         ("PMR-446 uso libre ocio", "walkies-pmr-446-uso-libre-ocio", []),
         ("PMR-446 uso libre profesional", "walkies-pmr-446-uso-libre-profesional", []),
@@ -163,6 +154,46 @@ MENU = [
             ("Garmin", "garmin"), ("Sangean", "sangean"), ("Uniden", "uniden"), ("AOR", "aor"),
         ]
     ]),
+]
+
+_S = {t: (h, hijos) for t, h, hijos in SECCIONES}
+
+
+def _sin_nietos(titulo: str) -> tuple:
+    """Shopify admite 3 niveles: dentro de «Productos» cada sección conserva solo sus hijos."""
+    h, hijos = _S[titulo]
+    return (titulo, h, [(t, hh, []) for t, hh, _ in hijos])
+
+
+ENTORNOS = [("Montaña", "montana"), ("Náutica", "nautica"), ("Nieve", "nieve"),
+            ("Camping y familia", "camping-y-familia"), ("Caza y pesca", "caza-y-pesca")]
+
+# Menú del giro outdoor (04/10/2026): el entorno manda; dos caminos, empezar y expertos.
+# «Guías» y «Glosario» se añaden a «Empieza aquí» cuando estén publicados.
+MENU = [
+    ("¿A dónde vas?", None, [(t, h, []) for t, h in ENTORNOS]),
+    ("Empieza aquí", "para-empezar", [
+        ("Lo más fácil para empezar", "para-empezar", []),
+        ("Walkies sin licencia de ocio", "walkies-pmr-446-uso-libre-ocio", []),
+        ("Walkies sin licencia profesionales", "walkies-pmr-446-uso-libre-profesional", []),
+    ]),
+    ("Productos", None, [
+        _sin_nietos("Walkies"), _sin_nietos("Emisoras"), _sin_nietos("Antenas"),
+        *_S["Accesorios"][1],  # accesorios de walkies, emisoras y antenas, cada uno con sus hijos
+        _sin_nietos("Receptores"), _sin_nietos("Alimentación"), _sin_nietos("Telefonía"),
+        _sin_nietos("Outdoor"),
+    ]),
+    ("Para expertos", "para-expertos", [
+        ("Todo para expertos", "para-expertos", []),
+        ("Transceptores HF", "emisoras-transceptores-hf", []),
+        ("Emisoras doble banda", "emisoras-doble-banda-radioaficionado", []),
+        ("Walkies doble banda", "walkies-doble-banda-radioaficionado", []),
+        ("Walkies DMR", "walkies-dmr", []),
+        ("Antenas HF y dipolos", "antenas-antenas-hf-dipolos", []),
+        ("Medidores ROE y potencia", "accesorios-emisoras-medidores-roe-y-potencia", []),
+    ]),
+    ("Ofertas", *_S["Ofertas"]),
+    ("Marcas", *_S["Marcas"]),
 ]
 
 PIE = [

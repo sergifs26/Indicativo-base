@@ -148,7 +148,20 @@ glosario ahora, recomendador más adelante.
   empezar 38, para expertos 167; licencia no 156, sí 101, marina 18). El título manda sobre la
   categoría del proveedor: 3 equipos UHF profesionales metidos en categorías PMR salen como
   licencia:si. Caza y pesca solo coge walkies **VHF** profesionales (los UHF/DMR compactos son de
-  empresa) y PMR IPx5 o más. **Pendiente de revisión del usuario antes de aplicar.**
+  empresa) y PMR IPx5 o más. Revisado y aprobado por el usuario; aplicado con `tagsAdd` masivo
+  (506 correctas, 0 errores, 26 s).
+- Colecciones creadas y publicadas, con su foto: `nautica` 673210106184, `nieve` 673210138952,
+  `camping-y-familia` 673210171720, `caza-y-pesca` 673210204488, `para-empezar` 673210237256,
+  `para-expertos` 673210270024; `montana` pasa de 217 productos por categorías a 161 por etiqueta.
+- **Menú** (fase 2): ¿A dónde vas? (5 entornos) · Empieza aquí · Productos (las 10 secciones de
+  antes, cada una con sus hijos) · Para expertos · Ofertas · Marcas. Shopify admite 3 niveles: se
+  pierde el cuarto nivel de antenas (base y móvil por bandas), que sigue en sus colecciones.
+  Copia del menú anterior en `scripts/out/menu_backup_20261004T115722.json`.
+- **Tema** (fases 3 y 4) en `staging` (`c9a945a`) y en el tema de vista previa, pendiente del OK
+  visual del usuario para pasar a `production`: carrusel de 5 entornos, mosaico «¿A dónde vas?»,
+  dos caminos, temporada (nieve, caza y pesca), preguntas frecuentes; en la ficha, chips de entorno,
+  nivel y licencia, caja «¿Dudas?» y «Más equipo de <entorno>». Probado con `liquidjs` en 10
+  productos reales.
 - `scripts/colecciones_entorno.mjs` (7 colecciones: `montana` conserva handle y pasa a la
   etiqueta; `nautica`, `nieve`, `camping-y-familia`, `caza-y-pesca`, `para-empezar`,
   `para-expertos`). `shopify_bulk.py` reinyecta las etiquetas en futuras recargas.
