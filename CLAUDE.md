@@ -57,7 +57,13 @@ Ramas: **`production`** = tema publicado · **`staging`** = vista previa.
 - `git push` a veces no sube nada justo después de un `shopify theme push`, sin dar error visible:
   **comprobar siempre con `git ls-remote origin production staging`** y repetir si hace falta.
 
-- **Giro outdoor (04/10/2026)**: portada con carrusel de 5 entornos y mosaico «¿A dónde vas?». El
+- **Portada estilo The North Face (04/10/2026, a petición del usuario)**: una sola foto a pantalla
+  completa (sección `hero`, image-banner, texto abajo centrado y 2 botones translúcidos) y cabecera
+  con menú horizontal (`logo_position: middle-left`, `menu_type_desktop: mega`) **transparente
+  sobre la foto solo en la portada**: `body.ib-portada` + script en `layout/theme.liquid` que pone
+  `html.ib-cabecera-solida` al bajar; el banner sube con `margin-top: -var(--header-height)`. El
+  carrusel de 5 entornos se probó y se descartó (el usuario prefiere una foto).
+- **Giro outdoor (04/10/2026)**: mosaico «¿A dónde vas?». El
   mosaico usa la imagen de cada colección a sangre (cover) gracias a la regla
   `[id$="__entornos"]` de `assets/indicativo-base.css`: **si se cambia la clave `entornos` de la
   sección en `index.json`, las fotos vuelven al marco blanco de producto**.

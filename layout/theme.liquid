@@ -245,7 +245,19 @@
     </script>
   </head>
 
-  <body class="gradient">
+  <body class="gradient{% if template.name == 'index' %} ib-portada{% endif %}">
+    {%- if template.name == 'index' -%}
+      <script>
+        // Portada: la cabecera va transparente sobre la foto y se vuelve sólida al bajar
+        // (estilos en assets/indicativo-base.css, «Cabecera transparente»).
+        (function () {
+          var raiz = document.documentElement;
+          function actualizar() { raiz.classList.toggle('ib-cabecera-solida', window.scrollY > 40); }
+          actualizar();
+          window.addEventListener('scroll', actualizar, { passive: true });
+        })();
+      </script>
+    {%- endif -%}
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>

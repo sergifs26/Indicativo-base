@@ -9,116 +9,52 @@
  */
 {
   "sections": {
-    "carrusel": {
-      "type": "slideshow",
+    "hero": {
+      "type": "image-banner",
       "blocks": {
-        "pase_montana": {
-          "type": "slide",
+        "heading": {
+          "type": "heading",
           "settings": {
-            "image": "shopify://shop_images/photo-1643903096045-07741be1f245.jpg",
-            "heading": "Más arriba, el grupo sigue unido",
-            "heading_size": "h0",
-            "subheading": "",
-            "button_label": "",
-            "link": "",
-            "button_style_secondary": false,
-            "box_align": "middle-left",
-            "show_text_box": false,
-            "text_alignment": "left",
-            "image_overlay_opacity": 40,
-            "color_scheme": "inverse",
-            "text_alignment_mobile": "left"
+            "heading": "Siempre en contacto, vayas donde vayas",
+            "heading_size": "h0"
           }
         },
-        "pase_nautica": {
-          "type": "slide",
+        "text": {
+          "type": "text",
           "settings": {
-            "image": "shopify://shop_images/entorno-slide-nautica.jpg",
-            "heading": "Mar adentro, siempre a la escucha",
-            "heading_size": "h0",
-            "subheading": "",
-            "button_label": "",
-            "link": "",
-            "button_style_secondary": false,
-            "box_align": "middle-left",
-            "show_text_box": false,
-            "text_alignment": "left",
-            "image_overlay_opacity": 40,
-            "color_scheme": "inverse",
-            "text_alignment_mobile": "left"
+            "text": "Walkies y radio para cada plan al aire libre, desde tu primera salida hasta la más exigente.",
+            "text_style": "body"
           }
         },
-        "pase_nieve": {
-          "type": "slide",
+        "buttons": {
+          "type": "buttons",
           "settings": {
-            "image": "shopify://shop_images/entorno-slide-nieve.jpg",
-            "heading": "Que el frío no os separe",
-            "heading_size": "h0",
-            "subheading": "",
-            "button_label": "",
-            "link": "",
-            "button_style_secondary": false,
-            "box_align": "middle-left",
-            "show_text_box": false,
-            "text_alignment": "left",
-            "image_overlay_opacity": 40,
-            "color_scheme": "inverse",
-            "text_alignment_mobile": "left"
-          }
-        },
-        "pase_camping": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/entorno-slide-camping.jpg",
-            "heading": "Nadie se pierde en el camping",
-            "heading_size": "h0",
-            "subheading": "",
-            "button_label": "",
-            "link": "",
-            "button_style_secondary": false,
-            "box_align": "middle-left",
-            "show_text_box": false,
-            "text_alignment": "left",
-            "image_overlay_opacity": 40,
-            "color_scheme": "inverse",
-            "text_alignment_mobile": "left"
-          }
-        },
-        "pase_caza_pesca": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/entorno-slide-caza-pesca.jpg",
-            "heading": "Del puesto a la orilla, comunicados",
-            "heading_size": "h0",
-            "subheading": "",
-            "button_label": "",
-            "link": "",
-            "button_style_secondary": false,
-            "box_align": "middle-left",
-            "show_text_box": false,
-            "text_alignment": "left",
-            "image_overlay_opacity": 40,
-            "color_scheme": "inverse",
-            "text_alignment_mobile": "left"
+            "button_label_1": "Es mi primera radio",
+            "button_link_1": "shopify://collections/para-empezar",
+            "button_style_secondary_1": true,
+            "button_label_2": "Ya tengo experiencia",
+            "button_link_2": "shopify://collections/para-expertos",
+            "button_style_secondary_2": true
           }
         }
       },
       "block_order": [
-        "pase_montana",
-        "pase_nautica",
-        "pase_nieve",
-        "pase_camping",
-        "pase_caza_pesca"
+        "heading",
+        "text",
+        "buttons"
       ],
       "settings": {
-        "layout": "full_bleed",
-        "slide_height": "large",
-        "slider_visual": "dots",
-        "auto_rotate": true,
-        "change_slides_speed": 3,
+        "image": "shopify://shop_images/entorno-slide-nieve.jpg",
+        "image_overlay_opacity": 30,
+        "image_height": "large",
+        "desktop_content_position": "bottom-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "inverse",
         "image_behavior": "none",
-        "show_text_below": false,
-        "accessibility_info": "Entornos: montaña, mar, nieve, camping, caza y pesca"
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
       }
     },
     "entornos": {
@@ -180,49 +116,6 @@
         "swipe_on_mobile": false,
         "padding_top": 48,
         "padding_bottom": 36
-      }
-    },
-    "dos_caminos": {
-      "type": "multicolumn",
-      "blocks": {
-        "empiezo": {
-          "type": "column",
-          "settings": {
-            "title": "Es mi primera radio",
-            "text": "<p>Equipos sencillos y de uso libre, sin licencia ni papeleo. Los enciendes, eliges canal y a hablar.</p>",
-            "link_label": "Ver equipos para empezar",
-            "link": "shopify://collections/para-empezar"
-          }
-        },
-        "experiencia": {
-          "type": "column",
-          "settings": {
-            "title": "Ya sé lo que busco",
-            "text": "<p>Más autonomía, más robustez y equipos para entornos exigentes. Y si un equipo necesita licencia, te lo decimos claro.</p>",
-            "link_label": "Ver equipos para expertos",
-            "link": "shopify://collections/para-expertos"
-          }
-        }
-      },
-      "block_order": [
-        "empiezo",
-        "experiencia"
-      ],
-      "settings": {
-        "title": "¿Empiezas o ya tienes experiencia?",
-        "heading_size": "h1",
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "columns_desktop": 2,
-        "column_alignment": "left",
-        "background_style": "primary",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "background-2",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 48,
-        "padding_bottom": 48
       }
     },
     "para_empezar": {
@@ -490,9 +383,8 @@
     }
   },
   "order": [
-    "carrusel",
+    "hero",
     "entornos",
-    "dos_caminos",
     "para_empezar",
     "sin_cobertura",
     "temporada_nieve",

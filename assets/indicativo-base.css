@@ -31,62 +31,76 @@
   padding: 0;
 }
 
-/* Carrusel de portada: controles ENCIMA de la foto (cápsula translúcida abajo, en blanco) en vez
-   de la franja blanca que el tema pone debajo; zoom lento en las fotos. */
-slideshow-component {
-  position: relative;
-}
+/* Cabecera estilo The North Face (escritorio): logo a la izquierda, menú horizontal centrado,
+   iconos a la derecha. Ajustes del tema: logo_position middle-left + menu_type_desktop mega. */
+@media screen and (min-width: 990px) {
+  .header--middle-left {
+    grid-template-columns: 1fr auto 1fr;
+  }
 
-slideshow-component .slideshow__controls {
-  --color-foreground: 255, 255, 255;
-  position: absolute;
-  left: 50%;
-  bottom: 2rem;
-  transform: translateX(-50%);
-  z-index: 3;
-  border: 0;
-  border-radius: 4rem;
-  padding: 0 0.8rem;
-  background: rgba(0, 0, 0, 0.28);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-}
+  .header--middle-left .header__inline-menu {
+    justify-self: center;
+    margin-left: 0;
+  }
 
-slideshow-component .slideshow__controls .slider-button {
-  color: rgb(255, 255, 255);
-  border: 0;
-}
+  .header--middle-left .header__icons {
+    justify-self: end;
+  }
 
-slideshow-component .slideshow__autoplay.slider-button {
-  border-left: 0;
-}
-
-slideshow-component .slider-counter__link--dots .dot {
-  border-color: rgba(255, 255, 255, 0.85);
-}
-
-slideshow-component .slider-counter__link--active.slider-counter__link--dots .dot {
-  background-color: #fff;
-}
-
-@media screen and (max-width: 749px) {
-  slideshow-component .slideshow__controls {
-    bottom: 1.2rem;
+  .header__inline-menu .header__menu-item {
+    font-size: 1.55rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
   }
 }
 
-/* Encuadre por foto: la del alpinista se recortaba por la cabeza */
-.slideshow__media img[src*="photo-1643903096045"] {
-  object-position: 50% 15%;
+/* Cabecera transparente en la portada: va encima de la foto (el banner sube bajo ella) y se
+   vuelve negra al bajar (.ib-cabecera-solida, script en layout/theme.liquid) o con un menú,
+   el buscador o el carrito abiertos. */
+.ib-portada .section-header {
+  z-index: 4;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .slideshow__media img {
-    animation: ib-zoom-lento 14s ease-in-out infinite alternate;
-  }
+.ib-portada #MainContent > .shopify-section:first-child {
+  margin-top: calc(-1 * var(--header-height, 0px));
 }
 
-@keyframes ib-zoom-lento {
-  from { transform: scale(1); }
-  to { transform: scale(1.07); }
+.ib-portada .header-wrapper {
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+html:not(.ib-cabecera-solida) .ib-portada .section-header:not(:has(details[open])):not(:hover) .header-wrapper {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  border-bottom-color: transparent;
+}
+
+/* Banner de portada (sección «hero»): una sola foto a pantalla completa, texto abajo y centrado */
+[id$="__hero"] .banner,
+[id$="__hero"] .banner__content {
+  min-height: calc(100vh - 3.6rem);
+  min-height: calc(100svh - 3.6rem);
+}
+
+[id$="__hero"] .banner__content {
+  padding-bottom: 6rem;
+}
+
+[id$="__hero"] .banner__heading {
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.35);
+}
+
+[id$="__hero"] .banner__text {
+  font-size: 1.7rem;
+}
+
+[id$="__hero"] .banner__buttons .button {
+  background-color: rgba(18, 18, 18, 0.55);
+  color: #fff;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  min-width: 18rem;
+}
+
+[id$="__hero"] .banner__buttons .button:hover {
+  background-color: rgba(18, 18, 18, 0.8);
 }
