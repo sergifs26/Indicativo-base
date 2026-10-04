@@ -19,13 +19,6 @@
             "heading_size": "h0"
           }
         },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "Walkies y radio para cada plan al aire libre, desde tu primera salida hasta la más exigente.",
-            "text_style": "body"
-          }
-        },
         "buttons": {
           "type": "buttons",
           "settings": {
@@ -40,7 +33,6 @@
       },
       "block_order": [
         "heading",
-        "text",
         "buttons"
       ],
       "settings": {
