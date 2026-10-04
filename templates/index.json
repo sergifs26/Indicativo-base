@@ -9,35 +9,119 @@
  */
 {
   "sections": {
-    "hero": {
-      "type": "image-banner",
+    "carrusel": {
+      "type": "slideshow",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "pase_montana": {
+          "type": "slide",
           "settings": {
-            "heading": "Comunicación que llega a la cumbre",
-            "heading_size": "h0"
+            "image": "shopify://shop_images/photo-1643903096045-07741be1f245.jpg",
+            "heading": "Más arriba, el grupo sigue unido",
+            "heading_size": "h0",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-left",
+            "show_text_box": false,
+            "text_alignment": "left",
+            "image_overlay_opacity": 40,
+            "color_scheme": "inverse",
+            "text_alignment_mobile": "left"
+          }
+        },
+        "pase_nautica": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/entorno-slide-nautica.jpg",
+            "heading": "Mar adentro, siempre a la escucha",
+            "heading_size": "h0",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-left",
+            "show_text_box": false,
+            "text_alignment": "left",
+            "image_overlay_opacity": 40,
+            "color_scheme": "inverse",
+            "text_alignment_mobile": "left"
+          }
+        },
+        "pase_nieve": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/entorno-slide-nieve.jpg",
+            "heading": "Que el frío no os separe",
+            "heading_size": "h0",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-left",
+            "show_text_box": false,
+            "text_alignment": "left",
+            "image_overlay_opacity": 40,
+            "color_scheme": "inverse",
+            "text_alignment_mobile": "left"
+          }
+        },
+        "pase_camping": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/entorno-slide-camping.jpg",
+            "heading": "Nadie se pierde en el camping",
+            "heading_size": "h0",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-left",
+            "show_text_box": false,
+            "text_alignment": "left",
+            "image_overlay_opacity": 40,
+            "color_scheme": "inverse",
+            "text_alignment_mobile": "left"
+          }
+        },
+        "pase_caza_pesca": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/entorno-slide-caza-pesca.jpg",
+            "heading": "Del puesto a la orilla, comunicados",
+            "heading_size": "h0",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-left",
+            "show_text_box": false,
+            "text_alignment": "left",
+            "image_overlay_opacity": 40,
+            "color_scheme": "inverse",
+            "text_alignment_mobile": "left"
           }
         }
       },
       "block_order": [
-        "heading"
+        "pase_montana",
+        "pase_nautica",
+        "pase_nieve",
+        "pase_camping",
+        "pase_caza_pesca"
       ],
       "settings": {
-        "image": "shopify://shop_images/photo-1643903096045-07741be1f245.jpg",
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "middle-left",
-        "show_text_box": false,
-        "desktop_content_alignment": "left",
-        "color_scheme": "inverse",
+        "layout": "full_bleed",
+        "slide_height": "large",
+        "slider_visual": "dots",
+        "auto_rotate": true,
+        "change_slides_speed": 5,
         "image_behavior": "none",
-        "mobile_content_alignment": "left",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "show_text_below": false,
+        "accessibility_info": "Entornos: montaña, mar, nieve, camping, caza y pesca"
       }
     },
-    "categorias": {
+    "entornos": {
       "type": "collection-list",
       "blocks": {
         "col_0": {
@@ -49,31 +133,31 @@
         "col_1": {
           "type": "featured_collection",
           "settings": {
-            "collection": "walkies-pmr-446-uso-libre-ocio"
+            "collection": "nautica"
           }
         },
         "col_2": {
           "type": "featured_collection",
           "settings": {
-            "collection": "outdoor-gps-gnss"
+            "collection": "nieve"
           }
         },
         "col_3": {
           "type": "featured_collection",
           "settings": {
-            "collection": "outdoor-linternas"
+            "collection": "camping-y-familia"
           }
         },
         "col_4": {
           "type": "featured_collection",
           "settings": {
-            "collection": "outdoor-intercomunicadores"
+            "collection": "caza-y-pesca"
           }
         },
         "col_5": {
           "type": "featured_collection",
           "settings": {
-            "collection": "telefonia-y-conectividad-telefonos-satelite"
+            "collection": "para-empezar"
           }
         }
       },
@@ -86,7 +170,7 @@
         "col_5"
       ],
       "settings": {
-        "title": "Prepárate para la montaña",
+        "title": "¿A dónde vas?",
         "heading_size": "h1",
         "image_ratio": "square",
         "columns_desktop": 3,
@@ -98,15 +182,58 @@
         "padding_bottom": 36
       }
     },
-    "walkies_montana": {
+    "dos_caminos": {
+      "type": "multicolumn",
+      "blocks": {
+        "empiezo": {
+          "type": "column",
+          "settings": {
+            "title": "Es mi primera radio",
+            "text": "<p>Equipos sencillos y de uso libre, sin licencia ni papeleo. Los enciendes, eliges canal y a hablar.</p>",
+            "link_label": "Ver equipos para empezar",
+            "link": "shopify://collections/para-empezar"
+          }
+        },
+        "experiencia": {
+          "type": "column",
+          "settings": {
+            "title": "Ya sé lo que busco",
+            "text": "<p>Más autonomía, más robustez y equipos para entornos exigentes. Y si un equipo necesita licencia, te lo decimos claro.</p>",
+            "link_label": "Ver equipos para expertos",
+            "link": "shopify://collections/para-expertos"
+          }
+        }
+      },
+      "block_order": [
+        "empiezo",
+        "experiencia"
+      ],
+      "settings": {
+        "title": "¿Empiezas o ya tienes experiencia?",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "background-2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "para_empezar": {
       "type": "featured-collection",
       "settings": {
-        "title": "Walkies para montaña",
+        "title": "Lo más fácil para empezar",
         "heading_size": "h1",
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "collection": "walkies-pmr-446-uso-libre-ocio",
+        "collection": "para-empezar",
         "products_to_show": 8,
         "columns_desktop": 4,
         "full_width": false,
@@ -131,7 +258,7 @@
         "caption": {
           "type": "caption",
           "settings": {
-            "caption": "PMR-446 · Uso libre",
+            "caption": "Monte · Mar · Nieve",
             "text_style": "caption-with-letter-spacing",
             "text_size": "medium"
           }
@@ -146,15 +273,15 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>En la montaña el móvil se queda sin señal. Un walkie PMR-446 te mantiene en contacto con tu grupo sin licencias ni cuotas, y un GPS te devuelve al camino.</p>",
+            "text": "<p>En el monte, mar adentro o en mitad de una travesía con nieve, el móvil se queda sin barras justo cuando más falta hace. Un walkie habla directamente con los de tu grupo, sin depender de la cobertura. Y en el mar, la radio marina te mantiene a la escucha del canal 16, el de socorro.</p>",
             "text_style": "body"
           }
         },
         "button": {
           "type": "button",
           "settings": {
-            "button_label": "Ver walkies PMR-446",
-            "button_link": "shopify://collections/walkies-pmr-446-uso-libre-ocio"
+            "button_label": "Encuentra tu walkie",
+            "button_link": "shopify://collections/para-empezar"
           }
         }
       },
@@ -165,7 +292,7 @@
         "button"
       ],
       "settings": {
-        "image": "shopify://shop_images/photo-1563442162585-fa1426255ea9.jpg",
+        "image": "shopify://shop_images/entorno-bloque-experiencia.jpg",
         "height": "large",
         "desktop_image_width": "large",
         "layout": "image_first",
@@ -179,15 +306,15 @@
         "padding_bottom": 0
       }
     },
-    "gps": {
+    "temporada_nieve": {
       "type": "featured-collection",
       "settings": {
-        "title": "GPS y orientación",
+        "title": "Prepárate para la nieve",
         "heading_size": "h1",
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "collection": "outdoor-gps-gnss",
+        "collection": "nieve",
         "products_to_show": 8,
         "columns_desktop": 4,
         "full_width": false,
@@ -206,15 +333,15 @@
         "padding_bottom": 36
       }
     },
-    "linternas": {
+    "temporada_caza": {
       "type": "featured-collection",
       "settings": {
-        "title": "Linternas",
+        "title": "Para tus jornadas de caza y pesca",
         "heading_size": "h1",
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "collection": "outdoor-linternas",
+        "collection": "caza-y-pesca",
         "products_to_show": 8,
         "columns_desktop": 4,
         "full_width": false,
@@ -231,6 +358,81 @@
         "swipe_on_mobile": false,
         "padding_top": 36,
         "padding_bottom": 36
+      }
+    },
+    "preguntas": {
+      "type": "collapsible-content",
+      "blocks": {
+        "p1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Necesito licencia?",
+            "icon": "question_mark",
+            "row_content": "<p>Depende del equipo. Los walkies PMR-446 (radio de uso libre en 446 MHz) y su versión digital dPMR446 son de uso libre, sin licencia ni tasas, y la banda ciudadana CB-27 es de uso común sin licencia. Los equipos profesionales de VHF y UHF necesitan autorización de uso de frecuencias, y la radio marina tiene sus propios requisitos. En cada walkie y emisora te indicamos si necesita licencia.</p>"
+          }
+        },
+        "p2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Qué alcance real tiene un walkie?",
+            "icon": "question_mark",
+            "row_content": "<p>Depende sobre todo del terreno. Con un walkie de uso libre, en ciudad o en bosque cerrado cuenta con unos cientos de metros o un par de kilómetros. En campo abierto, unos pocos kilómetros, y entre dos puntos altos con visión directa, bastante más. Las cifras de las cajas se miden en condiciones ideales.</p>"
+          }
+        },
+        "p3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿PMR o VHF?",
+            "icon": "question_mark",
+            "row_content": "<p>El PMR-446 es la opción de uso libre: sin licencia y con una potencia máxima de 0,5 W (vatios), pensado para ocio y para el día a día. VHF es la banda de la radio marina y de muchos equipos profesionales, con más potencia, pero exige licencia o titulación según el caso. Si no lo tienes claro, empieza por PMR-446 o pregúntanos.</p>"
+          }
+        },
+        "p4": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Sirve en el mar?",
+            "icon": "question_mark",
+            "row_content": "<p>Para tu seguridad en el mar, lo adecuado es una radio VHF marina, porque su canal 16 de socorro y llamada lo escuchan otros barcos y las estaciones costeras. Quien la maneje necesita como mínimo el Certificado de Operador Restringido del SMSSM (Sistema Mundial de Socorro y Seguridad Marítimos). Según la zona de navegación de tu barco, puede hacer falta también la Licencia de Estación de Barco. Mira el equipo de <a href=\"/collections/nautica\">náutica</a>.</p>"
+          }
+        },
+        "p5": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Y en la nieve con frío?",
+            "icon": "question_mark",
+            "row_content": "<p>Sí, con algunos cuidados. El frío reduce la batería, así que lleva el walkie dentro de la chaqueta y una batería de repuesto abrigada. Busca botones grandes para usarlo con guantes y resistencia al agua: IPX4 aguanta salpicaduras, e IP67 aguanta además el polvo y una inmersión breve.</p>"
+          }
+        },
+        "p6": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Me ayudáis a elegir?",
+            "icon": "question_mark",
+            "row_content": "<p>Claro. Cuéntanos a dónde vas, cuántos sois y qué experiencia tenéis, y te recomendamos el equipo que encaja. Escríbenos desde la página de <a href=\"/pages/contact\">contacto</a>.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5",
+        "p6"
+      ],
+      "settings": {
+        "caption": "",
+        "heading": "Preguntas frecuentes",
+        "heading_size": "h1",
+        "heading_alignment": "left",
+        "layout": "none",
+        "color_scheme": "background-1",
+        "container_color_scheme": "background-2",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 48,
+        "padding_bottom": 48
       }
     },
     "ventajas": {
@@ -239,8 +441,8 @@
         "c1": {
           "type": "column",
           "settings": {
-            "title": "Sin cobertura, sin problema",
-            "text": "<p>Los walkies PMR-446 son de uso libre: sin licencia, sin cuotas y sin depender de la red móvil.</p>",
+            "title": "Te ayudamos a elegir",
+            "text": "<p>Cuéntanos tu plan y te decimos qué equipo encaja. Hablamos claro y sin tecnicismos.</p>",
             "link_label": "",
             "link": ""
           }
@@ -248,8 +450,8 @@
         "c2": {
           "type": "column",
           "settings": {
-            "title": "Marcas de referencia",
-            "text": "<p>Midland, Motorola, Garmin, Dynascan, Icom, Yaesu y más de 50 marcas.</p>",
+            "title": "Licencias, claras",
+            "text": "<p>Te indicamos si un equipo es de uso libre o necesita licencia. Así sabes lo que compras.</p>",
             "link_label": "",
             "link": ""
           }
@@ -257,10 +459,10 @@
         "c3": {
           "type": "column",
           "settings": {
-            "title": "Te ayudamos a elegir",
-            "text": "<p>¿Alcance, autonomía, resistencia al agua? Cuéntanos tu ruta y te recomendamos el equipo.</p>",
-            "link_label": "Contactar",
-            "link": "shopify://pages/contact"
+            "title": "Ordenado por dónde vas",
+            "text": "<p>Montaña, mar, nieve, camping o caza. Busca por tu plan y encuentra lo que funciona allí.</p>",
+            "link_label": "",
+            "link": ""
           }
         }
       },
@@ -270,15 +472,15 @@
         "c3"
       ],
       "settings": {
-        "title": "Por qué Indicativo Base",
+        "title": "Cuéntanos tu plan y te recomendamos",
         "heading_size": "h1",
         "image_width": "full",
         "image_ratio": "adapt",
         "columns_desktop": 3,
         "column_alignment": "center",
         "background_style": "primary",
-        "button_label": "",
-        "button_link": "",
+        "button_label": "Cuéntanos tu plan",
+        "button_link": "shopify://pages/contact",
         "color_scheme": "background-1",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
@@ -288,12 +490,14 @@
     }
   },
   "order": [
-    "hero",
-    "categorias",
-    "walkies_montana",
+    "carrusel",
+    "entornos",
+    "dos_caminos",
+    "para_empezar",
     "sin_cobertura",
-    "gps",
-    "linternas",
+    "temporada_nieve",
+    "temporada_caza",
+    "preguntas",
     "ventajas"
   ]
 }

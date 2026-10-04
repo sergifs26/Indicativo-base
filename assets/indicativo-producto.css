@@ -2,6 +2,7 @@
    Ficha de producto — Indicativo Base
    1. Descripción en desplegables (snippets/descripcion-desplegable.liquid)
    2. Columna de información con scroll propio en escritorio
+   3. Entornos, nivel y licencia · 4. Caja «¿Dudas?» · 5. «Más equipo de…»
    ========================================================================== */
 
 /* 1. Desplegables de la descripción ------------------------------------- */
@@ -81,4 +82,103 @@
 .product-media-container.media-type-image,
 .product-media-container.media-type-image .media {
   background-color: #fff;
+}
+
+/* 3. Entornos, nivel y licencia bajo el título (snippets/producto-entornos.liquid) -------- */
+.ib-entornos {
+  margin: 1.2rem 0 0.4rem;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.ib-entornos__fila {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.ib-entornos__etiqueta {
+  font-size: 1.3rem;
+  color: rgba(var(--color-foreground), 0.75);
+}
+
+.ib-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 1rem;
+  border-radius: 2rem;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  border: 1px solid rgba(var(--color-foreground), 0.2);
+  color: rgb(var(--color-foreground));
+  text-decoration: none;
+}
+
+a.ib-chip--entorno:hover {
+  border-color: #45c0b6;
+  color: #1f7d76;
+}
+
+.ib-chip--nivel {
+  background: rgba(var(--color-foreground), 0.06);
+  cursor: help;
+}
+
+.ib-chip--libre {
+  background: #e3f5f3;
+  border-color: #45c0b6;
+  color: #1f6f69;
+}
+
+.ib-chip--licencia {
+  background: #fdf3e2;
+  border-color: #e0a64a;
+  color: #7a5214;
+}
+
+.ib-entornos__nota {
+  margin: 0;
+  font-size: 1.3rem;
+  line-height: 1.5;
+  color: rgba(var(--color-foreground), 0.75);
+}
+
+/* 4. Caja «¿Dudas?» bajo el botón de compra (snippets/producto-ayuda.liquid) --------------- */
+.ib-ayuda {
+  margin-top: 1.6rem;
+  padding: 1.6rem 1.8rem;
+  border: 1px solid rgba(var(--color-foreground), 0.12);
+  border-radius: 2px;
+  background: rgba(var(--color-foreground), 0.03);
+}
+
+.ib-ayuda__titulo {
+  margin: 0 0 0.4rem;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.ib-ayuda__texto {
+  margin: 0 0 1.2rem;
+  font-size: 1.35rem;
+  line-height: 1.5;
+}
+
+.ib-ayuda__boton {
+  min-height: 4rem;
+}
+
+/* 5. «Más equipo de…» (sections/mas-del-entorno.liquid) ------------------------------------ */
+.ib-mas-entorno__cabecera {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.ib-mas-entorno__todo {
+  font-size: 1.4rem;
+  white-space: nowrap;
 }

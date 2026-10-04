@@ -1,0 +1,11 @@
+{% comment %}
+  Caja «¿Dudas? Te ayudamos a elegir» bajo el botón de compra de la ficha.
+  Enlaza a la página de contacto (añadir el teléfono cuando sea el real, no el provisional).
+  Uso: {% render 'producto-ayuda' %}
+{% endcomment %}
+{%- assign contacto = pages['contact'] -%}
+<div class="ib-ayuda quick-add-hidden">
+  <p class="ib-ayuda__titulo">¿Dudas? Te ayudamos a elegir</p>
+  <p class="ib-ayuda__texto">Cuéntanos qué vas a hacer y dónde, y te decimos si este equipo te encaja.</p>
+  <a class="button button--secondary ib-ayuda__boton" href="{% if contacto != blank %}{{ contacto.url }}{% else %}/pages/contact{% endif %}">Pregúntanos</a>
+</div>

@@ -1,0 +1,100 @@
+{% comment %}
+  Chips bajo el título de la ficha: para qué entornos sirve (enlazan a su colección), nivel y
+  licencia. Lee las etiquetas entorno:/nivel:/licencia: que pone scripts/entornos.py en el repo
+  de operaciones. Los enlaces a las guías solo salen cuando la guía está publicada en el blog
+  «aprende».
+  Uso: {% render 'producto-entornos', product: product %}
+{% endcomment %}
+{%- liquid
+  assign entornos = 'montana:montana:Montaña|nautica:nautica:Náutica|nieve:nieve:Nieve|camping:camping-y-familia:Camping y familia|caza-pesca:caza-y-pesca:Caza y pesca' | split: '|'
+
+  assign nivel_texto = ''
+  assign nivel_ayuda = ''
+  if product.tags contains 'nivel:empezar'
+    assign nivel_texto = 'Para empezar'
+    assign nivel_ayuda = 'Fácil de usar desde el primer día, sin ajustes complicados.'
+  elsif product.tags contains 'nivel:experto'
+    assign nivel_texto = 'Para expertos'
+    assign nivel_ayuda = 'Más funciones y ajustes para quien ya conoce la radio y la usa en entornos exigentes.'
+  endif
+
+  assign es_cb = false
+  assign es_radioaficion = false
+  for t in product.tags
+    if t == 'cat:Walkies>CB' or t == 'cat:Emisoras>Emisoras CB' or t == 'cat:Radios CB'
+      assign es_cb = true
+    endif
+    if t contains 'Radioaficionado' or t contains 'Transceptores HF' or t == 'cat:Emisoras>10 M'
+      assign es_radioaficion = true
+    endif
+  endfor
+
+  assign licencia_texto = ''
+  assign licencia_frase = ''
+  assign guia = ''
+  if product.tags contains 'licencia:marina'
+    assign licencia_texto = 'Necesita licencia'
+    assign licencia_frase = 'Pide titulación de operador y, según tu barco, licencia de estación.'
+    assign guia = 'aprende/comunicarte-en-el-mar'
+  elsif product.tags contains 'licencia:no'
+    assign licencia_texto = 'Sin licencia'
+    if es_cb
+      assign licencia_frase = 'Banda ciudadana CB-27: uso común sin licencia ni tasas.'
+      assign guia = 'aprende/que-walkie-necesito'
+    else
+      assign licencia_frase = 'Uso libre, sin licencia ni tasas.'
+      assign guia = 'aprende/walkies-sin-licencia-pmr-446'
+    endif
+  elsif product.tags contains 'licencia:si'
+    assign licencia_texto = 'Necesita licencia'
+    if es_radioaficion
+      assign licencia_frase = 'Necesita licencia de radioaficionado.'
+    else
+      assign licencia_frase = 'Necesita autorización de uso de frecuencias o licencia de radioaficionado, según el uso.'
+    endif
+    assign guia = 'aprende/que-walkie-necesito'
+  endif
+  assign articulo = blank
+  if guia != ''
+    assign articulo = articles[guia]
+  endif
+-%}
+
+{%- capture chips_entorno -%}
+  {%- for e in entornos -%}
+    {%- assign partes = e | split: ':' -%}
+    {%- assign tag = 'entorno:' | append: partes[0] -%}
+    {%- if product.tags contains tag -%}
+      <a class="ib-chip ib-chip--entorno" href="{{ routes.collections_url }}/{{ partes[1] }}">{{ partes[2] }}</a>
+    {%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
+
+{%- if chips_entorno != blank or nivel_texto != '' or licencia_texto != '' -%}
+  <div class="ib-entornos quick-add-hidden">
+    {%- if chips_entorno != blank -%}
+      <div class="ib-entornos__fila">
+        <span class="ib-entornos__etiqueta">Ideal para:</span>
+        {{ chips_entorno }}
+      </div>
+    {%- endif -%}
+    {%- if nivel_texto != '' or licencia_texto != '' -%}
+      <div class="ib-entornos__fila">
+        {%- if nivel_texto != '' -%}
+          <span class="ib-chip ib-chip--nivel" title="{{ nivel_ayuda }}">{{ nivel_texto }}</span>
+        {%- endif -%}
+        {%- if licencia_texto != '' -%}
+          <span class="ib-chip {% if licencia_texto == 'Sin licencia' %}ib-chip--libre{% else %}ib-chip--licencia{% endif %}">
+            {{- licencia_texto -}}
+          </span>
+        {%- endif -%}
+      </div>
+      {%- if licencia_frase != '' -%}
+        <p class="ib-entornos__nota">
+          {{ licencia_frase }}
+          {%- if articulo != blank %} <a href="{{ articulo.url }}">Te lo explicamos</a>{% endif -%}
+        </p>
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+{%- endif -%}

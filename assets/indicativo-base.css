@@ -18,3 +18,15 @@
   padding: 6%;
   box-sizing: border-box;
 }
+
+/* Mosaico «¿A dónde vas?» de la portada (sección con id «entornos»): son fotos de ambiente, no de
+   producto, así que llenan la tarjeta (cover, sin margen) en vez del marco blanco de arriba. */
+[id$="__entornos"] .card__media,
+[id$="__entornos"] .card__media .media {
+  background-color: transparent;
+}
+
+[id$="__entornos"] .card__media .media img {
+  object-fit: cover;
+  padding: 0;
+}

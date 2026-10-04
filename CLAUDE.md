@@ -57,6 +57,15 @@ Ramas: **`production`** = tema publicado · **`staging`** = vista previa.
 - `git push` a veces no sube nada justo después de un `shopify theme push`, sin dar error visible:
   **comprobar siempre con `git ls-remote origin production staging`** y repetir si hace falta.
 
+- **Giro outdoor (04/10/2026)**: portada con carrusel de 5 entornos y mosaico «¿A dónde vas?». El
+  mosaico usa la imagen de cada colección a sangre (cover) gracias a la regla
+  `[id$="__entornos"]` de `assets/indicativo-base.css`: **si se cambia la clave `entornos` de la
+  sección en `index.json`, las fotos vuelven al marco blanco de producto**.
+- Ficha: `snippets/producto-entornos.liquid` (chips de entorno, nivel y licencia, leídos de las
+  etiquetas `entorno:`/`nivel:`/`licencia:` del repo de operaciones), `snippets/producto-ayuda.liquid`
+  (caja «¿Dudas?») y la sección `mas-del-entorno`. Los enlaces a guías solo aparecen cuando el
+  artículo existe en el blog `aprende` (`articles['aprende/<handle>']`).
+
 - Tema antiguo de Dawn: los esquemas de color se llaman `background-1`, `background-2`,
   `inverse`, `accent-1`, `accent-2` (no `scheme-1…`). Poner siempre el valor explícito.
 - Las imágenes `shopify://shop_images/…` no viajan en un export/import de tema.
