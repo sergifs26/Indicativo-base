@@ -314,6 +314,7 @@
             {%- when 'variant_picker' -%}
               {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
             {%- when 'buy_buttons' -%}
+              {% render 'producto-antena-recambio', product: product, product_form_id: product_form_id, section_id: section.id %}
               {%- render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true -%}
               {% render 'producto-ayuda' %}
             {%- when 'rating' -%}

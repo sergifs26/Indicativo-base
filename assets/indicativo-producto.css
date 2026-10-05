@@ -2,7 +2,7 @@
    Ficha de producto — Indicativo Base
    1. Descripción en desplegables (snippets/descripcion-desplegable.liquid)
    2. Columna de información con scroll propio en escritorio
-   3. Entornos, nivel y licencia · 4. Caja «¿Dudas?» · 5. «Más equipo de…»
+   3. Entornos, nivel y licencia · 4. Caja «¿Dudas?» · 5. «Más equipo de…» · 6. Antena de recambio
    ========================================================================== */
 
 /* 1. Desplegables de la descripción ------------------------------------- */
@@ -181,4 +181,134 @@ a.ib-chip--entorno:hover {
 .ib-mas-entorno__todo {
   font-size: 1.4rem;
   white-space: nowrap;
+}
+
+/* 6. Casilla «Añade una antena de recambio» (snippets/producto-antena-recambio.liquid) ------- */
+.ib-antena {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1.2rem;
+  margin: 1.6rem 0 1.2rem;
+  padding: 1.2rem 1.4rem;
+  border: 1px solid rgba(var(--color-foreground), 0.15);
+  border-radius: 1.6rem;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 0.4rem 1.4rem rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ib-antena:hover {
+  border-color: rgba(var(--color-foreground), 0.35);
+}
+
+.ib-antena__casilla {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+.ib-antena__check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  border: 1.5px solid rgba(var(--color-foreground), 0.35);
+  background: #fff;
+  color: #fff;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.ib-antena__check .icon {
+  color: #fff; /* el icono del tema trae su propio color (color-foreground-…) */
+  width: 1.2rem;
+  height: 1.2rem;
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.ib-antena__foto {
+  width: 6.4rem;
+  height: 6.4rem;
+  padding: 0.4rem;
+  border-radius: 1.2rem;
+  background: #fff;
+  box-shadow: 0 0 0 1px rgba(var(--color-foreground), 0.08);
+}
+
+.ib-antena__foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.ib-antena__texto {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.ib-antena__titulo {
+  font-weight: 700;
+  font-size: 1.45rem;
+}
+
+.ib-antena__nombre {
+  font-size: 1.3rem;
+  color: rgba(var(--color-foreground), 0.8);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ib-antena__nota {
+  font-size: 1.2rem;
+  color: #1f7d76;
+}
+
+.ib-antena__precio {
+  font-weight: 700;
+  font-size: 1.45rem;
+  white-space: nowrap;
+}
+
+/* Marcada */
+.ib-antena:has(.ib-antena__casilla:checked) {
+  border-color: #45c0b6;
+  background: #effaf8;
+  box-shadow: inset 0 0 0 1px #45c0b6, 0 0.4rem 1.4rem rgba(69, 192, 182, 0.18);
+}
+
+.ib-antena__casilla:checked + .ib-antena__check {
+  background: #45c0b6;
+  border-color: #45c0b6;
+}
+
+.ib-antena__casilla:checked + .ib-antena__check .icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.ib-antena:has(.ib-antena__casilla:focus-visible) {
+  outline: 2px solid rgba(var(--color-foreground), 0.5);
+  outline-offset: 2px;
+}
+
+@media screen and (max-width: 749px) {
+  .ib-antena {
+    grid-template-columns: auto auto minmax(0, 1fr);
+  }
+
+  .ib-antena__precio {
+    grid-column: 3;
+  }
 }

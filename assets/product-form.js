@@ -38,8 +38,26 @@ if (!customElements.get('product-form')) {
       //Added to generate selling plan add to cart response
       const sellingPlanId = window.getCurrentSellingPlanId();
       formData.append("selling_plan", sellingPlanId);
-      
+
       config.body = formData;
+
+      // Antena de recambio (snippets/producto-antena-recambio.liquid): con la casilla marcada, walkie
+      // y antena van en la MISMA petición (items) para que el carrito y su contador se actualicen
+      // de una vez. La respuesta trae «items» en vez del producto suelto: se copian key e id del
+      // walkie, que es lo que leen la ventana y el panel del carrito.
+      const antena = this.form.elements['ib_antena'];
+      const conAntena = Boolean(antena && antena.checked && antena.value);
+      if (conAntena) {
+        const walkie = { id: Number(formData.get('id')), quantity: Number(formData.get('quantity') || 1) };
+        if (sellingPlanId) walkie.selling_plan = sellingPlanId;
+        const cuerpo = { items: [walkie, { id: Number(antena.value), quantity: 1 }] };
+        if (this.cart) {
+          cuerpo.sections = this.cart.getSectionsToRender().map((section) => section.id);
+          cuerpo.sections_url = window.location.pathname;
+        }
+        config.headers['Content-Type'] = 'application/json';
+        config.body = JSON.stringify(cuerpo);
+      }
 
       fetch(`${routes.cart_add_url}`, config)
         .then((response) => response.json())
@@ -58,6 +76,12 @@ if (!customElements.get('product-form')) {
           } else if (!this.cart) {
             window.location = window.routes.cart_url;
             return;
+          }
+
+          if (conAntena && response.items && response.items.length) {
+            response.key = response.items[0].key;
+            response.id = response.items[0].id;
+            antena.checked = false;
           }
 
           if (!this.error) publish(PUB_SUB_EVENTS.cartUpdate, {source: 'product-form', productVariantId: formData.get('id')});

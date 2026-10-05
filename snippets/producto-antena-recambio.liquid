@@ -1,0 +1,40 @@
+{% comment %}
+  Casilla «Añade una antena de recambio» en la ficha del walkie, encima del botón de compra.
+  Lee el metacampo custom.antenas_recambio (antena ORIGINAL del modelo; lo rellena
+  scripts/antenas.py + aplicar_antenas.mjs en el repo de operaciones). La casilla va asociada al
+  formulario de compra (atributo form) y assets/product-form.js manda walkie y antena en la misma
+  petición cuando está marcada.
+  Uso: {% render 'producto-antena-recambio', product: product, product_form_id: product_form_id, section_id: section.id %}
+{% endcomment %}
+{%- liquid
+  assign antena = blank
+  assign lista = product.metafields.custom.antenas_recambio.value
+  if lista != blank
+    assign antena = lista | first
+  endif
+-%}
+{%- if antena != blank and antena.available -%}
+  {%- assign variante = antena.selected_or_first_available_variant -%}
+  <label class="ib-antena quick-add-hidden" for="AntenaRecambio-{{ section_id }}">
+    <input
+      type="checkbox"
+      class="ib-antena__casilla"
+      id="AntenaRecambio-{{ section_id }}"
+      name="ib_antena"
+      value="{{ variante.id }}"
+      form="{{ product_form_id }}"
+    >
+    <span class="ib-antena__check" aria-hidden="true">{% render 'icon-checkmark' %}</span>
+    {%- if antena.featured_media != blank -%}
+      <span class="ib-antena__foto">
+        {{ antena.featured_media | image_url: width: 160 | image_tag: loading: 'lazy', widths: '80, 160', sizes: '64px', alt: antena.title }}
+      </span>
+    {%- endif -%}
+    <span class="ib-antena__texto">
+      <span class="ib-antena__titulo">Añade una antena de recambio</span>
+      <span class="ib-antena__nombre">{{ antena.title | escape }}</span>
+      <span class="ib-antena__nota">Original del modelo · por si se rompe o se pierde</span>
+    </span>
+    <span class="ib-antena__precio">+{{ variante.price | money }}</span>
+  </label>
+{%- endif -%}
