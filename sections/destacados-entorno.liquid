@@ -1,0 +1,141 @@
+{% comment %}
+  Tres entornos con su producto estrella (portada): franja con antetítulo y titular y, debajo,
+  tres fotos de ambiente a sangre. Sobre cada foto, una tarjeta blanca con la foto, el nombre y
+  el enlace del producto elegido. Toda la foto lleva a la ficha del producto.
+  Los productos se eligieron por el ranking de popularidad del proveedor (ver
+  PROYECTO_INDICATIVO_BASE.md en el repo de operaciones). Estilos en assets/indicativo-base.css,
+  apartado «Tres entornos».
+{% endcomment %}
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="ib-entornos3 color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+  {%- if section.settings.caption != blank or section.settings.heading != blank -%}
+    <div class="ib-entornos3__cabecera page-width">
+      {%- if section.settings.caption != blank -%}
+        <p class="ib-entornos3__antetitulo caption-with-letter-spacing">{{ section.settings.caption | escape }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="ib-entornos3__titular h1">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+
+  <ul class="ib-entornos3__lista" role="list">
+    {%- for block in section.blocks -%}
+      {%- assign p = block.settings.product -%}
+      {%- if p != blank and block.settings.image != blank -%}
+        <li class="ib-entornos3__panel" {{ block.shopify_attributes }}>
+          <a class="ib-entornos3__enlace" href="{{ p.url }}" aria-label="{{ block.settings.etiqueta | escape }}: {{ p.title | escape }}">
+            {{
+              block.settings.image
+              | image_url: width: 1400
+              | image_tag:
+                class: 'ib-entornos3__foto',
+                loading: 'lazy',
+                widths: '375, 550, 750, 1000, 1400',
+                sizes: '(min-width: 750px) 34vw, 100vw',
+                alt: block.settings.etiqueta
+            }}
+            <span class="ib-entornos3__etiqueta caption-with-letter-spacing">{{ block.settings.etiqueta | escape }}</span>
+            <span class="ib-entornos3__tarjeta">
+              {%- if p.featured_media != blank -%}
+                <span class="ib-entornos3__producto-foto">
+                  {{ p.featured_media | image_url: width: 240 | image_tag: loading: 'lazy', widths: '120, 240', sizes: '96px', alt: p.title }}
+                </span>
+              {%- endif -%}
+              <span class="ib-entornos3__producto-texto">
+                {%- if block.settings.destacado != blank -%}
+                  <span class="ib-entornos3__destacado">{{ block.settings.destacado | escape }}</span>
+                {%- endif -%}
+                <span class="ib-entornos3__producto-nombre">{{ p.title | escape }}</span>
+                {%- if block.settings.frase != blank -%}
+                  <span class="ib-entornos3__frase">{{ block.settings.frase | escape }}</span>
+                {%- endif -%}
+                <span class="ib-entornos3__boton button">{{ block.settings.boton | default: 'Ver producto' | escape }}</span>
+              </span>
+            </span>
+          </a>
+        </li>
+      {%- endif -%}
+    {%- endfor -%}
+  </ul>
+</div>
+
+{% schema %}
+{
+  "name": "Tres entornos",
+  "tag": "section",
+  "class": "section",
+  "max_blocks": 3,
+  "settings": [
+    {
+      "type": "text",
+      "id": "caption",
+      "default": "Monte · Mar · Nieve",
+      "label": "Antetítulo"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Donde no hay cobertura, hay radio",
+      "label": "Titular"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        { "value": "accent-1", "label": "Acento 1" },
+        { "value": "accent-2", "label": "Acento 2" },
+        { "value": "background-1", "label": "Fondo 1" },
+        { "value": "background-2", "label": "Fondo 2" },
+        { "value": "inverse", "label": "Inverso" }
+      ],
+      "default": "inverse",
+      "label": "Esquema de color"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 48,
+      "label": "Margen superior"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "entorno",
+      "name": "Entorno",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Foto de ambiente (vertical)" },
+        { "type": "text", "id": "etiqueta", "default": "Montaña", "label": "Entorno" },
+        { "type": "product", "id": "product", "label": "Producto" },
+        { "type": "text", "id": "destacado", "default": "Imprescindible en la montaña", "label": "Frase sobre el nombre" },
+        { "type": "text", "id": "frase", "label": "Frase corta bajo el nombre" },
+        { "type": "text", "id": "boton", "default": "Ver producto", "label": "Texto del botón" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tres entornos",
+      "blocks": [
+        { "type": "entorno" },
+        { "type": "entorno" },
+        { "type": "entorno" }
+      ]
+    }
+  ]
+}
+{% endschema %}

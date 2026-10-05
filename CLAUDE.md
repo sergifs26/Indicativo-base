@@ -67,6 +67,7 @@ Ramas: **`production`** = tema publicado · **`staging`** = vista previa.
   sobre la foto solo en la portada**: `body.ib-portada` + script en `layout/theme.liquid` que pone
   `html.ib-cabecera-solida` al bajar; el banner sube con `margin-top: -var(--header-height)`. El
   carrusel de 5 entornos se probó y se descartó (el usuario prefiere una foto).
+- **Tres entornos (05/10/2026)**: sección `destacados-entorno` en la portada (clave `tres_entornos`): 3 fotos verticales a sangre con tarjeta del producto. Productos elegidos por el ranking de popularidad de Pihernz (ver `PROYECTO_INDICATIVO_BASE.md`); rótulo «Imprescindible en…», nunca «el más vendido» sin ventas propias. Se cambian desde el editor de temas.
 - **Tipografía (05/10/2026)**: **Inter**, al estilo de The North Face (que usa Helvetica Neue/Now, de pago). Alojada en el tema (`assets/inter-latin-var.woff2`, OFL 1.1) y fijada por CSS al principio de `assets/indicativo-base.css`: **cambiar la fuente en el editor de temas no tiene efecto**. Los ajustes decían «Helvetica», que Shopify no descarga (en Windows salía Arial).
 - **Desplegables (05/10/2026)**: estilo The North Face (CSS «Desplegables» en `assets/indicativo-base.css`) y apertura al pasar el cursor con `assets/indicativo-menu.js` (solo escritorio con ratón; el clic de ratón no los cierra; el teclado sigue como en el tema).
 - **Giro outdoor (04/10/2026)**: mosaico «¿A dónde vas?». El

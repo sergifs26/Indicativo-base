@@ -145,58 +145,53 @@
         "padding_bottom": 36
       }
     },
-    "sin_cobertura": {
-      "type": "image-with-text",
+    "tres_entornos": {
+      "type": "destacados-entorno",
       "blocks": {
-        "caption": {
-          "type": "caption",
+        "montana": {
+          "type": "entorno",
           "settings": {
-            "caption": "Monte · Mar · Nieve",
-            "text_style": "caption-with-letter-spacing",
-            "text_size": "medium"
+            "image": "shopify://shop_images/photo-1643903096045-07741be1f245.jpg",
+            "etiqueta": "Montaña",
+            "product": "dynascan-r-58-walkie-pmr-446-profesional-ip-67",
+            "destacado": "Imprescindible en la montaña",
+            "frase": "Sin licencia · sumergible (IP67)",
+            "boton": "Ver producto"
           }
         },
-        "heading": {
-          "type": "heading",
+        "nautica": {
+          "type": "entorno",
           "settings": {
-            "heading": "Donde no hay cobertura, hay radio",
-            "heading_size": "h1"
+            "image": "shopify://shop_images/entorno-slide-nautica.jpg",
+            "etiqueta": "Náutica",
+            "product": "jopix-marine-515p-walkie-marina-vhf",
+            "destacado": "Imprescindible en el mar",
+            "frase": "Radio VHF marina que flota · IP67",
+            "boton": "Ver producto"
           }
         },
-        "text": {
-          "type": "text",
+        "nieve": {
+          "type": "entorno",
           "settings": {
-            "text": "<p>En el monte, mar adentro o en mitad de una travesía con nieve, el móvil se queda sin barras justo cuando más falta hace. Un walkie habla directamente con los de tu grupo, sin depender de la cobertura. Y en el mar, la radio marina te mantiene a la escucha del canal 16, el de socorro.</p>",
-            "text_style": "body"
-          }
-        },
-        "button": {
-          "type": "button",
-          "settings": {
-            "button_label": "Encuentra tu walkie",
-            "button_link": "shopify://collections/para-empezar"
+            "image": "shopify://shop_images/entorno-bloque-nieve.jpg",
+            "etiqueta": "Nieve",
+            "product": "dynascan-p19-pareja-de-walkies-pmr-446-con-maletin-y-microauriculares",
+            "destacado": "Imprescindible en la nieve",
+            "frase": "Pareja sin licencia · manos libres y maletín",
+            "boton": "Ver producto"
           }
         }
       },
       "block_order": [
-        "caption",
-        "heading",
-        "text",
-        "button"
+        "montana",
+        "nautica",
+        "nieve"
       ],
       "settings": {
-        "image": "shopify://shop_images/entorno-bloque-experiencia.jpg",
-        "height": "large",
-        "desktop_image_width": "large",
-        "layout": "image_first",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "left",
-        "content_layout": "no-overlap",
+        "caption": "Monte · Mar · Nieve",
+        "heading": "Donde no hay cobertura, hay radio",
         "color_scheme": "inverse",
-        "image_behavior": "none",
-        "mobile_content_alignment": "left",
-        "padding_top": 0,
-        "padding_bottom": 0
+        "padding_top": 48
       }
     },
     "temporada_nieve": {
@@ -386,7 +381,7 @@
     "hero",
     "entornos",
     "para_empezar",
-    "sin_cobertura",
+    "tres_entornos",
     "temporada_nieve",
     "temporada_caza",
     "preguntas",
