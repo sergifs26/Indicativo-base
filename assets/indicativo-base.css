@@ -134,15 +134,7 @@ html:not(.ib-cabecera-solida) .ib-portada .section-header:not(:has(details[open]
 }
 
 [id$="__hero"] .banner__buttons .button {
-  background-color: rgba(18, 18, 18, 0.55);
-  color: #fff;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
   min-width: 18rem;
-}
-
-[id$="__hero"] .banner__buttons .button:hover {
-  background-color: rgba(18, 18, 18, 0.8);
 }
 
 /* Desplegables al estilo The North Face (escritorio): panel blanco, grupos apilados en 5 columnas
@@ -299,7 +291,7 @@ html:not(.ib-cabecera-solida) .ib-portada .section-header:not(:has(details[open]
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.15) 45%, rgba(0, 0, 0, 0) 70%);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.2) 45%, rgba(0, 0, 0, 0) 70%);
   pointer-events: none;
 }
 
@@ -320,22 +312,40 @@ html:not(.ib-cabecera-solida) .ib-portada .section-header:not(:has(details[open]
 }
 
 .ib-entornos3__tarjeta {
-  --color-foreground: 18, 18, 18;
-  --color-button: 18, 18, 18;
-  --color-button-text: 255, 255, 255;
+  --color-foreground: 255, 255, 255;
   display: flex;
   gap: 1.4rem;
   align-items: center;
   padding: 1.4rem;
-  background: #fff;
-  color: rgb(18, 18, 18);
-  border-radius: 2px;
+  color: #fff;
+  border-radius: 2.4rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.08));
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65), inset 0 -1px 1px rgba(255, 255, 255, 0.12),
+    0 1.2rem 3.2rem rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+.ib-entornos3__tarjeta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 38%);
+  pointer-events: none;
 }
 
 .ib-entornos3__producto-foto {
+  position: relative;
   flex: 0 0 9.6rem;
   aspect-ratio: 1;
+  padding: 0.6rem;
   background: #fff;
+  border-radius: 1.6rem;
+  box-shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.18);
 }
 
 .ib-entornos3__producto-foto img {
@@ -345,6 +355,7 @@ html:not(.ib-cabecera-solida) .ib-portada .section-header:not(:has(details[open]
 }
 
 .ib-entornos3__producto-texto {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -357,7 +368,7 @@ html:not(.ib-cabecera-solida) .ib-portada .section-header:not(:has(details[open]
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: #1f7d76;
+  color: #a8efe8;
 }
 
 .ib-entornos3__producto-nombre {
@@ -368,7 +379,7 @@ html:not(.ib-cabecera-solida) .ib-portada .section-header:not(:has(details[open]
 
 .ib-entornos3__frase {
   font-size: 1.3rem;
-  color: rgba(18, 18, 18, 0.7);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .ib-entornos3__boton.button {
@@ -377,4 +388,121 @@ html:not(.ib-cabecera-solida) .ib-portada .section-header:not(:has(details[open]
   min-width: 0;
   padding: 0 1.6rem;
   font-size: 1.3rem;
+}
+
+/* Liquid glass en TODOS los botones (estilo de cristal de Apple): cápsula, desenfoque del fondo,
+   brillo en el borde superior y reflejo suave. Sustituye el borde y la sombra que el tema dibuja
+   con ::before/::after. Tres variantes:
+   - principal sobre fondo claro: cristal oscuro tintado (sigue siendo el más visible);
+   - secundario sobre fondo claro: cristal blanco con texto oscuro;
+   - sobre fotos y fondos oscuros (banner, esquemas inverse/accent, tarjetas de cristal): cristal
+     claro con texto blanco. */
+:root {
+  --buttons-radius: 99px;
+  --buttons-radius-outset: 99px;
+}
+
+.button,
+.shopify-challenge__button,
+.customer button,
+button.shopify-payment-button__button--unbranded {
+  --ib-cristal-fondo: linear-gradient(180deg, rgba(40, 40, 40, 0.84), rgba(10, 10, 10, 0.92));
+  --ib-cristal-texto: #fff;
+  --ib-cristal-borde: rgba(255, 255, 255, 0.16);
+  --ib-cristal-brillo: rgba(255, 255, 255, 0.32);
+  --ib-cristal-reflejo: rgba(255, 255, 255, 0.16);
+  --ib-cristal-sombra: 0 0.6rem 1.8rem rgba(0, 0, 0, 0.16);
+  background: var(--ib-cristal-fondo);
+  color: var(--ib-cristal-texto);
+  border: 1px solid var(--ib-cristal-borde);
+  border-radius: 99px;
+  box-shadow: inset 0 1px 0 var(--ib-cristal-brillo), inset 0 -1px 1px rgba(0, 0, 0, 0.12), var(--ib-cristal-sombra);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  isolation: isolate;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.button--secondary,
+.button--tertiary {
+  --ib-cristal-fondo: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.6));
+  --ib-cristal-texto: rgb(18, 18, 18);
+  --ib-cristal-borde: rgba(18, 18, 18, 0.12);
+  --ib-cristal-brillo: rgba(255, 255, 255, 0.95);
+  --ib-cristal-reflejo: rgba(255, 255, 255, 0.5);
+}
+
+.banner .button,
+.color-inverse .button,
+.color-accent-1 .button,
+.color-accent-2 .button,
+.ib-entornos3__tarjeta .button {
+  --ib-cristal-fondo: linear-gradient(180deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+  --ib-cristal-texto: #fff;
+  --ib-cristal-borde: rgba(255, 255, 255, 0.45);
+  --ib-cristal-brillo: rgba(255, 255, 255, 0.7);
+  --ib-cristal-reflejo: rgba(255, 255, 255, 0.28);
+  --ib-cristal-sombra: 0 0.8rem 2.4rem rgba(0, 0, 0, 0.25);
+}
+
+/* El borde y la sombra del tema (::before/::after) se sustituyen por el reflejo del cristal */
+.button::before,
+.shopify-challenge__button::before,
+.customer button::before,
+.shopify-payment-button__button--unbranded::before {
+  display: none;
+}
+
+.button::after,
+.shopify-challenge__button::after,
+.customer button::after,
+.shopify-payment-button__button--unbranded::after,
+.button:not([disabled]):hover::after,
+.shopify-payment-button__button--unbranded:hover::after {
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  box-shadow: none;
+  background: linear-gradient(180deg, var(--ib-cristal-reflejo) 0%, rgba(255, 255, 255, 0) 55%);
+  pointer-events: none;
+}
+
+.button:not([disabled]):hover,
+button.shopify-payment-button__button--unbranded:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+  box-shadow: inset 0 1px 0 var(--ib-cristal-brillo), inset 0 -1px 1px rgba(0, 0, 0, 0.12), 0 1rem 2.6rem rgba(0, 0, 0, 0.22);
+}
+
+.button:focus:not(:focus-visible):not(.focused),
+.shopify-payment-button__button--unbranded:focus:not(:focus-visible):not(.focused) {
+  box-shadow: inset 0 1px 0 var(--ib-cristal-brillo), inset 0 -1px 1px rgba(0, 0, 0, 0.12), var(--ib-cristal-sombra);
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .button,
+  button.shopify-payment-button__button--unbranded {
+    --ib-cristal-fondo: rgb(18, 18, 18);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .button--secondary,
+  .button--tertiary {
+    --ib-cristal-fondo: #fff;
+  }
+
+  .banner .button,
+  .color-inverse .button,
+  .color-accent-1 .button,
+  .color-accent-2 .button,
+  .ib-entornos3__tarjeta .button {
+    --ib-cristal-fondo: rgba(18, 18, 18, 0.85);
+  }
+
+  .ib-entornos3__tarjeta {
+    background: rgba(18, 18, 18, 0.85);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
 }
