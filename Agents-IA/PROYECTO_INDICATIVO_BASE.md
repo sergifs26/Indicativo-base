@@ -172,3 +172,33 @@ glosario ahora, recomendador más adelante.
 - Errores: `CollectionRuleSet` expone `appliedDisjunctively` (no `appliedDisjunctive`); en Git Bash
   de esta máquina un heredoc de Python convirtió `\b` en un retroceso (0x08) dentro de una regex:
   los scripts con barras invertidas se escriben con la herramienta de ficheros, no con heredoc.
+
+## Actualización 2026-10-05
+
+Ajustes de la portada en `staging` a petición del usuario (pendiente de su OK para `production`):
+- Una sola foto a pantalla completa con titular, frase y dos botones, y cabecera horizontal
+  transparente, estilo The North Face (el carrusel se probó y se descartó). Sin línea bajo la
+  cabecera.
+- Desplegables estilo The North Face (estructura sacada de la copia de su web en archive.org; su
+  web bloquea el acceso automático): grupos con «Ver todo», 5 columnas, panel blanco; se abren al
+  pasar el cursor. Menú aplicado con copia en `scripts/out/menu_backup_20261005T083302.json`.
+- Tipografía **Inter** alojada en el tema (The North Face usa Helvetica Neue/Now, de pago; nuestra
+  «Helvetica» se veía como Arial en Windows).
+- Bloque «Donde no hay cobertura, hay radio» → **tres entornos con su producto estrella**
+  (sección `destacados-entorno`): Montaña, Náutica y Nieve (elegidos por el usuario). Productos
+  según el ranking «Ordenar por popularidad» de la tienda de Pihernz (05/10/2026; WooCommerce,
+  suele ser ventas acumuladas, sin fecha), sin repetir producto:
+
+  | Entorno | Producto | Evidencia en pihernz.com |
+  |---|---|---|
+  | Montaña | Dynascan R-58 PMR-446 IP-67 | #2 de todos los walkies (`/categoria-producto/walkie-talkies/?orderby=popularity`) |
+  | Náutica | Jopix Marine 515P VHF marina | #1 en walkies marinos (`/marina-walkies/?orderby=popularity`) |
+  | Nieve | Dynascan P19 pareja PMR-446 con maletín | #1 en PMR de ocio, #4 general |
+
+  Midland, Ceecoach, Amazon.es y Decathlon bloquearon el acceso automático; Icom no marca más
+  vendidos. En la tienda se rotula «Imprescindible en…», no «el más vendido»: sin ventas propias,
+  esa frase podría ser publicidad engañosa. Foto nueva de nieve (Greg Rosenke, Unsplash).
+- Credenciales de GitHub: había dos cuentas en el Credential Manager y Git se quedaba esperando a
+  que se eligiera una; fijado `credential.https://github.com.username sergifs26` en los dos clones.
+- Revisar en el catálogo: `motorola-talkabout-t82-extreme-quad` a 58,90 € el pack de 4 (precio
+  provisional, parece bajo) y `icom-ic-m25-euro-azul-walkie-marina-vhf` sin fotos y descatalogado.
