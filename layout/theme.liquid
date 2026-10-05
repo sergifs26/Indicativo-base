@@ -255,6 +255,15 @@
           function actualizar() { raiz.classList.toggle('ib-cabecera-solida', window.scrollY > 40); }
           actualizar();
           window.addEventListener('scroll', actualizar, { passive: true });
+          // Altura EXACTA (con decimales) de la cabecera para subir la foto bajo ella: con la
+          // redondeada del tema (--header-height) quedaba una rendija clara de menos de 1 px.
+          document.addEventListener('DOMContentLoaded', function () {
+            var cabecera = document.querySelector('.section-header');
+            if (!cabecera) return;
+            function medir() { raiz.style.setProperty('--ib-cabecera', cabecera.getBoundingClientRect().height + 'px'); }
+            medir();
+            if ('ResizeObserver' in window) new ResizeObserver(medir).observe(cabecera);
+          });
         })();
       </script>
     {%- endif -%}

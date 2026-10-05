@@ -62,7 +62,7 @@
 }
 
 .ib-portada #MainContent > .shopify-section:first-child {
-  margin-top: calc(-1 * var(--header-height, 0px));
+  margin-top: calc(-1 * var(--ib-cabecera, var(--header-height, 0px)));
 }
 
 .ib-portada .header-wrapper {
