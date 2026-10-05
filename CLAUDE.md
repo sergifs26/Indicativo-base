@@ -55,11 +55,11 @@ Ramas: **`production`** = tema publicado · **`staging`** = vista previa.
   y después `sections/header-group.json`, que usa el ajuste nuevo.
 - El teléfono de la barra (`+34 960 000 000`) es **inventado y provisional**: cambiarlo por el real.
 - `git push` a veces no sube nada, sin dar error visible: **comprobar siempre con
-  `git ls-remote origin production staging`**. Causa (05/10/2026): el Git Credential Manager de
-  Windows se queda esperando a que el usuario inicie sesión en GitHub en una ventana. Para
-  saberlo sin colgarse: `GIT_TERMINAL_PROMPT=0 GCM_INTERACTIVE=never git push …` (dice «Cannot
-  prompt»); entonces lanzar el push normal en segundo plano y pedir al usuario que complete la
-  ventana de inicio de sesión.
+  `git ls-remote origin production staging`**. Causa (05/10/2026): en el Credential Manager de
+  Windows hay dos cuentas de GitHub (`sergifs26` e `intertorrentshopify-design`) y Git abría una
+  ventana para elegir cuenta y se quedaba esperando. Arreglo en los dos clones (tema y
+  operaciones): `git config --local credential.https://github.com.username sergifs26`. Si vuelve a
+  pasar: `GIT_TERMINAL_PROMPT=0 GCM_INTERACTIVE=never git push …` lo dice sin colgarse.
 
 - **Portada estilo The North Face (04/10/2026, a petición del usuario)**: una sola foto a pantalla
   completa (sección `hero`, image-banner, texto abajo centrado y 2 botones translúcidos) y cabecera
