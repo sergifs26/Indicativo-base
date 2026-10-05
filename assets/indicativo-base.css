@@ -104,3 +104,97 @@ html:not(.ib-cabecera-solida) .ib-portada .section-header:not(:has(details[open]
 [id$="__hero"] .banner__buttons .button:hover {
   background-color: rgba(18, 18, 18, 0.8);
 }
+
+/* Desplegables al estilo The North Face (escritorio): panel blanco, grupos apilados en 5 columnas
+   sin partir un grupo, título en negrita, «Ver todo» destacado y enlaces pequeños en gris. Los
+   datos del menú (grupos con «Ver todo» primero) salen de scripts/menu_shopify.py. */
+@media screen and (min-width: 990px) {
+  .header-wrapper .mega-menu__content {
+    --color-background: 255, 255, 255;
+    --color-foreground: 18, 18, 18;
+    background: #fff;
+    color: rgb(18, 18, 18);
+    padding-top: 3.2rem;
+    padding-bottom: 4rem;
+    box-shadow: 0 1.6rem 3.2rem rgba(0, 0, 0, 0.14);
+  }
+
+  .mega-menu__list:not(.mega-menu__list--condensed) {
+    display: block;
+    column-count: 5;
+    column-gap: 4rem;
+  }
+
+  .mega-menu__list:not(.mega-menu__list--condensed) > li {
+    break-inside: avoid;
+    padding-bottom: 2.8rem;
+  }
+
+  .mega-menu__list--condensed {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0 4rem;
+  }
+
+  .mega-menu__link {
+    font-size: 1.4rem;
+    padding-top: 0.45rem;
+    padding-bottom: 0.45rem;
+    color: rgba(18, 18, 18, 0.7);
+  }
+
+  .mega-menu__link--level-2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: rgb(18, 18, 18);
+  }
+
+  .mega-menu__link--level-2:not(:only-child) {
+    margin-bottom: 0.4rem;
+  }
+
+  .mega-menu__list--condensed .mega-menu__link--level-2 {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: rgba(18, 18, 18, 0.75);
+  }
+
+  .mega-menu__list > li > ul > li:first-child .mega-menu__link {
+    font-weight: 600;
+    color: rgb(18, 18, 18);
+  }
+
+  .mega-menu__link:hover,
+  .mega-menu__link--active {
+    color: rgb(18, 18, 18);
+    text-underline-offset: 0.3rem;
+  }
+
+  /* Apartados de la cabecera: barra de 3 px bajo el apartado abierto o al pasar el ratón, en vez
+     del subrayado del texto */
+  .header__inline-menu .header__menu-item {
+    position: relative;
+  }
+
+  .header__inline-menu .header__menu-item::after {
+    content: '';
+    position: absolute;
+    left: 1.2rem;
+    right: 1.2rem;
+    bottom: 0;
+    height: 3px;
+    background: currentColor;
+    transform: scaleX(0);
+    transition: transform 0.25s ease-out;
+  }
+
+  .header__inline-menu .header__menu-item:hover::after,
+  .header__inline-menu details[open] > .header__menu-item::after {
+    transform: scaleX(1);
+  }
+
+  .header__inline-menu .header__menu-item:hover span,
+  .header__inline-menu details[open] > .header__menu-item span,
+  .header__inline-menu .header__active-menu-item {
+    text-decoration: none;
+  }
+}
