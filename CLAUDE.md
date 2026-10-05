@@ -9,7 +9,7 @@ Ramas: **`production`** = tema publicado · **`staging`** = vista previa.
 > mismo repo es el repo de operaciones: historia independiente, **nunca se mergea con estas**.
 
 **El usuario quiere conservar el estilo de este tema** (cabecera y pie en negro, fondo claro
-`#fafaf9`, acento `#45c0b6`, Helvetica, botones con radio 2) y sustituir todo el contenido demo
+`#fafaf9`, acento `#45c0b6`, botones con radio 2) y sustituir todo el contenido demo
 («Generated test data», snowboard, cera de esquí, enlaces a shopify.dev, © Shopify).
 
 ## Flujo obligatorio
@@ -67,6 +67,7 @@ Ramas: **`production`** = tema publicado · **`staging`** = vista previa.
   sobre la foto solo en la portada**: `body.ib-portada` + script en `layout/theme.liquid` que pone
   `html.ib-cabecera-solida` al bajar; el banner sube con `margin-top: -var(--header-height)`. El
   carrusel de 5 entornos se probó y se descartó (el usuario prefiere una foto).
+- **Tipografía (05/10/2026)**: **Inter**, al estilo de The North Face (que usa Helvetica Neue/Now, de pago). Alojada en el tema (`assets/inter-latin-var.woff2`, OFL 1.1) y fijada por CSS al principio de `assets/indicativo-base.css`: **cambiar la fuente en el editor de temas no tiene efecto**. Los ajustes decían «Helvetica», que Shopify no descarga (en Windows salía Arial).
 - **Desplegables (05/10/2026)**: estilo The North Face (CSS «Desplegables» en `assets/indicativo-base.css`) y apertura al pasar el cursor con `assets/indicativo-menu.js` (solo escritorio con ratón; el clic de ratón no los cierra; el teclado sigue como en el tema).
 - **Giro outdoor (04/10/2026)**: mosaico «¿A dónde vas?». El
   mosaico usa la imagen de cada colección a sangre (cover) gracias a la regla
