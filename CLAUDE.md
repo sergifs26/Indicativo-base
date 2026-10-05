@@ -67,6 +67,7 @@ Ramas: **`production`** = tema publicado · **`staging`** = vista previa.
   sobre la foto solo en la portada**: `body.ib-portada` + script en `layout/theme.liquid` que pone
   `html.ib-cabecera-solida` al bajar; el banner sube con `margin-top: -var(--header-height)`. El
   carrusel de 5 entornos se probó y se descartó (el usuario prefiere una foto).
+- **Desplegables (05/10/2026)**: estilo The North Face (CSS «Desplegables» en `assets/indicativo-base.css`) y apertura al pasar el cursor con `assets/indicativo-menu.js` (solo escritorio con ratón; el clic de ratón no los cierra; el teclado sigue como en el tema).
 - **Giro outdoor (04/10/2026)**: mosaico «¿A dónde vas?». El
   mosaico usa la imagen de cada colección a sangre (cover) gracias a la regla
   `[id$="__entornos"]` de `assets/indicativo-base.css`: **si se cambia la clave `entornos` de la
