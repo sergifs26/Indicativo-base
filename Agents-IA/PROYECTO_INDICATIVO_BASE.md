@@ -202,3 +202,13 @@ Ajustes de la portada en `staging` a petición del usuario (pendiente de su OK p
   que se eligiera una; fijado `credential.https://github.com.username sergifs26` en los dos clones.
 - Revisar en el catálogo: `motorola-talkabout-t82-extreme-quad` a 58,90 € el pack de 4 (precio
   provisional, parece bajo) y `icom-ic-m25-euro-azul-walkie-marina-vhf` sin fotos y descatalogado.
+- **Antena de recambio** (a petición del usuario: casilla con foto, solo la antena ORIGINAL del
+  modelo). Los PMR-446 llevan antena integrada por normativa (EN 303 405): a la mayoría (Motorola,
+  Midland de ocio) no se les puede ofrecer antena; solo a los que tienen recambio del fabricante
+  (Dynascan L-88, R-58, R-77, LP-50, EU-55, EU-85, R-400…). `scripts/antenas.py` empareja por marca +
+  modelo en el TÍTULO de la antena + banda (en la descripción salen compatibles y daba errores, p. ej.
+  una antena VHF para el DP-1400 UHF). Resultado: **54 walkies** con su antena; 4 excepciones a mano
+  (NAD6052AR original para los DP-1400 VHF según su ficha; pack del CB-514 sin marca; KG-978 sin antena
+  porque la larga es de Dynascan). Metacampo `custom.antenas_recambio` (definición «Antena de
+  recambio», editable en el admin) puesto en los 54. En la ficha, casilla encima de «Añadir al
+  carrito»; con ella marcada, walkie y antena van en una sola petición `items` a /cart/add.

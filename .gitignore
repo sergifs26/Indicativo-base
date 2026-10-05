@@ -21,6 +21,7 @@ fuentes/
 data/*
 !data/precios_icom_revisado.csv
 !data/entornos_excepciones.csv
+!data/antenas_excepciones.csv
 .cache/
 scripts/out/
 tmp/

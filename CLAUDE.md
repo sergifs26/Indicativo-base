@@ -58,6 +58,8 @@ el final parecer correcto.
 | `test_conexion.mjs` | `npm run test:shopify`: datos de la tienda y avisos de configuración |
 | `bulk_cli.mjs` | Lanza una bulk mutation (`scripts/graphql/*.graphql` + JSONL) |
 | `entornos.py` | Etiquetas `entorno:<montana\|nautica\|nieve\|camping\|caza-pesca>`, `nivel:<empezar\|experto>`, `licencia:<no\|si\|marina>` → informe `data/entornos_informe.md`; `--jsonl` genera `tags_add`/`tags_remove` para `bulk_cli.mjs`; `--aplicado` guarda la foto de lo aplicado |
+| `antenas.py` | Antena ORIGINAL de recambio de cada walkie (misma marca, modelo citado en el título de la antena, banda compatible) → `data/antenas_recambio.json` + informe; correcciones en `data/antenas_excepciones.csv` (en git) |
+| `aplicar_antenas.mjs` | Guarda esa antena en el metacampo `custom.antenas_recambio` (crea la definición si falta, pone y quita); la ficha lo muestra como casilla «Añade una antena de recambio» |
 | `colecciones_entorno.mjs` | Colecciones automáticas por esas etiquetas (crea o actualiza por handle, publica, imagen desde `data/shopify/imagenes_entorno.json`). Se niega a aplicar si la etiqueta no tiene productos |
 
 Cadena de catálogo completa: `npm run catalogo`.
