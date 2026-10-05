@@ -54,8 +54,12 @@ Ramas: **`production`** = tema publicado · **`staging`** = vista previa.
   bloques muestra uno cada vez (ajuste `segundos` de la sección). Al subirla, primero el `.liquid`
   y después `sections/header-group.json`, que usa el ajuste nuevo.
 - El teléfono de la barra (`+34 960 000 000`) es **inventado y provisional**: cambiarlo por el real.
-- `git push` a veces no sube nada justo después de un `shopify theme push`, sin dar error visible:
-  **comprobar siempre con `git ls-remote origin production staging`** y repetir si hace falta.
+- `git push` a veces no sube nada, sin dar error visible: **comprobar siempre con
+  `git ls-remote origin production staging`**. Causa (05/10/2026): el Git Credential Manager de
+  Windows se queda esperando a que el usuario inicie sesión en GitHub en una ventana. Para
+  saberlo sin colgarse: `GIT_TERMINAL_PROMPT=0 GCM_INTERACTIVE=never git push …` (dice «Cannot
+  prompt»); entonces lanzar el push normal en segundo plano y pedir al usuario que complete la
+  ventana de inicio de sesión.
 
 - **Portada estilo The North Face (04/10/2026, a petición del usuario)**: una sola foto a pantalla
   completa (sección `hero`, image-banner, texto abajo centrado y 2 botones translúcidos) y cabecera
