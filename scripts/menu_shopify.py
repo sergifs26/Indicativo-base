@@ -157,40 +157,97 @@ SECCIONES = [
 ]
 
 _S = {t: (h, hijos) for t, h, hijos in SECCIONES}
+_S.update({t: (h, hijos) for t, h, hijos in _S["Accesorios"][1]})  # accesorios walkies/emisoras/antenas
+CONTACTO = "gid://shopify/Page/157018980680"
 
 
-def _sin_nietos(titulo: str) -> tuple:
-    """Shopify admite 3 niveles: dentro de «Productos» cada sección conserva solo sus hijos."""
+def _grupo(titulo: str, quitar: tuple = ()) -> tuple:
+    """Grupo del desplegable al estilo The North Face: «Ver todo» primero y lista recortada.
+    Lo que se quita del menú sigue en la colección del «Ver todo». Shopify admite 3 niveles:
+    dentro de «Productos» cada sección conserva solo sus hijos."""
     h, hijos = _S[titulo]
-    return (titulo, h, [(t, hh, []) for t, hh, _ in hijos])
+    return (titulo, h, [("Ver todo", h, [])] + [(t, hh, []) for t, hh, _ in hijos if t not in quitar])
 
 
-ENTORNOS = [("Montaña", "montana"), ("Náutica", "nautica"), ("Nieve", "nieve"),
-            ("Camping y familia", "camping-y-familia"), ("Caza y pesca", "caza-y-pesca")]
+def _entorno(titulo: str, handle: str, enlaces: list) -> tuple:
+    return (titulo, handle, [("Ver todo", handle, [])] + [(t, h, []) for t, h in enlaces])
 
-# Menú del giro outdoor (04/10/2026): el entorno manda; dos caminos, empezar y expertos.
+
+PMR_OCIO, PMR_PRO = "walkies-pmr-446-uso-libre-ocio", "walkies-pmr-446-uso-libre-profesional"
+GPS, LINTERNAS, SATELITE = "outdoor-gps-gnss", "outdoor-linternas", "telefonia-y-conectividad-telefonos-satelite"
+BATERIAS, SOLARES = "alimentacion-baterias-externas", "alimentacion-cargadores-solares"
+
+# Menú del giro outdoor (04/10/2026), con desplegables al estilo The North Face (05/10/2026):
+# grupos con «Ver todo» + 4-10 enlaces, apilados en 5 columnas por el tema. El entorno manda
+# (como su columna «Actividad»); dos caminos, empezar y expertos.
 # «Guías» y «Glosario» se añaden a «Empieza aquí» cuando estén publicados.
 MENU = [
-    ("¿A dónde vas?", None, [(t, h, []) for t, h in ENTORNOS]),
+    ("¿A dónde vas?", None, [
+        _entorno("Montaña", "montana", [
+            ("Walkies de ocio", PMR_OCIO), ("Walkies profesionales sin licencia", PMR_PRO),
+            ("GPS", GPS), ("Linternas y frontales", LINTERNAS), ("Teléfonos satélite", SATELITE),
+            ("Baterías externas", BATERIAS)]),
+        _entorno("Náutica", "nautica", [
+            ("Walkies marinos", "walkies-walkies-marina"), ("Emisoras marinas", "emisoras-emisoras-marina"),
+            ("Antenas marinas", "antenas-antenas-marina"), ("Fundas para walkies", "accesorios-walkies-fundas-walkies"),
+            ("Teléfonos satélite", SATELITE)]),
+        _entorno("Nieve", "nieve", [
+            ("Walkies de ocio", PMR_OCIO), ("Intercomunicadores", "outdoor-intercomunicadores"),
+            ("Linternas y frontales", LINTERNAS), ("Baterías externas", BATERIAS)]),
+        _entorno("Camping y familia", "camping-y-familia", [
+            ("Walkies de ocio", PMR_OCIO), ("Linternas y frontales", LINTERNAS),
+            ("Radios de emergencia", "outdoor-radio-outdoor"), ("Baterías externas", BATERIAS),
+            ("Cargadores solares", SOLARES)]),
+        _entorno("Caza y pesca", "caza-y-pesca", [
+            ("Walkies profesionales sin licencia", PMR_PRO),
+            ("Walkies VHF / UHF profesionales", "walkies-vhf-o-uhf-profesional"),
+            ("Prismáticos", "outdoor-binoculares"), ("Cámaras", "outdoor-camaras-outdoor"),
+            ("Linternas y frontales", LINTERNAS)]),
+    ]),
     ("Empieza aquí", "para-empezar", [
-        ("Lo más fácil para empezar", "para-empezar", []),
-        ("Walkies sin licencia de ocio", "walkies-pmr-446-uso-libre-ocio", []),
-        ("Walkies sin licencia profesionales", "walkies-pmr-446-uso-libre-profesional", []),
+        ("Equipos fáciles", "para-empezar", [
+            ("Ver todo", "para-empezar", []),
+            ("Walkies sin licencia de ocio", PMR_OCIO, []),
+            ("Walkies sin licencia profesionales", PMR_PRO, []),
+            ("Packs", "todos-los-packs", []),
+        ]),
+        ("Te ayudamos", CONTACTO, [
+            ("Cuéntanos tu plan", CONTACTO, []),
+        ]),
     ]),
     ("Productos", None, [
-        _sin_nietos("Walkies"), _sin_nietos("Emisoras"), _sin_nietos("Antenas"),
-        *_S["Accesorios"][1],  # accesorios de walkies, emisoras y antenas, cada uno con sus hijos
-        _sin_nietos("Receptores"), _sin_nietos("Alimentación"), _sin_nietos("Telefonía"),
-        _sin_nietos("Outdoor"),
+        _grupo("Walkies", quitar=("Dynascan",)),
+        _grupo("Emisoras", quitar=("Radios CB",)),
+        _grupo("Antenas", quitar=("TV", "Antenas Diamond", "Jopix")),
+        _grupo("Accesorios walkies", quitar=("Eliminadores de batería", "Maletas")),
+        _grupo("Accesorios emisoras"),
+        _grupo("Accesorios antenas"),
+        _grupo("Receptores", quitar=("Radios Internet / WiFi", "Radios de bolsillo", "Accesorios receptores")),
+        _grupo("Alimentación", quitar=("Arrancadores de baterías",)),
+        _grupo("Telefonía", quitar=("Teléfonos inalámbricos", "Teléfonos de sobremesa", "Módems y routers", "Accesorios")),
+        _grupo("Outdoor", quitar=("Detectores de metales", "Estaciones meteorológicas", "Automóvil")),
     ]),
     ("Para expertos", "para-expertos", [
-        ("Todo para expertos", "para-expertos", []),
-        ("Transceptores HF", "emisoras-transceptores-hf", []),
-        ("Emisoras doble banda", "emisoras-doble-banda-radioaficionado", []),
-        ("Walkies doble banda", "walkies-doble-banda-radioaficionado", []),
-        ("Walkies DMR", "walkies-dmr", []),
-        ("Antenas HF y dipolos", "antenas-antenas-hf-dipolos", []),
-        ("Medidores ROE y potencia", "accesorios-emisoras-medidores-roe-y-potencia", []),
+        ("Equipos", "para-expertos", [
+            ("Ver todo", "para-expertos", []),
+            ("Transceptores HF", "emisoras-transceptores-hf", []),
+            ("Emisoras doble banda", "emisoras-doble-banda-radioaficionado", []),
+            ("Emisoras VHF / UHF radioaficionado", "emisoras-vhf-o-uhf-radioaficionado", []),
+            ("Walkies doble banda", "walkies-doble-banda-radioaficionado", []),
+            ("Walkies DMR", "walkies-dmr", []),
+        ]),
+        ("Antenas y medición", "antenas-antenas-hf-dipolos", [
+            ("Antenas HF y dipolos", "antenas-antenas-hf-dipolos", []),
+            ("Antenas base multibanda", "antenas-base-base-multibanda", []),
+            ("Medidores ROE y potencia", "accesorios-emisoras-medidores-roe-y-potencia", []),
+            ("Amplificadores lineales", "accesorios-emisoras-amplificadores-lineales", []),
+            ("Rotores", "accesorios-de-antenas-rotores", []),
+        ]),
+        ("Escucha", "receptores-y-scanners", [
+            ("Escáneres", "receptores-y-scanners-escaners-radio", []),
+            ("Receptores multibanda", "receptores-y-scanners-receptores-radio-multibanda", []),
+            ("AOR", "receptores-y-scanners-aor", []),
+        ]),
     ]),
     ("Ofertas", *_S["Ofertas"]),
     ("Marcas", *_S["Marcas"]),
@@ -209,7 +266,9 @@ PIE = [
 
 def item(titulo: str, handle: str | None, hijos: list) -> dict:
     d: dict = {"title": titulo}
-    if handle:
+    if handle and handle.startswith("gid://shopify/Page/"):
+        d.update(type="PAGE", resourceId=handle)
+    elif handle:
         d.update(type="COLLECTION", resourceId=IDS[handle])
     else:
         d.update(type="CATALOG", url="/collections/all")
