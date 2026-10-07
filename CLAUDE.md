@@ -61,8 +61,9 @@ Ramas: **`production`** = tema publicado · **`staging`** = vista previa.
   operaciones): `git config --local credential.https://github.com.username sergifs26`. Si vuelve a
   pasar: `GIT_TERMINAL_PROMPT=0 GCM_INTERACTIVE=never git push …` lo dice sin colgarse.
 
+- **Banner principal (07/10/2026)**: sección propia `hero-indicativo` (clave `hero`): foto con un walkie a la vista, texto a la derecha, botones a walkies/emisoras y 4 tarjetas de cristal por categoría con nº de modelos en vivo. Estilos «Banner principal» en `assets/indicativo-base.css`.
 - **Portada estilo The North Face (04/10/2026, a petición del usuario)**: una sola foto a pantalla
-  completa (sección `hero`, image-banner, texto abajo centrado y 2 botones translúcidos) y cabecera
+  completa (sección `hero`; hasta el 07/10 era un image-banner con texto abajo centrado) y cabecera
   con menú horizontal (`logo_position: middle-left`, `menu_type_desktop: mega`) **transparente
   sobre la foto solo en la portada**: `body.ib-portada` + script en `layout/theme.liquid` que pone
   `html.ib-cabecera-solida` al bajar; el banner sube con `margin-top: -var(--header-height)`. El

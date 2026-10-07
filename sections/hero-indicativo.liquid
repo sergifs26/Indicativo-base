@@ -1,0 +1,146 @@
+{% comment %}
+  Banner principal de la portada: que se vea de un vistazo que aquí hay walkies, emisoras y
+  antenas. Foto a pantalla completa con una radio a la vista, titular y botones a las categorías
+  y, al pie, una fila de tarjetas de cristal por categoría (foto de un producto + «N modelos»,
+  contados en vivo). Va con la clave «hero» en templates/index.json: la cabecera transparente y el
+  margen del primer bloque dependen de ello. Estilos en assets/indicativo-base.css, «Banner
+  principal».
+{% endcomment %}
+<div
+  class="ib-hero color-{{ section.settings.color_scheme }}"
+  style="--ib-hero-pos-movil: {{ section.settings.posicion_movil }};"
+>
+  <div class="ib-hero__media">
+    {%- if section.settings.image != blank -%}
+      {{
+        section.settings.image
+        | image_url: width: 3000
+        | image_tag:
+          class: 'ib-hero__foto',
+          loading: 'eager',
+          fetchpriority: 'high',
+          widths: '750, 1100, 1500, 1800, 2400, 3000',
+          sizes: '100vw',
+          alt: section.settings.image.alt
+      }}
+    {%- endif -%}
+  </div>
+
+  <div class="ib-hero__contenido page-width">
+    <div class="ib-hero__texto">
+      {%- if section.settings.antetitulo != blank -%}
+        <p class="ib-hero__antetitulo caption-with-letter-spacing">{{ section.settings.antetitulo | escape }}</p>
+      {%- endif -%}
+      {%- if section.settings.titular != blank -%}
+        <h1 class="ib-hero__titular h0">{{ section.settings.titular | escape }}</h1>
+      {%- endif -%}
+      {%- if section.settings.texto != blank -%}
+        <p class="ib-hero__frase">{{ section.settings.texto | escape }}</p>
+      {%- endif -%}
+      <div class="ib-hero__botones">
+        {%- if section.settings.boton_1_texto != blank -%}
+          <a class="button ib-hero__boton--principal" href="{{ section.settings.boton_1_enlace | default: '#' }}">{{ section.settings.boton_1_texto | escape }}</a>
+        {%- endif -%}
+        {%- if section.settings.boton_2_texto != blank -%}
+          <a class="button button--secondary" href="{{ section.settings.boton_2_enlace | default: '#' }}">{{ section.settings.boton_2_texto | escape }}</a>
+        {%- endif -%}
+      </div>
+      {%- if section.settings.enlace_texto != blank and section.settings.enlace_url != blank -%}
+        <a class="ib-hero__enlace" href="{{ section.settings.enlace_url }}">
+          {{ section.settings.enlace_texto | escape }} <span>{{ section.settings.enlace_destacado | escape }} →</span>
+        </a>
+      {%- endif -%}
+    </div>
+
+    {%- if section.blocks.size > 0 -%}
+      <ul class="ib-hero__categorias" role="list">
+        {%- for block in section.blocks -%}
+          {%- assign coleccion = block.settings.collection -%}
+          {%- if coleccion != blank -%}
+            {%- assign foto = block.settings.product.featured_media | default: coleccion.featured_image -%}
+            <li {{ block.shopify_attributes }}>
+              <a class="ib-hero__cat" href="{{ coleccion.url }}">
+                {%- if foto != blank -%}
+                  <span class="ib-hero__cat-foto">
+                    {{ foto | image_url: width: 240 | image_tag: loading: 'eager', widths: '120, 240', sizes: '72px', alt: '' }}
+                  </span>
+                {%- endif -%}
+                <span class="ib-hero__cat-texto">
+                  <span class="ib-hero__cat-nombre">{{ block.settings.etiqueta | default: coleccion.title | escape }}</span>
+                  <span class="ib-hero__cat-num">{{ coleccion.products_count }} modelos</span>
+                </span>
+                <span class="ib-hero__cat-flecha" aria-hidden="true">→</span>
+              </a>
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Banner principal",
+  "tag": "section",
+  "class": "section",
+  "max_blocks": 4,
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Foto" },
+    {
+      "type": "select",
+      "id": "posicion_movil",
+      "label": "Encuadre de la foto en móvil",
+      "options": [
+        { "value": "20% 50%", "label": "Izquierda" },
+        { "value": "35% 50%", "label": "Centro-izquierda" },
+        { "value": "50% 50%", "label": "Centro" },
+        { "value": "70% 50%", "label": "Derecha" }
+      ],
+      "default": "35% 50%"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        { "value": "inverse", "label": "Inverso" },
+        { "value": "accent-1", "label": "Acento 1" }
+      ],
+      "default": "inverse",
+      "label": "Esquema de color"
+    },
+    { "type": "text", "id": "antetitulo", "default": "Walkies · Emisoras · Antenas", "label": "Antetítulo" },
+    { "type": "text", "id": "titular", "default": "Walkies y emisoras de las mejores marcas", "label": "Titular" },
+    { "type": "textarea", "id": "texto", "label": "Frase" },
+    { "type": "text", "id": "boton_1_texto", "default": "Ver walkies", "label": "Botón principal" },
+    { "type": "url", "id": "boton_1_enlace", "label": "Enlace del botón principal" },
+    { "type": "text", "id": "boton_2_texto", "default": "Ver emisoras", "label": "Botón secundario" },
+    { "type": "url", "id": "boton_2_enlace", "label": "Enlace del botón secundario" },
+    { "type": "text", "id": "enlace_texto", "default": "¿Es tu primera radio?", "label": "Texto del enlace" },
+    { "type": "text", "id": "enlace_destacado", "default": "Empieza aquí", "label": "Parte destacada del enlace" },
+    { "type": "url", "id": "enlace_url", "label": "Enlace" }
+  ],
+  "blocks": [
+    {
+      "type": "categoria",
+      "name": "Categoría",
+      "settings": [
+        { "type": "collection", "id": "collection", "label": "Colección" },
+        { "type": "product", "id": "product", "label": "Producto para la foto" },
+        { "type": "text", "id": "etiqueta", "label": "Nombre (si no, el de la colección)" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Banner principal",
+      "blocks": [
+        { "type": "categoria" },
+        { "type": "categoria" },
+        { "type": "categoria" },
+        { "type": "categoria" }
+      ]
+    }
+  ]
+}
+{% endschema %}

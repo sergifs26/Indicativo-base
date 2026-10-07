@@ -114,27 +114,231 @@ html:not(.ib-cabecera-solida) .ib-portada .section-header:not(:has(details[open]
   border-bottom-color: transparent;
 }
 
-/* Banner de portada (sección «hero»): una sola foto a pantalla completa, texto abajo y centrado */
-[id$="__hero"] .banner,
-[id$="__hero"] .banner__content {
+/* Banner principal (sections/hero-indicativo.liquid, clave «hero»): foto a pantalla completa con
+   una radio a la vista, texto a la derecha sobre la parte desenfocada y, al pie, tarjetas de
+   cristal por categoría. En móvil, texto abajo y tarjetas en fila deslizable. */
+.ib-hero {
+  position: relative;
+  display: flex;
   min-height: calc(100vh - 3.6rem);
   min-height: calc(100svh - 3.6rem);
+  color: #fff;
+  background: #121212;
+  overflow: hidden;
 }
 
-[id$="__hero"] .banner__content {
-  padding-bottom: 6rem;
+.ib-hero__media,
+.ib-hero__foto {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
 }
 
-[id$="__hero"] .banner__heading {
-  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.35);
+.ib-hero__foto {
+  object-fit: cover;
+  object-position: var(--ib-hero-pos-movil, 35% 50%);
 }
 
-[id$="__hero"] .banner__text {
+.ib-hero__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top, rgba(0, 0, 0, 0.78) 0%, rgba(0, 0, 0, 0.35) 45%, rgba(0, 0, 0, 0.25) 100%);
+}
+
+.ib-hero__contenido {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 3.2rem;
+  width: 100%;
+  min-width: 0; /* si no, la fila deslizable de tarjetas ensancha la columna en móvil */
+  padding-top: calc(var(--ib-cabecera, 8rem) + 2rem);
+  padding-bottom: 2.4rem;
+}
+
+.ib-hero__texto {
+  max-width: 60rem;
+  min-width: 0;
+}
+
+.ib-hero__antetitulo {
+  margin: 0 0 1.2rem;
+  color: #a8efe8;
+  font-weight: 600;
+}
+
+.ib-hero__titular {
+  margin: 0 0 1.6rem;
+  color: #fff;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.3);
+}
+
+.ib-hero__frase {
+  margin: 0 0 2.4rem;
   font-size: 1.7rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.88);
 }
 
-[id$="__hero"] .banner__buttons .button {
-  min-width: 18rem;
+.ib-hero__botones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+}
+
+.ib-hero__botones .button {
+  min-width: 16rem;
+}
+
+/* El botón principal, cristal casi blanco para que destaque sobre la foto */
+.ib-hero .button.ib-hero__boton--principal {
+  --ib-cristal-fondo: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.82));
+  --ib-cristal-texto: rgb(18, 18, 18);
+  --ib-cristal-borde: rgba(255, 255, 255, 0.9);
+  --ib-cristal-brillo: #fff;
+  --ib-cristal-reflejo: rgba(255, 255, 255, 0.6);
+}
+
+.ib-hero__enlace {
+  display: inline-block;
+  margin-top: 1.6rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.ib-hero__enlace span {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+}
+
+/* Tarjetas de cristal por categoría */
+.ib-hero__categorias {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(24rem, 78%);
+  gap: 1.2rem;
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.ib-hero__categorias::-webkit-scrollbar {
+  display: none;
+}
+
+.ib-hero__categorias > li {
+  scroll-snap-align: start;
+}
+
+.ib-hero__cat {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  height: 100%;
+  padding: 1rem 1.4rem 1rem 1rem;
+  border-radius: 2rem;
+  color: #fff;
+  text-decoration: none;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.08));
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 1rem 2.6rem rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.ib-hero__cat:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.12));
+}
+
+.ib-hero__cat-foto {
+  flex: 0 0 7.2rem;
+  height: 7.2rem;
+  padding: 0.6rem;
+  border-radius: 1.4rem;
+  background: #fff;
+}
+
+.ib-hero__cat-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.ib-hero__cat-texto {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.ib-hero__cat-nombre {
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+.ib-hero__cat-num {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.ib-hero__cat-flecha {
+  margin-left: auto;
+  font-size: 1.8rem;
+  opacity: 0.8;
+}
+
+@media screen and (min-width: 750px) {
+  .ib-hero__foto {
+    object-position: 30% 50%;
+  }
+
+  .ib-hero__media::after {
+    background:
+      linear-gradient(to left, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 38%, rgba(0, 0, 0, 0) 65%),
+      linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 38%);
+  }
+
+  .ib-hero__contenido {
+    justify-content: space-between;
+    padding-bottom: 3.2rem;
+  }
+
+  .ib-hero__texto {
+    align-self: flex-end;
+    margin-top: auto;
+    margin-bottom: auto;
+    max-width: 56rem;
+  }
+
+  .ib-hero__categorias {
+    grid-auto-flow: row;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    overflow: visible;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .ib-hero__cat {
+    background: rgba(18, 18, 18, 0.85);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
 }
 
 /* Desplegables al estilo The North Face (escritorio): panel blanco, grupos apilados en 5 columnas

@@ -10,51 +10,61 @@
 {
   "sections": {
     "hero": {
-      "type": "image-banner",
+      "type": "hero-indicativo",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "walkies": {
+          "type": "categoria",
           "settings": {
-            "heading": "Siempre en contacto, vayas donde vayas",
-            "heading_size": "h0"
+            "collection": "walkies",
+            "product": "dynascan-r-58-walkie-pmr-446-profesional-ip-67",
+            "etiqueta": "Walkies"
           }
         },
-        "text": {
-          "type": "text",
+        "emisoras": {
+          "type": "categoria",
           "settings": {
-            "text": "Walkies y radio para cada plan al aire libre, desde tu primera salida hasta la más exigente.",
-            "text_style": "body"
+            "collection": "emisoras",
+            "product": "icom-ic-7300-transceptor-hf-sdr",
+            "etiqueta": "Emisoras"
           }
         },
-        "buttons": {
-          "type": "buttons",
+        "antenas": {
+          "type": "categoria",
           "settings": {
-            "button_label_1": "Es mi primera radio",
-            "button_link_1": "shopify://collections/para-empezar",
-            "button_style_secondary_1": true,
-            "button_label_2": "Ya tengo experiencia",
-            "button_link_2": "shopify://collections/para-expertos",
-            "button_style_secondary_2": true
+            "collection": "antenas",
+            "product": "diamond-srh771-antena-doble-banda-sma-macho",
+            "etiqueta": "Antenas"
+          }
+        },
+        "accesorios": {
+          "type": "categoria",
+          "settings": {
+            "collection": "accesorios-walkies",
+            "product": "jetfon-jr-1702-e-c-microauricular-para-walkies-con-conector-doble-tipo-k",
+            "etiqueta": "Accesorios"
           }
         }
       },
       "block_order": [
-        "heading",
-        "text",
-        "buttons"
+        "walkies",
+        "emisoras",
+        "antenas",
+        "accesorios"
       ],
       "settings": {
-        "image": "shopify://shop_images/entorno-slide-nieve.jpg",
-        "image_overlay_opacity": 30,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "desktop_content_alignment": "center",
+        "image": "shopify://shop_images/entorno-hero-walkie-mochila.jpg",
+        "posicion_movil": "35% 50%",
         "color_scheme": "inverse",
-        "image_behavior": "none",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "antetitulo": "Walkies · Emisoras · Antenas",
+        "titular": "Walkies y emisoras de las mejores marcas",
+        "texto": "Para el monte, el mar o la nieve: más de 2.500 equipos de radio de Motorola, Icom, Yaesu, Midland y Kenwood.",
+        "boton_1_texto": "Ver walkies",
+        "boton_1_enlace": "shopify://collections/walkies",
+        "boton_2_texto": "Ver emisoras",
+        "boton_2_enlace": "shopify://collections/emisoras",
+        "enlace_texto": "¿Es tu primera radio?",
+        "enlace_destacado": "Empieza aquí",
+        "enlace_url": "shopify://collections/para-empezar"
       }
     },
     "entornos": {
