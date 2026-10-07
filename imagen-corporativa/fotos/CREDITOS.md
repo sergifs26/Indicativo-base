@@ -18,6 +18,7 @@ En Shopify Files se suben como `entorno-<fichero>` con `scripts/subir_fichero.mj
 | tile-para-empezar.jpg (1200) | Tarjeta y bloque «Empiezo» | [photo-1464207687429-7505649dae38](https://unsplash.com/photos/NhU0nUR7920) | Arthur Poulin (@barchpou) |
 | bloque-experiencia.jpg (1200) | Bloque «Tengo experiencia» | [photo-1789288046242-5a2a4ae14889](https://unsplash.com/photos/FU-xytmckg0) | Egor Myznik (@vonshnauzer) |
 | bloque-nieve.jpg (1400, vertical) | Bloque «Tres entornos»: nieve | [photo-1576866946478-8d0d015bf3e5](https://unsplash.com/photos/UkIinksPvT0) | Greg Rosenke (@greg_rosenke) |
+| hero-walkie-mochila.jpg (2400) | Banner principal de la portada (desde 07/10/2026) | [photo-1789288046242-5a2a4ae14889](https://unsplash.com/photos/FU-xytmckg0) | Egor Myznik (@vonshnauzer) |
 | tile-montana.jpg (1200) | Tarjeta montaña (la del banner actual) | photo-1563442162585-fa1426255ea9 | ver PROYECTO_INDICATIVO_BASE.md (29/09) |
 
 Alternativas descartadas por si se quiere cambiar: náutica `photo-1773834194438` como pase (más

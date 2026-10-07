@@ -212,3 +212,17 @@ Ajustes de la portada en `staging` a petición del usuario (pendiente de su OK p
   porque la larga es de Dynascan). Metacampo `custom.antenas_recambio` (definición «Antena de
   recambio», editable en el admin) puesto en los 54. En la ficha, casilla encima de «Añadir al
   carrito»; con ella marcada, walkie y antena van en una sola petición `items` a /cart/add.
+
+## Actualización 2026-10-07
+
+- **Banner principal** (a petición del usuario: que se vea a primera vista que vendemos walkies y
+  emisoras): sección nueva `hero-indicativo` con foto del walkie en la mochila (Unsplash, Egor
+  Myznik), antetítulo «Walkies · Emisoras · Antenas», titular «Walkies y emisoras de las mejores
+  marcas», frase con marcas reales del catálogo (Icom 208 productos, Motorola 93, Yaesu 74,
+  Kenwood 39, Midland 36), botones «Ver walkies» / «Ver emisoras», enlace «¿Es tu primera radio?
+  Empieza aquí» y 4 tarjetas de cristal (Walkies, Emisoras, Antenas, Accesorios) con foto de un
+  producto (Dynascan R-58, Icom IC-7300, Diamond SRH771, Jetfon JR-1702) y nº de modelos en vivo.
+  Se descartaron fotos de Pexels (la mejor, una chica con walkie, ocupaba el centro y el texto le
+  tapaba la cara). Los esquiadores quedan en Ficheros de reserva.
+- Pruebas visuales: Edge sin ventana no baja de ~500 px de ancho; para ver móvil se carga la página
+  en un `<iframe>` de 390 px.
