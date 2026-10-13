@@ -21,10 +21,14 @@ Ramas: **`production`** = tema publicado · **`staging`** = vista previa.
 3. Si el push se rechaza: `git pull --rebase`. **Nunca `reset --hard` ni force-push.**
 4. Ficheros de escritura exclusiva (uno a la vez): `config/settings_data.json`,
    `sections/header-group.json`, `sections/footer-group.json`, `templates/index.json`.
-5. Estado (29/09/2026): publicado «Indicativo Base» `190088544584` (subido por CLI desde
-   `production`); vista previa «Indicativo Base (staging)» `190088151368`; demo original
-   `test-data` `190048174408` como respaldo. Al conectar la GitHub Integration, publicar el tema
-   enlazado a `production` y borrar los dos subidos por CLI.
+5. Estado (13/10/2026): **el tema publicado es «Indicativo Base (staging)» `190088151368`** (lo
+   publicó el usuario desde el admin entre el 08/10 y el 13/10); el antiguo «Indicativo Base»
+   `190088544584` queda sin publicar, con el diseño anterior; demo original `test-data`
+   `190048174408` como respaldo. Consecuencias: la rama `staging` es lo que está en producción y
+   `production` (git) va por detrás; **ya no hay tema de vista previa**: un `theme push` a
+   `190088151368` va directo a la tienda y pide `--allow-live`. Antes de subir, comprobar deriva
+   (cambios hechos en el editor) con `theme pull` de los JSON y comparación con git.
+   Al conectar la GitHub Integration, publicar el tema enlazado a `production`.
 6. Mientras la GitHub Integration no esté conectada, subir a un tema **no publicado** con
    `shopify theme push -s indicativo-base.myshopify.com -t <id> -n -o <fichero>` y publicarlo
    desde el admin. El conector MCP de claude.ai no puede escribir en el tema publicado.
