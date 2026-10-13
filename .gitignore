@@ -42,3 +42,4 @@ desktop.ini
 
 # Fotos de ambiente: se regeneran desde Unsplash (ver imagen-corporativa/fotos/CREDITOS.md)
 imagen-corporativa/fotos/*.jpg
+imagen-corporativa/fotos/**/*.jpg
