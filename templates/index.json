@@ -52,7 +52,7 @@
         "accesorios"
       ],
       "settings": {
-        "image": "shopify://shop_images/entorno-hero-walkie-mochila.jpg",
+        "image": "shopify://shop_images/entorno-hero-dynascan-p19.jpg",
         "posicion_movil": "35% 50%",
         "color_scheme": "inverse",
         "antetitulo": "",
@@ -64,7 +64,8 @@
         "boton_2_enlace": "",
         "enlace_texto": "",
         "enlace_destacado": "",
-        "enlace_url": ""
+        "enlace_url": "",
+        "disposicion": "izquierda"
       }
     },
     "entornos": {

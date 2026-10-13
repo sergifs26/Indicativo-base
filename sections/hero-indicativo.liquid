@@ -7,7 +7,7 @@
   principal».
 {% endcomment %}
 <div
-  class="ib-hero color-{{ section.settings.color_scheme }}"
+  class="ib-hero ib-hero--{{ section.settings.disposicion }} color-{{ section.settings.color_scheme }}"
   style="--ib-hero-pos-movil: {{ section.settings.posicion_movil }};"
 >
   <div class="ib-hero__media">
@@ -89,6 +89,17 @@
   "max_blocks": 4,
   "settings": [
     { "type": "image_picker", "id": "image", "label": "Foto" },
+    {
+      "type": "select",
+      "id": "disposicion",
+      "label": "Disposición en ordenador",
+      "info": "A sangre: la foto ocupa todo y el texto va encima, a la derecha (para fotos con espacio libre a la derecha). A la izquierda: la foto se ve entera a la izquierda y se funde con un fondo oscuro donde va el texto (para fotos de producto).",
+      "options": [
+        { "value": "sangre", "label": "Foto a sangre" },
+        { "value": "izquierda", "label": "Foto a la izquierda" }
+      ],
+      "default": "sangre"
+    },
     {
       "type": "select",
       "id": "posicion_movil",

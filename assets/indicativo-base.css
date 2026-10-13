@@ -338,6 +338,52 @@ html:not(.ib-cabecera-solida) .ib-portada .section-header:not(:has(details[open]
   }
 }
 
+/* Variante «foto a la izquierda» (ajuste «Disposición»): para fotos de producto que llenan el
+   centro. En ordenador la foto ocupa la parte izquierda, entera, y se funde con el fondo oscuro
+   de la derecha, donde va el texto. En tablet y móvil, foto a sangre con el texto abajo. */
+@media screen and (min-width: 750px) and (max-width: 989px) {
+  .ib-hero--izquierda .ib-hero__foto {
+    object-position: var(--ib-hero-pos-movil, 35% 50%);
+  }
+
+  .ib-hero--izquierda .ib-hero__media::after {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.78) 0%, rgba(0, 0, 0, 0.35) 45%, rgba(0, 0, 0, 0.25) 100%);
+  }
+
+  .ib-hero--izquierda .ib-hero__contenido {
+    justify-content: flex-end;
+  }
+
+  .ib-hero--izquierda .ib-hero__texto {
+    align-self: flex-start;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .ib-hero--izquierda .ib-hero__media {
+    right: auto;
+    width: 72%;
+  }
+
+  .ib-hero--izquierda .ib-hero__foto {
+    object-position: 50% 42%;
+    -webkit-mask-image: linear-gradient(to right, #000 60%, rgba(0, 0, 0, 0) 100%);
+    mask-image: linear-gradient(to right, #000 60%, rgba(0, 0, 0, 0) 100%);
+  }
+
+  .ib-hero--izquierda .ib-hero__media::after {
+    background:
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0) 22%),
+      linear-gradient(to top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 36%);
+  }
+
+  .ib-hero--izquierda .ib-hero__texto {
+    max-width: 46rem;
+  }
+}
+
 @media (prefers-reduced-transparency: reduce) {
   .ib-hero__cat {
     background: rgba(18, 18, 18, 0.85);
