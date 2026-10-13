@@ -8,7 +8,7 @@
 {% endcomment %}
 <div
   class="ib-hero ib-hero--{{ section.settings.disposicion }} color-{{ section.settings.color_scheme }}"
-  style="--ib-hero-pos-movil: {{ section.settings.posicion_movil }};"
+  style="--ib-hero-pos-movil: {{ section.settings.posicion_movil }}; --ib-hero-pos-escritorio: {{ section.settings.posicion_escritorio }};"
 >
   <div class="ib-hero__media">
     {%- if section.settings.image != blank -%}
@@ -99,6 +99,17 @@
         { "value": "izquierda", "label": "Foto a la izquierda" }
       ],
       "default": "sangre"
+    },
+    {
+      "type": "select",
+      "id": "posicion_escritorio",
+      "label": "Encuadre de la foto en ordenador (foto a la izquierda)",
+      "options": [
+        { "value": "12% 45%", "label": "Izquierda" },
+        { "value": "50% 42%", "label": "Centro" },
+        { "value": "88% 45%", "label": "Derecha" }
+      ],
+      "default": "50% 42%"
     },
     {
       "type": "select",

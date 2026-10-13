@@ -65,7 +65,8 @@
         "enlace_texto": "",
         "enlace_destacado": "",
         "enlace_url": "",
-        "disposicion": "izquierda"
+        "disposicion": "izquierda",
+        "posicion_escritorio": "50% 42%"
       }
     },
     "entornos": {

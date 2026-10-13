@@ -368,7 +368,7 @@ html:not(.ib-cabecera-solida) .ib-portada .section-header:not(:has(details[open]
   }
 
   .ib-hero--izquierda .ib-hero__foto {
-    object-position: 50% 42%;
+    object-position: var(--ib-hero-pos-escritorio, 50% 42%);
     -webkit-mask-image: linear-gradient(to right, #000 60%, rgba(0, 0, 0, 0) 100%);
     mask-image: linear-gradient(to right, #000 60%, rgba(0, 0, 0, 0) 100%);
   }
