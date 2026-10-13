@@ -37,14 +37,16 @@
       {%- if section.settings.texto != blank -%}
         <p class="ib-hero__frase">{{ section.settings.texto | escape }}</p>
       {%- endif -%}
-      <div class="ib-hero__botones">
-        {%- if section.settings.boton_1_texto != blank -%}
-          <a class="button ib-hero__boton--principal" href="{{ section.settings.boton_1_enlace | default: '#' }}">{{ section.settings.boton_1_texto | escape }}</a>
-        {%- endif -%}
-        {%- if section.settings.boton_2_texto != blank -%}
-          <a class="button button--secondary" href="{{ section.settings.boton_2_enlace | default: '#' }}">{{ section.settings.boton_2_texto | escape }}</a>
-        {%- endif -%}
-      </div>
+      {%- if section.settings.boton_1_texto != blank or section.settings.boton_2_texto != blank -%}
+        <div class="ib-hero__botones">
+          {%- if section.settings.boton_1_texto != blank -%}
+            <a class="button ib-hero__boton--principal" href="{{ section.settings.boton_1_enlace | default: '#' }}">{{ section.settings.boton_1_texto | escape }}</a>
+          {%- endif -%}
+          {%- if section.settings.boton_2_texto != blank -%}
+            <a class="button button--secondary" href="{{ section.settings.boton_2_enlace | default: '#' }}">{{ section.settings.boton_2_texto | escape }}</a>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
       {%- if section.settings.enlace_texto != blank and section.settings.enlace_url != blank -%}
         <a class="ib-hero__enlace" href="{{ section.settings.enlace_url }}">
           {{ section.settings.enlace_texto | escape }} <span>{{ section.settings.enlace_destacado | escape }} →</span>

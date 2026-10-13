@@ -178,6 +178,11 @@ html:not(.ib-cabecera-solida) .ib-portada .section-header:not(:has(details[open]
   text-shadow: 0 2px 18px rgba(0, 0, 0, 0.3);
 }
 
+/* Sin botones ni enlace, el último texto no deja hueco debajo */
+.ib-hero__texto > :last-child {
+  margin-bottom: 0;
+}
+
 .ib-hero__frase {
   margin: 0 0 2.4rem;
   font-size: 1.7rem;
