@@ -62,9 +62,9 @@
         "boton_1_enlace": "shopify://collections/walkies",
         "boton_2_texto": "Ver emisoras",
         "boton_2_enlace": "shopify://collections/emisoras",
-        "enlace_texto": "¿Es tu primera radio?",
-        "enlace_destacado": "Empieza aquí",
-        "enlace_url": "shopify://collections/para-empezar"
+        "enlace_texto": "",
+        "enlace_destacado": "",
+        "enlace_url": ""
       }
     },
     "entornos": {
