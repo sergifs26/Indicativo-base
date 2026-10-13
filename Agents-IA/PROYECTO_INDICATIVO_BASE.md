@@ -226,3 +226,16 @@ Ajustes de la portada en `staging` a petición del usuario (pendiente de su OK p
   tapaba la cara). Los esquiadores quedan en Ficheros de reserva.
 - Pruebas visuales: Edge sin ventana no baja de ~500 px de ancho; para ver móvil se carga la página
   en un `<iframe>` de 390 px.
+
+## Actualización 2026-10-13
+
+- El usuario publicó el tema «Indicativo Base (staging)» `190088151368` desde el admin: ahora es el
+  tema en producción y ya no hay vista previa (los `theme push` van con `--allow-live`, comprobando
+  antes la deriva con el editor).
+- Banner principal: titular «Walkies y emisoras de las mejores marcas», frase «Siempre en contacto,
+  estés donde estés.»; fuera el antetítulo, los botones y el enlace para principiantes (peticiones
+  del usuario). **Foto nueva de una marca que vendemos**: los dos Dynascan P19 sobre una roca, de la
+  galería del propio producto (el P19 es el nº 1 en PMR de ocio de Pihernz). Como la foto llena el
+  centro, el banner tiene una disposición nueva «Foto a la izquierda»: la foto entera a la
+  izquierda fundida con fondo oscuro a la derecha, donde va el texto.
+- Quitado «Powered by Shopify» del pie.
