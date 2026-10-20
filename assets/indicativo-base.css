@@ -761,3 +761,99 @@ button.shopify-payment-button__button--unbranded:hover {
     -webkit-backdrop-filter: none;
   }
 }
+
+/* Carrusel de marcas (sections/marcas-carrusel.liquid): franja clara bajo el banner con los logos
+   pasando en bucle. La lista va dos veces y la pista se desplaza el 50 % de su ancho, así el bucle
+   no tiene salto. Bordes difuminados, pausa al pasar el ratón y logos a color al señalarlos. */
+.ib-marcas {
+  padding: 2.4rem 0 2.8rem;
+  border-bottom: 1px solid rgba(var(--color-foreground), 0.06);
+}
+
+.ib-marcas__titulo {
+  margin: 0 0 1.6rem;
+  text-align: center;
+  color: rgba(var(--color-foreground), 0.55);
+}
+
+.ib-marcas__ventana {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 8%, #000 92%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, #000 8%, #000 92%, transparent 100%);
+}
+
+.ib-marcas__pista {
+  display: flex;
+  width: max-content;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  animation: ib-marcas-bucle var(--ib-marcas-duracion, 45s) linear infinite;
+}
+
+.ib-marcas__ventana:hover .ib-marcas__pista,
+.ib-marcas__ventana:focus-within .ib-marcas__pista {
+  animation-play-state: paused;
+}
+
+.ib-marcas__pista > li {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  padding: 0 3.2rem;
+}
+
+.ib-marcas__pista a {
+  display: flex;
+  align-items: center;
+}
+
+.ib-marcas__logo {
+  display: block;
+  height: var(--ib-marcas-alto, 40px);
+  width: auto;
+  max-width: 26rem;
+  object-fit: contain;
+  transition: filter 0.25s ease, opacity 0.25s ease;
+}
+
+.ib-marcas__pista--gris .ib-marcas__logo {
+  filter: grayscale(1);
+  opacity: 0.6;
+}
+
+.ib-marcas__pista--gris a:hover .ib-marcas__logo,
+.ib-marcas__pista--gris a:focus-visible .ib-marcas__logo {
+  filter: none;
+  opacity: 1;
+}
+
+@keyframes ib-marcas-bucle {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media screen and (max-width: 749px) {
+  .ib-marcas__pista > li {
+    padding: 0 2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ib-marcas__ventana {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .ib-marcas__pista {
+    animation: none;
+    width: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 2rem;
+  }
+
+  .ib-marcas__pista > li[aria-hidden='true'] {
+    display: none;
+  }
+}

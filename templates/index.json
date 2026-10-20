@@ -69,6 +69,155 @@
         "posicion_escritorio": "50% 42%"
       }
     },
+    "marcas": {
+      "type": "marcas-carrusel",
+      "blocks": {
+        "icom": {
+          "type": "marca",
+          "settings": {
+            "image": "shopify://shop_images/marca-logo-icom.png",
+            "collection": "marca-icom",
+            "nombre": "Icom"
+          }
+        },
+        "motorola": {
+          "type": "marca",
+          "settings": {
+            "image": "shopify://shop_images/marca-logo-motorola.png",
+            "collection": "marca-motorola",
+            "nombre": "Motorola"
+          }
+        },
+        "kenwood": {
+          "type": "marca",
+          "settings": {
+            "image": "shopify://shop_images/marca-logo-kenwood.png",
+            "collection": "marca-kenwood",
+            "nombre": "Kenwood"
+          }
+        },
+        "yaesu": {
+          "type": "marca",
+          "settings": {
+            "image": "shopify://shop_images/marca-logo-yaesu.png",
+            "collection": "marca-yaesu",
+            "nombre": "Yaesu"
+          }
+        },
+        "midland": {
+          "type": "marca",
+          "settings": {
+            "image": "shopify://shop_images/marca-logo-midland.png",
+            "collection": "marca-midland",
+            "nombre": "Midland"
+          }
+        },
+        "hytera": {
+          "type": "marca",
+          "settings": {
+            "image": "shopify://shop_images/marca-logo-hytera.png",
+            "collection": "marca-hytera",
+            "nombre": "Hytera"
+          }
+        },
+        "alinco": {
+          "type": "marca",
+          "settings": {
+            "image": "shopify://shop_images/marca-logo-alinco.png",
+            "collection": "marca-alinco",
+            "nombre": "Alinco"
+          }
+        },
+        "wouxun": {
+          "type": "marca",
+          "settings": {
+            "image": "shopify://shop_images/marca-logo-wouxun.png",
+            "collection": "marca-wouxun",
+            "nombre": "Wouxun"
+          }
+        },
+        "anytone": {
+          "type": "marca",
+          "settings": {
+            "image": "shopify://shop_images/marca-logo-anytone.png",
+            "collection": "marca-anytone",
+            "nombre": "AnyTone"
+          }
+        },
+        "president": {
+          "type": "marca",
+          "settings": {
+            "image": "shopify://shop_images/marca-logo-president.png",
+            "collection": "marca-president",
+            "nombre": "President"
+          }
+        },
+        "sirio": {
+          "type": "marca",
+          "settings": {
+            "image": "shopify://shop_images/marca-logo-sirio.png",
+            "collection": "marca-sirio",
+            "nombre": "Sirio"
+          }
+        },
+        "uniden": {
+          "type": "marca",
+          "settings": {
+            "image": "shopify://shop_images/marca-logo-uniden.png",
+            "collection": "marca-uniden",
+            "nombre": "Uniden"
+          }
+        },
+        "garmin": {
+          "type": "marca",
+          "settings": {
+            "image": "shopify://shop_images/marca-logo-garmin.png",
+            "collection": "marca-garmin",
+            "nombre": "Garmin"
+          }
+        },
+        "sangean": {
+          "type": "marca",
+          "settings": {
+            "image": "shopify://shop_images/marca-logo-sangean.png",
+            "collection": "marca-sangean",
+            "nombre": "Sangean"
+          }
+        },
+        "pni": {
+          "type": "marca",
+          "settings": {
+            "image": "shopify://shop_images/marca-logo-pni.png",
+            "collection": "marca-pni",
+            "nombre": "PNI"
+          }
+        }
+      },
+      "block_order": [
+        "icom",
+        "motorola",
+        "kenwood",
+        "yaesu",
+        "midland",
+        "hytera",
+        "alinco",
+        "wouxun",
+        "anytone",
+        "president",
+        "sirio",
+        "uniden",
+        "garmin",
+        "sangean",
+        "pni"
+      ],
+      "settings": {
+        "titulo": "Las mejores marcas",
+        "duracion": 45,
+        "alto_logo": 40,
+        "gris": true,
+        "color_scheme": "background-1"
+      }
+    },
     "entornos": {
       "type": "collection-list",
       "blocks": {
@@ -391,6 +540,7 @@
   },
   "order": [
     "hero",
+    "marcas",
     "entornos",
     "para_empezar",
     "tres_entornos",

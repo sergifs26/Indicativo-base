@@ -1,0 +1,108 @@
+{% comment %}
+  Carrusel de logos de las marcas que vendemos (portada, debajo del banner principal).
+  Los logos pasan en bucle continuo (la lista se pinta dos veces y la pista se desplaza la mitad
+  de su ancho), en gris y a color al pasar el ratón; cada uno enlaza a la colección de su marca.
+  Se para al pasar el ratón y, con «reducir movimiento», queda quieto en una cuadrícula.
+  Logos y su origen/licencia: Indicativo-base/imagen-corporativa/logos-marcas/CREDITOS.md.
+  Estilos en assets/indicativo-base.css, apartado «Carrusel de marcas».
+{% endcomment %}
+<div
+  class="ib-marcas color-{{ section.settings.color_scheme }}"
+  style="--ib-marcas-duracion: {{ section.settings.duracion }}s; --ib-marcas-alto: {{ section.settings.alto_logo }}px;"
+>
+  {%- if section.settings.titulo != blank -%}
+    <p class="ib-marcas__titulo caption-with-letter-spacing">{{ section.settings.titulo | escape }}</p>
+  {%- endif -%}
+  <div class="ib-marcas__ventana">
+    <ul class="ib-marcas__pista{% if section.settings.gris %} ib-marcas__pista--gris{% endif %}" role="list">
+      {%- for vuelta in (1..2) -%}
+        {%- for block in section.blocks -%}
+          {%- if block.settings.image != blank -%}
+            {%- assign nombre = block.settings.nombre | default: block.settings.collection.title -%}
+            {%- comment -%}
+              Mismo peso visual para todos: los logos alargados (Yaesu, Motorola Solutions) se pintan
+              más bajos y los compactos (Icom, PNI) más altos, según su proporción.
+            {%- endcomment -%}
+            {%- liquid
+              assign ar = block.settings.image.aspect_ratio
+              assign factor = 1.05
+              if ar > 9
+                assign factor = 0.5
+              elsif ar > 7.5
+                assign factor = 0.55
+              elsif ar > 5
+                assign factor = 0.65
+              elsif ar > 4
+                assign factor = 0.75
+              elsif ar > 3
+                assign factor = 0.85
+              elsif ar > 2.2
+                assign factor = 1
+              endif
+              assign estilo = 'height: calc(var(--ib-marcas-alto, 40px) * ' | append: factor | append: ')'
+            -%}
+            <li{% if vuelta == 2 %} aria-hidden="true"{% endif %}{% if vuelta == 1 %} {{ block.shopify_attributes }}{% endif %}>
+              {%- if block.settings.collection != blank -%}
+                <a href="{{ block.settings.collection.url }}"{% if vuelta == 2 %} tabindex="-1"{% endif %} title="{{ nombre | escape }}">
+              {%- endif -%}
+              {{
+                block.settings.image
+                | image_url: width: 480
+                | image_tag:
+                  loading: 'lazy',
+                  widths: '240, 480',
+                  sizes: '240px',
+                  alt: nombre,
+                  class: 'ib-marcas__logo',
+                  style: estilo
+              }}
+              {%- if block.settings.collection != blank -%}</a>{%- endif -%}
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Carrusel de marcas",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "titulo", "default": "Las mejores marcas", "label": "Título (opcional)" },
+    {
+      "type": "range", "id": "duracion", "min": 20, "max": 120, "step": 5, "unit": "s", "default": 45,
+      "label": "Duración de una vuelta (más segundos = más lento)"
+    },
+    { "type": "range", "id": "alto_logo", "min": 24, "max": 80, "step": 4, "unit": "px", "default": 40, "label": "Alto de los logos" },
+    { "type": "checkbox", "id": "gris", "default": true, "label": "Logos en gris (a color al pasar el ratón)" },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        { "value": "background-1", "label": "Fondo 1" },
+        { "value": "background-2", "label": "Fondo 2" },
+        { "value": "inverse", "label": "Inverso" }
+      ],
+      "default": "background-1",
+      "label": "Esquema de color"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "marca",
+      "name": "Marca",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Logo (PNG con fondo transparente)" },
+        { "type": "collection", "id": "collection", "label": "Colección de la marca" },
+        { "type": "text", "id": "nombre", "label": "Nombre (si no, el de la colección)" }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "Carrusel de marcas", "blocks": [{ "type": "marca" }, { "type": "marca" }, { "type": "marca" }] }
+  ]
+}
+{% endschema %}

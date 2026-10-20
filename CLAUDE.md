@@ -65,6 +65,7 @@ Ramas: **`production`** = tema publicado · **`staging`** = vista previa.
   operaciones): `git config --local credential.https://github.com.username sergifs26`. Si vuelve a
   pasar: `GIT_TERMINAL_PROMPT=0 GCM_INTERACTIVE=never git push …` lo dice sin colgarse.
 
+- **Carrusel de marcas (20/10/2026)**: sección `marcas-carrusel` (clave `marcas`, justo debajo del banner): logos en bucle continuo, en gris y a color al pasar el ratón, enlazados a `marca-<x>`. La altura de cada logo se ajusta a su proporción en la propia sección. Logos y licencias: `Indicativo-base/imagen-corporativa/logos-marcas/`.
 - **Banner principal (07/10/2026)**: sección propia `hero-indicativo` (clave `hero`): foto con un walkie a la vista, texto a la derecha, botones a walkies/emisoras y 4 tarjetas de cristal por categoría con nº de modelos en vivo. Estilos «Banner principal» en `assets/indicativo-base.css`.
 - **Portada estilo The North Face (04/10/2026, a petición del usuario)**: una sola foto a pantalla
   completa (sección `hero`; hasta el 07/10 era un image-banner con texto abajo centrado) y cabecera
