@@ -90,6 +90,10 @@ Ramas: **`production`** = tema publicado · **`staging`** = vista previa.
 - **Liquid glass (05/10/2026)**: todos los botones (`.button` y «Comprar ya») son cápsulas de cristal (CSS «Liquid glass» al final de `assets/indicativo-base.css`; sustituye el borde/sombra de ::before/::after del tema). Variantes: principal oscuro, secundario blanco, y cristal claro dentro de `.banner`, `.color-inverse`, `.color-accent-*` y las tarjetas de «Tres entornos». Los ajustes de botones del editor (radio, borde, sombra) ya no tienen efecto.
 - **Tres entornos (05/10/2026)**: sección `destacados-entorno` en la portada (clave `tres_entornos`): 3 fotos verticales a sangre con tarjeta del producto. Productos elegidos por el ranking de popularidad de Pihernz (ver `PROYECTO_INDICATIVO_BASE.md`); rótulo «Imprescindible en…», nunca «el más vendido» sin ventas propias. Se cambian desde el editor de temas.
 - **Tipografía (05/10/2026)**: **Inter**, al estilo de The North Face (que usa Helvetica Neue/Now, de pago). Alojada en el tema (`assets/inter-latin-var.woff2`, OFL 1.1) y fijada por CSS al principio de `assets/indicativo-base.css`: **cambiar la fuente en el editor de temas no tiene efecto**. Los ajustes decían «Helvetica», que Shopify no descarga (en Windows salía Arial).
+- **Página «Nuestra comunidad» (23/10/2026)**: plantilla `templates/page.comunidad.json` = texto de la
+  página (`main-page`) + `sections/galeria-aficiones.liquid` (una foto por afición, con encuadre por
+  tarjeta y crédito para fotos CC, y el cierre «No compres simplemente. Forma parte.» con botón a
+  «Comparte tu estación»). El texto lo sube `Indicativo-base/scripts/paginas_comunidad.mjs`.
 - **Panel direccional (23/10/2026, adaptado del «Directional Menu» de 21st.dev, autor hyperiux)**:
   en escritorio con ratón, `assets/indicativo-menu.js` pone un único panel blanco flotante
   (`.ib-dm__fondo`, creado por el script) bajo la cabecera; al pasar de un apartado a otro el

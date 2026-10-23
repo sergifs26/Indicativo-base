@@ -1,0 +1,132 @@
+{% comment %}
+  Galería de aficiones (página «Nuestra comunidad», 23/10/2026): una foto por afición
+  (radioafición, montaña, náutica, outdoor, aviación, caza y pesca) con su frase y enlace, y al
+  final el cierre de la página con botón. Son fotos de ambiente con licencia libre, no de clientes:
+  la nota lo dice hasta que lleguen las de la comunidad. Las fotos CC BY / BY-SA llevan crédito
+  (ajustes «credito» y «credito_url» de cada bloque). Estilos en assets/indicativo-base.css,
+  «Galería de aficiones».
+{% endcomment %}
+<div class="ib-galeria color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width">
+    <div class="ib-galeria__cabecera">
+      {%- if section.settings.antetitulo != blank -%}
+        <p class="ib-galeria__antetitulo caption-with-letter-spacing">{{ section.settings.antetitulo | escape }}</p>
+      {%- endif -%}
+      {%- if section.settings.titulo != blank -%}
+        <h2 class="ib-galeria__titulo h1">{{ section.settings.titulo | escape }}</h2>
+      {%- endif -%}
+      {%- if section.settings.texto != blank -%}
+        <p class="ib-galeria__texto">{{ section.settings.texto | escape }}</p>
+      {%- endif -%}
+    </div>
+
+    <ul class="ib-galeria__lista" role="list">
+      {%- for block in section.blocks -%}
+        <li class="ib-galeria__item" {{ block.shopify_attributes }}>
+          <a class="ib-galeria__tarjeta" href="{{ block.settings.enlace | default: '#' }}">
+            {%- if block.settings.image != blank -%}
+              {%- assign encuadre = 'object-position: ' | append: block.settings.posicion -%}
+              {{
+                block.settings.image
+                | image_url: width: 1200
+                | image_tag:
+                  class: 'ib-galeria__foto',
+                  style: encuadre,
+                  loading: 'lazy',
+                  widths: '400, 600, 800, 1200',
+                  sizes: '(min-width: 990px) 33vw, (min-width: 750px) 50vw, 100vw',
+                  alt: block.settings.image.alt
+              }}
+            {%- endif -%}
+            <span class="ib-galeria__pie">
+              <span class="ib-galeria__aficion">{{ block.settings.aficion | escape }}</span>
+              <span class="ib-galeria__nombre">{{ block.settings.titulo | escape }}</span>
+              {%- if block.settings.texto != blank -%}
+                <span class="ib-galeria__frase">{{ block.settings.texto | escape }}</span>
+              {%- endif -%}
+            </span>
+          </a>
+          {%- if block.settings.credito != blank -%}
+            {%- if block.settings.credito_url != blank -%}
+              <a class="ib-galeria__credito" href="{{ block.settings.credito_url }}" target="_blank" rel="noopener">{{ block.settings.credito | escape }}</a>
+            {%- else -%}
+              <span class="ib-galeria__credito">{{ block.settings.credito | escape }}</span>
+            {%- endif -%}
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+
+    {%- if section.settings.nota != blank -%}
+      <p class="ib-galeria__nota">{{ section.settings.nota | escape }}</p>
+    {%- endif -%}
+
+    {%- if section.settings.cierre_titulo != blank -%}
+      <div class="ib-galeria__cierre">
+        <h2 class="ib-galeria__cierre-titulo h1">{{ section.settings.cierre_titulo | escape }}</h2>
+        {%- if section.settings.cierre_texto != blank -%}
+          <div class="ib-galeria__cierre-texto rte">{{ section.settings.cierre_texto }}</div>
+        {%- endif -%}
+        {%- if section.settings.boton_texto != blank -%}
+          <a class="button" href="{{ section.settings.boton_enlace | default: '#' }}">{{ section.settings.boton_texto | escape }}</a>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Galería de aficiones",
+  "tag": "section",
+  "class": "section",
+  "max_blocks": 9,
+  "settings": [
+    { "type": "text", "id": "antetitulo", "label": "Antetítulo", "default": "Cada afición, una frecuencia" },
+    { "type": "text", "id": "titulo", "label": "Título", "default": "Así se vive la radio" },
+    { "type": "textarea", "id": "texto", "label": "Texto" },
+    { "type": "text", "id": "nota", "label": "Nota bajo las fotos", "default": "Fotos de ambiente. Pronto, las vuestras." },
+    { "type": "text", "id": "cierre_titulo", "label": "Cierre: título" },
+    { "type": "richtext", "id": "cierre_texto", "label": "Cierre: texto" },
+    { "type": "text", "id": "boton_texto", "label": "Cierre: botón" },
+    { "type": "url", "id": "boton_enlace", "label": "Cierre: enlace del botón" },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Esquema de color",
+      "options": [
+        { "value": "background-1", "label": "Fondo claro" },
+        { "value": "inverse", "label": "Oscuro" }
+      ],
+      "default": "background-1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "aficion",
+      "name": "Afición",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Foto" },
+        {
+          "type": "select",
+          "id": "posicion",
+          "label": "Encuadre (la tarjeta es vertical)",
+          "options": [
+            { "value": "15% 50%", "label": "Izquierda" },
+            { "value": "50% 50%", "label": "Centro" },
+            { "value": "85% 50%", "label": "Derecha" }
+          ],
+          "default": "50% 50%"
+        },
+        { "type": "text", "id": "aficion", "label": "Afición", "default": "Radioafición" },
+        { "type": "text", "id": "titulo", "label": "Título", "default": "Tu estación" },
+        { "type": "text", "id": "texto", "label": "Frase" },
+        { "type": "url", "id": "enlace", "label": "Enlace" },
+        { "type": "text", "id": "credito", "label": "Crédito de la foto", "info": "Obligatorio si la foto es CC BY o CC BY-SA." },
+        { "type": "url", "id": "credito_url", "label": "Enlace del crédito" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Galería de aficiones" }]
+}
+{% endschema %}

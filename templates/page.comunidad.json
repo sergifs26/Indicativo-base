@@ -1,0 +1,126 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 12
+      }
+    },
+    "galeria": {
+      "type": "galeria-aficiones",
+      "blocks": {
+        "radioaficion": {
+          "type": "aficion",
+          "settings": {
+            "image": "shopify://shop_images/entorno-hero-yaesu-ft817-rossola.jpg",
+            "posicion": "50% 50%",
+            "aficion": "Radioafición",
+            "titulo": "Tu estación",
+            "texto": "En casa o en una cumbre: la radio que te conecta con el mundo.",
+            "enlace": "/collections/radioaficion",
+            "credito": "Foto: iz1ksw · CC BY-SA 2.0",
+            "credito_url": "https://www.flickr.com/photos/46474281@N08/4335103338/"
+          }
+        },
+        "montana": {
+          "type": "aficion",
+          "settings": {
+            "image": "shopify://shop_images/entorno-tile-nieve.jpg",
+            "posicion": "85% 50%",
+            "aficion": "Montaña",
+            "titulo": "Tus rutas",
+            "texto": "Que nadie del grupo se quede sin señal, aunque no haya cobertura.",
+            "enlace": "/collections/montana",
+            "credito": "",
+            "credito_url": ""
+          }
+        },
+        "nautica": {
+          "type": "aficion",
+          "settings": {
+            "image": "shopify://shop_images/entorno-tile-nautica.jpg",
+            "posicion": "50% 50%",
+            "aficion": "Náutica",
+            "titulo": "Tu barco",
+            "texto": "El canal 16 siempre a mano, de la bocana a mar abierto.",
+            "enlace": "/collections/nautica",
+            "credito": "",
+            "credito_url": ""
+          }
+        },
+        "outdoor": {
+          "type": "aficion",
+          "settings": {
+            "image": "shopify://shop_images/entorno-tile-para-empezar.jpg",
+            "posicion": "15% 50%",
+            "aficion": "Outdoor",
+            "titulo": "Tus aventuras",
+            "texto": "Acampadas, viajes y salidas con los tuyos, siempre en contacto.",
+            "enlace": "/collections/camping-y-familia",
+            "credito": "",
+            "credito_url": ""
+          }
+        },
+        "aviacion": {
+          "type": "aficion",
+          "settings": {
+            "image": "shopify://shop_images/entorno-comunidad-aviacion.jpg",
+            "posicion": "15% 50%",
+            "aficion": "Aviación",
+            "titulo": "Tu banda aérea",
+            "texto": "Escucha y comunicación aeronáutica, del aeródromo al cielo.",
+            "enlace": "/collections/aviacion",
+            "credito": "",
+            "credito_url": ""
+          }
+        },
+        "caza": {
+          "type": "aficion",
+          "settings": {
+            "image": "shopify://shop_images/entorno-slide-caza-pesca.jpg",
+            "posicion": "15% 50%",
+            "aficion": "Caza y pesca",
+            "titulo": "Tus jornadas",
+            "texto": "Batidas, esperas y amaneceres en el agua, coordinados por radio.",
+            "enlace": "/collections/caza-y-pesca",
+            "credito": "",
+            "credito_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "radioaficion",
+        "montana",
+        "nautica",
+        "outdoor",
+        "aviacion",
+        "caza"
+      ],
+      "settings": {
+        "antetitulo": "Cada afición, una frecuencia",
+        "titulo": "Así se vive la radio",
+        "texto": "Radioafición, montaña, náutica, outdoor, aviación, caza y pesca: seis maneras de salir ahí fuera y seguir conectados.",
+        "nota": "Fotos de ambiente. Pronto, las vuestras: comparte tu estación, tu barco o tus rutas.",
+        "cierre_titulo": "No compres simplemente. Forma parte.",
+        "cierre_texto": "<p>Muchas veces el radioaficionado se siente solo frente a su estación, igual que quien cruza un paso de montaña o navega a 20 millas de la costa. Queremos que IndicativoBase sea tu punto de encuentro: un lugar donde encontrar equipos, compartir experiencias y hacer que nuestra comunidad sea cada día más fuerte.</p><p>73 y buenas rutas.</p>",
+        "boton_texto": "Comparte tu estación",
+        "boton_enlace": "/pages/comparte-tu-estacion",
+        "color_scheme": "background-1"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "galeria"
+  ]
+}
