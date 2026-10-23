@@ -8,7 +8,7 @@ En Shopify Files se suben como `entorno-<fichero>` con `scripts/subir_fichero.mj
 | Fichero | Uso | Foto (id) | Autor |
 |---|---|---|---|
 | slide-nautica.jpg (2400) | Pase del carrusel: náutica | [photo-1572817686968-d3b2f1fd643f](https://unsplash.com/photos/1O1uAd9wcLQ) | Nick Fewings (@jannerboy62) |
-| slide-nieve.jpg (2400) | Pase: nieve. **Banner principal de la portada desde el 23/10/2026** (provisional, hasta tener foto propia de Icom/Yaesu) | [photo-1518784095177-ef1da6313126](https://unsplash.com/photos/EnTU_hr9wPA) | Joris Berthelot (@eexit) |
+| slide-nieve.jpg (2400) | Pase: nieve. Banner principal el 23/10/2026 (unas horas, provisional) | [photo-1518784095177-ef1da6313126](https://unsplash.com/photos/EnTU_hr9wPA) | Joris Berthelot (@eexit) |
 | slide-camping.jpg (2400) | Pase: camping y familia | [photo-1515444744559-7be63e1600de](https://unsplash.com/photos/yBgC-qVCxMg) | Rahul Bhosale (@rahul_design) |
 | slide-caza-pesca.jpg (2400) | Pase: caza y pesca | [photo-1597957729111-848ad99de4b5](https://unsplash.com/photos/CvSrx0TtxZY) | Samantha Deleo (@sammycakesss) |
 | tile-nautica.jpg (1200) | Tarjeta «¿A dónde vas?» | [photo-1773834194438-f8325273c655](https://unsplash.com/photos/ZAj3VTvgFVQ) | Fabrizio Saudino (@fabba) |
@@ -47,3 +47,22 @@ Otras candidatas probadas el 13/10/2026 (capturas en `../pruebas-portada/`), gua
 | jopix-velero.jpg | Jopix Marine 616P en un velero | `Jopix-Marine-616P_boat-barco.jpg` |
 | midland-gorra.jpg | Midland XT50 Pro (chica con gorra) | `Midland-XT50-PRO_5.jpg` |
 | midland-bosque.jpg | Midland XT30 Pro (excursionista) | `Midland-XT30-PRO_6.jpg` |
+
+## Banner principal desde el 23/10/2026: Yaesu FT-817 en el Monte Cucco
+
+`hero-yaesu-ft817-cucco.jpg` (2539×1092; en Ficheros de Shopify `entorno-hero-yaesu-ft817.jpg`).
+Original: [IMG_0835](https://www.flickr.com/photos/46474281@N08/4263542844/) de **iz1ksw** en Flickr,
+«Operating FT-817 from Monte Cucco, beautiful sunset» (08/12/2009), **CC BY-SA 2.0**, original de
+1024×683. Es lo que pidió el cliente: un Yaesu en exterior transmitiendo aventura (en silueta, la
+marca no se lee). Encontrada con Openverse el 23/10/2026; en Unsplash, Pexels y Commons no había
+ninguna libre de Icom/Yaesu al aire libre.
+
+- **Modificada**: cielo ampliado por la izquierda (prolongando el degradado del borde) para que el
+  texto del banner no tape la radio, y escalada ×1,6. Por la cláusula ShareAlike, esta versión
+  también es CC BY-SA 2.0.
+- **Atribución obligatoria**: el banner muestra «Foto: iz1ksw · CC BY-SA 2.0» con enlace a la foto
+  (ajustes `credito` y `credito_url` de la sección `hero`). No quitarla mientras se use la foto.
+- Regenerar: descargar el original de Flickr, ampliar el lienzo un 55 % por la izquierda con el
+  color medio de las 10 primeras columnas de cada fila (+ grano leve y fundido de 40 px) y escalar ×1,6.
+- Otra del mismo autor, con el logo YAESU visible: [I/LG-043 M.te Rossola](https://www.flickr.com/photos/46474281@N08/4335103338/)
+  (FT-817 sobre una roca de cumbre, CC BY-SA 2.0, 1024×681; se ve blanda a tamaño de banner).
