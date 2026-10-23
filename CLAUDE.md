@@ -75,7 +75,7 @@ Ramas: **`production`** = tema publicado · **`staging`** = vista previa.
   y 5 días hábiles: no activarlas hasta que el cliente confirme que ya funcionan) → preguntas →
   cierre. Página «Comparte tu estación»: `templates/page.comparte.json` + `sections/comparte-estacion.liquid`
   (formulario de contacto de Shopify; no admite archivos, las fotos se piden por email). Foto del
-  banner: Yaesu FT-817 en el Monte Rossola (`entorno-hero-yaesu-ft817-rossola.jpg`, disposición «Foto a la izquierda», que en móvil y tablet pone la foto arriba y el texto debajo; CC BY-SA 2.0 de iz1ksw):
+  banner: silueta con un Yaesu FT-817 en el Monte Cucco (`entorno-hero-yaesu-ft817.jpg`, disposición «manifiesto»; CC BY-SA 2.0 de iz1ksw; la del FT-817 en la roca se probó y no gustó). La disposición «Foto a la izquierda» pone en móvil y tablet la foto arriba y el texto debajo:
   **lleva crédito obligatorio** (ajustes `credito`/`credito_url` del banner); ver
   `Indicativo-base/imagen-corporativa/fotos/CREDITOS.md`.
 - **Carrusel de marcas (20/10/2026)**: sección `marcas-carrusel` (clave `marcas`, justo debajo del banner): logos en bucle continuo, en gris y a color al pasar el ratón, enlazados a `marca-<x>`. La altura de cada logo se ajusta a su proporción en la propia sección. Logos y licencias: `Indicativo-base/imagen-corporativa/logos-marcas/`.
