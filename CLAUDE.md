@@ -90,6 +90,17 @@ Ramas: **`production`** = tema publicado · **`staging`** = vista previa.
 - **Liquid glass (05/10/2026)**: todos los botones (`.button` y «Comprar ya») son cápsulas de cristal (CSS «Liquid glass» al final de `assets/indicativo-base.css`; sustituye el borde/sombra de ::before/::after del tema). Variantes: principal oscuro, secundario blanco, y cristal claro dentro de `.banner`, `.color-inverse`, `.color-accent-*` y las tarjetas de «Tres entornos». Los ajustes de botones del editor (radio, borde, sombra) ya no tienen efecto.
 - **Tres entornos (05/10/2026)**: sección `destacados-entorno` en la portada (clave `tres_entornos`): 3 fotos verticales a sangre con tarjeta del producto. Productos elegidos por el ranking de popularidad de Pihernz (ver `PROYECTO_INDICATIVO_BASE.md`); rótulo «Imprescindible en…», nunca «el más vendido» sin ventas propias. Se cambian desde el editor de temas.
 - **Tipografía (05/10/2026)**: **Inter**, al estilo de The North Face (que usa Helvetica Neue/Now, de pago). Alojada en el tema (`assets/inter-latin-var.woff2`, OFL 1.1) y fijada por CSS al principio de `assets/indicativo-base.css`: **cambiar la fuente en el editor de temas no tiene efecto**. Los ajustes decían «Helvetica», que Shopify no descarga (en Windows salía Arial).
+- **Panel direccional (23/10/2026, adaptado del «Directional Menu» de 21st.dev, autor hyperiux)**:
+  en escritorio con ratón, `assets/indicativo-menu.js` pone un único panel blanco flotante
+  (`.ib-dm__fondo`, creado por el script) bajo la cabecera; al pasar de un apartado a otro el
+  contenido entra deslizándose desde ese lado y el panel cambia de alto (Web Animations API, sin
+  React ni GSAP). Los `<details>` del tema siguen igual (teclado y móvil sin cambios). Estilos
+  «Panel direccional» en `assets/indicativo-base.css`, solo con `html.ib-dm`. Ojo: `base.css`
+  oculta los `div` vacíos (`div:empty`), por eso el fondo lleva `display: block`.
+- **21st.dev**: MCP configurado en `Pagina indicativobase/.mcp.json` (clave en la variable de entorno
+  `API_KEY_21ST`, cuenta gratuita: 2 descargas de código al día). Sus componentes son React +
+  Tailwind: se adaptan a Liquid/CSS/JS a mano. La API REST (`/api/v1/components/search?scope=public`,
+  `/components/install/{autor}/{slug}`) funciona aunque el buscador del MCP falle.
 - **Desplegables (05/10/2026)**: estilo The North Face (CSS «Desplegables» en `assets/indicativo-base.css`) y apertura al pasar el cursor con `assets/indicativo-menu.js` (solo escritorio con ratón; el clic de ratón no los cierra; el teclado sigue como en el tema).
 - **Giro outdoor (04/10/2026)**: mosaico «¿A dónde vas?». El
   mosaico usa la imagen de cada colección a sangre (cover) gracias a la regla

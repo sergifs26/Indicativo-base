@@ -566,6 +566,56 @@ a.ib-hero__credito:hover {
   }
 }
 
+/* Panel direccional (assets/indicativo-menu.js, 23/10/2026): adaptación del «Directional Menu» de
+   21st.dev. Un panel blanco flotante con esquinas redondeadas (.ib-dm__fondo) bajo la cabecera,
+   que cambia de alto; el contenido de cada desplegable va encima, transparente y en la misma caja.
+   Solo con html.ib-dm (escritorio con ratón y el script en marcha); sin script, el panel de antes. */
+@media screen and (min-width: 990px) {
+  html.ib-dm .header-wrapper .mega-menu__content,
+  html.ib-dm .ib-dm__fondo {
+    top: calc(100% + 1.2rem);
+    left: 0;
+    right: 0;
+    width: min(calc(100% - 4rem), 116rem);
+    margin: 0 auto;
+    border-radius: 2.4rem;
+  }
+
+  html.ib-dm .header-wrapper .mega-menu__content {
+    z-index: 2;
+    padding: 3.2rem 4rem 3.6rem;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    opacity: 1;
+    transform: none;
+    animation: none;
+    transition: none;
+  }
+
+  html.ib-dm .header-wrapper .mega-menu__content .mega-menu__list {
+    max-width: none;
+    padding: 0;
+  }
+
+  /* display: block porque base.css oculta los div vacíos (div:empty) */
+  html.ib-dm .ib-dm__fondo {
+    display: block;
+    position: absolute;
+    z-index: 1;
+    height: 0;
+    opacity: 0;
+    background: #fff;
+    border: 1px solid rgba(18, 18, 18, 0.08);
+    box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+  }
+
+  html.ib-dm .ib-dm__fantasma {
+    pointer-events: none;
+  }
+}
+
 /* Tres entornos con su producto estrella (sections/destacados-entorno.liquid): franja oscura con
    titular y tres fotos de ambiente a sangre, sin hueco; sobre cada una, tarjeta blanca con el
    producto. En móvil, una foto debajo de otra. */
