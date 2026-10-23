@@ -48,7 +48,17 @@ Otras candidatas probadas el 13/10/2026 (capturas en `../pruebas-portada/`), gua
 | midland-gorra.jpg | Midland XT50 Pro (chica con gorra) | `Midland-XT50-PRO_5.jpg` |
 | midland-bosque.jpg | Midland XT30 Pro (excursionista) | `Midland-XT30-PRO_6.jpg` |
 
-## Banner principal desde el 23/10/2026: Yaesu FT-817 en el Monte Cucco
+## Banner principal desde el 23/10/2026 (tarde): Yaesu FT-817 en el Monte Rossola
+
+`hero-yaesu-ft817-rossola.jpg` (2048×1362; en Ficheros `entorno-hero-yaesu-ft817-rossola.jpg`).
+Original: [I/LG-043 M.te Rossola](https://www.flickr.com/photos/46474281@N08/4335103338/) de
+**iz1ksw** en Flickr, **CC BY-SA 2.0**, original de 1024×681: un FT-817 sobre una roca en la cumbre,
+con el logo YAESU visible. La eligió el usuario porque en la silueta del Monte Cucco «no se ve mucho
+el walkie». Escalada ×2 (Lanczos + enfoque suave); por ShareAlike, también CC BY-SA 2.0.
+Banner con disposición «Foto a la izquierda» y crédito «Foto: iz1ksw · CC BY-SA 2.0» enlazado a la
+foto (**obligatorio**). En móvil y tablet esa disposición pone la foto arriba y el texto debajo.
+
+## Antes, unas horas del 23/10/2026: Yaesu FT-817 en el Monte Cucco (silueta)
 
 `hero-yaesu-ft817-cucco.jpg` (2539×1092; en Ficheros de Shopify `entorno-hero-yaesu-ft817.jpg`).
 Original: [IMG_0835](https://www.flickr.com/photos/46474281@N08/4263542844/) de **iz1ksw** en Flickr,
