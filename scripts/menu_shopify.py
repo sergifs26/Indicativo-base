@@ -159,6 +159,8 @@ SECCIONES = [
 _S = {t: (h, hijos) for t, h, hijos in SECCIONES}
 _S.update({t: (h, hijos) for t, h, hijos in _S["Accesorios"][1]})  # accesorios walkies/emisoras/antenas
 CONTACTO = "gid://shopify/Page/157018980680"
+COMUNIDAD = "gid://shopify/Page/157913907528"   # scripts/paginas_comunidad.mjs
+COMPARTE = "gid://shopify/Page/157913940296"
 
 
 def _grupo(titulo: str, quitar: tuple = ()) -> tuple:
@@ -181,8 +183,16 @@ BATERIAS, SOLARES = "alimentacion-baterias-externas", "alimentacion-cargadores-s
 # grupos con «Ver todo» + 4-10 enlaces, apilados en 5 columnas por el tema. El entorno manda
 # (como su columna «Actividad»); dos caminos, empezar y expertos.
 # «Guías» y «Glosario» se añaden a «Empieza aquí» cuando estén publicados.
+# 23/10/2026 («La clave» del cliente): «¿A dónde vas?» pasa a «Tu afición» con sus seis áreas
+# (radioafición, montaña, náutica, outdoor, aviación, caza; nieve queda dentro de outdoor) y se
+# añade «Comunidad».
 MENU = [
-    ("¿A dónde vas?", None, [
+    ("Tu afición", None, [
+        _entorno("Radioafición", "radioaficion", [
+            ("Transceptores HF", "emisoras-transceptores-hf"), ("Emisoras doble banda", "emisoras-doble-banda-radioaficionado"),
+            ("Walkies doble banda", "walkies-doble-banda-radioaficionado"), ("Antenas HF y dipolos", "antenas-antenas-hf-dipolos"),
+            ("Medidores ROE y potencia", "accesorios-emisoras-medidores-roe-y-potencia"),
+            ("Amplificadores lineales", "accesorios-emisoras-amplificadores-lineales")]),
         _entorno("Montaña", "montana", [
             ("Walkies de ocio", PMR_OCIO), ("Walkies profesionales sin licencia", PMR_PRO),
             ("GPS", GPS), ("Linternas y frontales", LINTERNAS), ("Teléfonos satélite", SATELITE),
@@ -191,13 +201,13 @@ MENU = [
             ("Walkies marinos", "walkies-walkies-marina"), ("Emisoras marinas", "emisoras-emisoras-marina"),
             ("Antenas marinas", "antenas-antenas-marina"), ("Fundas para walkies", "accesorios-walkies-fundas-walkies"),
             ("Teléfonos satélite", SATELITE)]),
-        _entorno("Nieve", "nieve", [
-            ("Walkies de ocio", PMR_OCIO), ("Intercomunicadores", "outdoor-intercomunicadores"),
-            ("Linternas y frontales", LINTERNAS), ("Baterías externas", BATERIAS)]),
-        _entorno("Camping y familia", "camping-y-familia", [
-            ("Walkies de ocio", PMR_OCIO), ("Linternas y frontales", LINTERNAS),
-            ("Radios de emergencia", "outdoor-radio-outdoor"), ("Baterías externas", BATERIAS),
-            ("Cargadores solares", SOLARES)]),
+        _entorno("Outdoor y aventura", "camping-y-familia", [
+            ("Nieve", "nieve"), ("Walkies de ocio", PMR_OCIO), ("Linternas y frontales", LINTERNAS),
+            ("Intercomunicadores", "outdoor-intercomunicadores"), ("Radios de emergencia", "outdoor-radio-outdoor"),
+            ("Baterías externas", BATERIAS), ("Cargadores solares", SOLARES)]),
+        _entorno("Aviación", "aviacion", [
+            ("Walkies de banda aérea", "walkies-aerea"), ("Escáneres", "receptores-y-scanners-escaners-radio"),
+            ("Receptores multibanda", "receptores-y-scanners-receptores-radio-multibanda")]),
         _entorno("Caza y pesca", "caza-y-pesca", [
             ("Walkies profesionales sin licencia", PMR_PRO),
             ("Walkies VHF / UHF profesionales", "walkies-vhf-o-uhf-profesional"),
@@ -251,6 +261,10 @@ MENU = [
     ]),
     ("Ofertas", *_S["Ofertas"]),
     ("Marcas", *_S["Marcas"]),
+    ("Comunidad", COMUNIDAD, [
+        ("Nuestra comunidad", COMUNIDAD, []),
+        ("Comparte tu estación", COMPARTE, []),
+    ]),
 ]
 
 PIE = [

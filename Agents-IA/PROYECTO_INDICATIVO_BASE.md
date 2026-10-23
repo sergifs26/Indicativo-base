@@ -239,3 +239,26 @@ Ajustes de la portada en `staging` a petición del usuario (pendiente de su OK p
   centro, el banner tiene una disposición nueva «Foto a la izquierda»: la foto entera a la
   izquierda fundida con fondo oscuro a la derecha, donde va el texto.
 - Quitado «Powered by Shopify» del pie.
+
+## Actualización 2026-10-23
+
+- El cliente entregó «La clave de IndicativoBase.doc» (fuera de los repos): la portada no debe
+  parecer una tienda de electrónica sino transmitir identidad, comunidad, aventura y compromiso.
+  Portada rehecha en el tema (detalle en el `CLAUDE.md` del tema): banner manifiesto, dial
+  «Sintoniza tu afición», 4 pilares, «Lo que más valoramos» (Icom y Yaesu), comunidad y cierre.
+- **Pendiente de confirmar por el cliente antes de publicar**: donaciones a afectados por DANAs y
+  temporales, envío en 5 días hábiles y entrega en radioclub/club/locker. Sus bloques están en la
+  portada con `"disabled": true`; la página «Nuestra comunidad» los cuenta como intención.
+- Colecciones nuevas (`scripts/colecciones_entorno.mjs`, ahora admite `reglas` en OR):
+  `radioaficion` (142 productos, categorías de radioaficionado) y `aviacion` (20, banda aérea por
+  categoría y título). `camping-y-familia` se llama «Outdoor y aventura» (mismo handle).
+  Colección manual `lo-que-mas-valoramos` con 8 Icom/Yaesu con foto (`scripts/coleccion_seleccion.mjs`).
+- Páginas `nuestra-comunidad` y `comparte-tu-estacion` (`scripts/paginas_comunidad.mjs`, texto en
+  `contenido/nuestra-comunidad.html`). El formulario llega al correo de la tienda; las fotos se
+  piden después por email.
+- Menú: «¿A dónde vas?» pasa a «Tu afición» (Radioafición, Montaña, Náutica, Outdoor y aventura con
+  Nieve dentro, Aviación, Caza y pesca) y se añade «Comunidad». Copia previa en `scripts/out/`.
+- Foto del banner: el cliente quiere solo Icom (ID-52 Plus) o Yaesu, pero no hay fotos libres de esas
+  marcas al aire libre (Unsplash, Pexels, Commons). Provisional: `entorno-slide-nieve.jpg` (tres
+  esquiadores al amanecer, sin marcas). La del walkie en la mochila **no vale**: es un Baofeng con el
+  logo visible. Pedir al cliente una foto propia.

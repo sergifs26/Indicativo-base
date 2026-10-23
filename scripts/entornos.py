@@ -50,7 +50,7 @@ ENTORNOS = {
     "montana": "Montaña",
     "nautica": "Náutica",
     "nieve": "Nieve",
-    "camping": "Camping y familia",
+    "camping": "Outdoor y aventura",
     "caza-pesca": "Caza y pesca",
 }
 

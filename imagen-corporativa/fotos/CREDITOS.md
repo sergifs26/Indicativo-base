@@ -8,7 +8,7 @@ En Shopify Files se suben como `entorno-<fichero>` con `scripts/subir_fichero.mj
 | Fichero | Uso | Foto (id) | Autor |
 |---|---|---|---|
 | slide-nautica.jpg (2400) | Pase del carrusel: náutica | [photo-1572817686968-d3b2f1fd643f](https://unsplash.com/photos/1O1uAd9wcLQ) | Nick Fewings (@jannerboy62) |
-| slide-nieve.jpg (2400) | Pase: nieve | [photo-1518784095177-ef1da6313126](https://unsplash.com/photos/EnTU_hr9wPA) | Joris Berthelot (@eexit) |
+| slide-nieve.jpg (2400) | Pase: nieve. **Banner principal de la portada desde el 23/10/2026** (provisional, hasta tener foto propia de Icom/Yaesu) | [photo-1518784095177-ef1da6313126](https://unsplash.com/photos/EnTU_hr9wPA) | Joris Berthelot (@eexit) |
 | slide-camping.jpg (2400) | Pase: camping y familia | [photo-1515444744559-7be63e1600de](https://unsplash.com/photos/yBgC-qVCxMg) | Rahul Bhosale (@rahul_design) |
 | slide-caza-pesca.jpg (2400) | Pase: caza y pesca | [photo-1597957729111-848ad99de4b5](https://unsplash.com/photos/CvSrx0TtxZY) | Samantha Deleo (@sammycakesss) |
 | tile-nautica.jpg (1200) | Tarjeta «¿A dónde vas?» | [photo-1773834194438-f8325273c655](https://unsplash.com/photos/ZAj3VTvgFVQ) | Fabrizio Saudino (@fabba) |
@@ -20,7 +20,7 @@ En Shopify Files se suben como `entorno-<fichero>` con `scripts/subir_fichero.mj
 | bloque-nieve.jpg (1400, vertical) | Bloque «Tres entornos»: nieve | [photo-1576866946478-8d0d015bf3e5](https://unsplash.com/photos/UkIinksPvT0) | Greg Rosenke (@greg_rosenke) |
 | hero-midland-g15.jpg (1500×1500) | Banner principal de la portada desde el 13/10/2026 (elegida por el usuario) | Galería del producto Midland G15 Pro en nuestra tienda (`Midland-G15-PRO-Walkie-PMR-446_7.jpg`) | Midland / Pihernz — mismo permiso pendiente que el resto de fotos de producto |
 | hero-dynascan-p19.jpg (2560×1920) | **Reserva** del banner principal (estuvo puesta el 13/10/2026; el usuario pidió guardarla) | Galería del producto Dynascan P19 en nuestra tienda (foto del fabricante/proveedor: `P19_Dynascan-P19_pareja-walkies-IP54_recort-scaled.jpg`) | Dynascan / Pihernz — mismo permiso pendiente que el resto de fotos de producto |
-| hero-walkie-mochila.jpg (2400) | Banner principal de la portada (desde 07/10/2026) | [photo-1789288046242-5a2a4ae14889](https://unsplash.com/photos/FU-xytmckg0) | Egor Myznik (@vonshnauzer) |
+| hero-walkie-mochila.jpg (2400) | Banner principal del 07/10/2026. **No usar**: el walkie es un Baofeng con el logo visible (el cliente no quiere otras marcas que Icom/Yaesu) | [photo-1789288046242-5a2a4ae14889](https://unsplash.com/photos/FU-xytmckg0) | Egor Myznik (@vonshnauzer) |
 | tile-montana.jpg (1200) | Tarjeta montaña (la del banner actual) | photo-1563442162585-fa1426255ea9 | ver PROYECTO_INDICATIVO_BASE.md (29/09) |
 
 Alternativas descartadas por si se quiere cambiar: náutica `photo-1773834194438` como pase (más
