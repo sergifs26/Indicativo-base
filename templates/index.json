@@ -12,10 +12,10 @@
     "hero": {
       "type": "hero-indicativo",
       "settings": {
-        "image": "shopify://shop_images/entorno-hero-yaesu-ft817.jpg",
-        "disposicion": "manifiesto",
-        "posicion_escritorio": "50% 50%",
-        "posicion_movil": "70% 50%",
+        "image": "shopify://shop_images/entorno-hero-yaesu-ft817-rossola.jpg",
+        "disposicion": "izquierda",
+        "posicion_escritorio": "50% 42%",
+        "posicion_movil": "50% 50%",
         "color_scheme": "inverse",
         "antetitulo": "Radio · Antenas · Náutica · Outdoor · Aviación",
         "titular": "Mucho más que radios y antenas.",
@@ -29,7 +29,7 @@
         "enlace_destacado": "",
         "enlace_url": "",
         "credito": "Foto: iz1ksw · CC BY-SA 2.0",
-        "credito_url": "https://www.flickr.com/photos/46474281@N08/4263542844/"
+        "credito_url": "https://www.flickr.com/photos/46474281@N08/4335103338/"
       }
     },
     "marcas": {

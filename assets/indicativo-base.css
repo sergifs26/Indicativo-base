@@ -384,6 +384,40 @@ html:not(.ib-cabecera-solida) .ib-portada .section-header:not(:has(details[open]
   }
 }
 
+/* «Foto a la izquierda» en móvil y tablet (23/10/2026): la foto arriba, entera y sin texto
+   encima (el producto se ve), fundida con el fondo oscuro donde va el texto, debajo. */
+@media screen and (max-width: 989px) {
+  .ib-hero--izquierda {
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .ib-hero--izquierda .ib-hero__media {
+    position: relative;
+    inset: auto;
+    flex: none;
+    height: auto;
+    aspect-ratio: 16 / 10;
+  }
+
+  .ib-hero--izquierda .ib-hero__media::after {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 28%, rgba(0, 0, 0, 0) 72%, #121212 100%);
+  }
+
+  /* width: auto, no 100 %: en columna, el 100 % más el relleno de .page-width se salía por la derecha */
+  .ib-hero--izquierda .ib-hero__contenido {
+    width: auto;
+    padding-top: 0.8rem;
+    padding-bottom: 4rem;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .ib-hero--izquierda .ib-hero__media {
+    aspect-ratio: 1 / 1;
+  }
+}
+
 /* Variante «manifiesto» (23/10/2026): foto de ambiente a sangre y el texto, que es lo importante,
    a la izquierda y centrado en alto, sobre un degradado oscuro. La segunda línea del titular va
    en el color de acento. */
