@@ -1,0 +1,30 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "comparte": {
+      "type": "comparte-estacion",
+      "settings": {
+        "antetitulo": "Esta comunidad también la construyes tú",
+        "titulo": "Comparte tu estación",
+        "texto": "<p>¿Has montado una estación de radio? ¿Has instalado una antena en tu barco? ¿Usas tus walkies en rutas de montaña, expediciones o actividades al aire libre? ¿Has encontrado una solución que merece la pena compartir?</p><p>Queremos conocer tus proyectos y darles visibilidad. Cuéntanos qué equipos usas, tus experiencias de campo, pruebas, consejos y propuestas de mejora: qué funciona, qué necesitas y qué podemos aprender unos de otros.</p><p><strong>Las fotos</strong>: rellena el formulario y te escribiremos para que nos las mandes respondiendo al correo.</p>",
+        "permiso": "Os doy permiso para publicar mi texto y mis fotos en IndicativoBase.com, con mi nombre o indicativo.",
+        "nota": "Solo usaremos tus datos para responderte y, si nos das permiso, para publicar tu experiencia. Más información en la <a href=\"/policies/privacy-policy\">política de privacidad</a>.",
+        "boton": "Enviar mi estación",
+        "ok_titulo": "¡QSL! Hemos recibido tu estación",
+        "ok_texto": "Te escribiremos al email que nos has dejado para que nos mandes las fotos. 73 y buenas rutas.",
+        "color_scheme": "background-1"
+      }
+    }
+  },
+  "order": [
+    "comparte"
+  ]
+}

@@ -1,0 +1,127 @@
+{% comment %}
+  «Sintoniza tu afición» (portada, 23/10/2026, «La clave» del cliente): los apartados en una franja
+  discreta con forma de dial de radio. Cada estación es un enlace a su colección, con su frecuencia
+  en la escala (ordenadas de menor a mayor, como en un dial de verdad). Al pasar el cursor o con el
+  teclado, la aguja se mueve a esa estación y la línea de abajo cuenta qué hay. Sin JavaScript: la
+  aguja y la lectura van con :has(), con una regla por estación generada aquí; sin :has() el dial
+  sigue funcionando como fila de enlaces. Estilos en assets/indicativo-base.css, «Sintonizador».
+{% endcomment %}
+{%- liquid
+  assign n = section.blocks.size
+  assign inicio = section.settings.estacion_inicial | minus: 1
+  if inicio >= n
+    assign inicio = n | minus: 1
+  endif
+  assign sel = '#shopify-section-' | append: section.id | append: ' .ib-dial'
+-%}
+{%- style -%}
+  {%- for block in section.blocks -%}
+    {{ sel }}:has(.ib-dial__est:nth-child({{ forloop.index }}) > a:is(:hover, :focus-visible)) { --ib-dial-i: {{ forloop.index0 }}; }
+    {{ sel }}:has(.ib-dial__est:nth-child({{ forloop.index }}) > a:is(:hover, :focus-visible)) .ib-dial__lectura > :nth-child({{ forloop.index | plus: 1 }}) { opacity: 1; transform: none; }
+  {%- endfor -%}
+{%- endstyle -%}
+
+<div class="ib-sinto color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width">
+    {%- if section.settings.titulo != blank -%}
+      <h2 class="ib-sinto__titulo caption-with-letter-spacing">{{ section.settings.titulo | escape }}</h2>
+    {%- endif -%}
+    <div class="ib-dial" style="--ib-dial-n: {{ n }}; --ib-dial-inicio: {{ inicio }};">
+      <div class="ib-dial__marco">
+        <div class="ib-dial__pista">
+          <ul class="ib-dial__estaciones" role="list">
+            {%- for block in section.blocks -%}
+              {%- liquid
+                assign url = block.settings.enlace | default: block.settings.collection.url
+                assign nombre = block.settings.nombre | default: block.settings.collection.title
+              -%}
+              <li class="ib-dial__est" {{ block.shopify_attributes }}>
+                <a href="{{ url | default: '#' }}" aria-describedby="IbDial-{{ block.id }}">
+                  <span class="ib-dial__icono">{% render 'icono-aficion', icono: block.settings.icono %}</span>
+                  <span class="ib-dial__nombre">{{ nombre | escape }}</span>
+                  <span class="ib-dial__marca" aria-hidden="true"></span>
+                  <span class="ib-dial__frec">{{ block.settings.frecuencia | escape }}</span>
+                </a>
+              </li>
+            {%- endfor -%}
+          </ul>
+          <span class="ib-dial__aguja" aria-hidden="true"></span>
+        </div>
+      </div>
+      <div class="ib-dial__lectura">
+        <p>{{ section.settings.texto | escape }}</p>
+        {%- for block in section.blocks -%}
+          <p id="IbDial-{{ block.id }}">
+            <strong>{{ block.settings.nombre | default: block.settings.collection.title | escape }}</strong>
+            · {{ block.settings.texto | escape }}
+          </p>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Sintoniza tu afición",
+  "tag": "section",
+  "class": "section",
+  "max_blocks": 8,
+  "settings": [
+    { "type": "text", "id": "titulo", "label": "Título", "default": "Sintoniza tu afición" },
+    {
+      "type": "text",
+      "id": "texto",
+      "label": "Línea de abajo (sin estación seleccionada)",
+      "default": "Pasa por el dial y elige tu frecuencia."
+    },
+    {
+      "type": "range",
+      "id": "estacion_inicial",
+      "label": "Estación donde descansa la aguja",
+      "min": 1,
+      "max": 8,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Esquema de color",
+      "options": [
+        { "value": "background-1", "label": "Fondo claro" },
+        { "value": "inverse", "label": "Oscuro" }
+      ],
+      "default": "background-1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "estacion",
+      "name": "Estación",
+      "settings": [
+        { "type": "collection", "id": "collection", "label": "Colección" },
+        { "type": "text", "id": "nombre", "label": "Nombre", "info": "Si se deja vacío, el de la colección." },
+        { "type": "text", "id": "frecuencia", "label": "Frecuencia en la escala", "default": "446 MHz" },
+        {
+          "type": "select",
+          "id": "icono",
+          "label": "Icono",
+          "options": [
+            { "value": "torre", "label": "Antena" },
+            { "value": "montana", "label": "Montaña" },
+            { "value": "nautica", "label": "Velero" },
+            { "value": "outdoor", "label": "Tienda de campaña" },
+            { "value": "aviacion", "label": "Avión" },
+            { "value": "caza", "label": "Prismáticos" }
+          ],
+          "default": "torre"
+        },
+        { "type": "text", "id": "texto", "label": "Qué hay (una línea)" },
+        { "type": "url", "id": "enlace", "label": "Enlace", "info": "Si se deja vacío, la colección." }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Sintoniza tu afición" }]
+}
+{% endschema %}

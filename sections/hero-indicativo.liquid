@@ -5,6 +5,9 @@
   contados en vivo). Va con la clave «hero» en templates/index.json: la cabecera transparente y el
   margen del primer bloque dependen de ello. Estilos en assets/indicativo-base.css, «Banner
   principal».
+  Desde el 23/10/2026 («La clave» del cliente) es un banner manifiesto: disposición «manifiesto»
+  (foto a sangre, texto a la izquierda), titular en dos líneas (la segunda, en el color de acento)
+  y sin tarjetas de categoría.
 {% endcomment %}
 <div
   class="ib-hero ib-hero--{{ section.settings.disposicion }} color-{{ section.settings.color_scheme }}"
@@ -32,7 +35,10 @@
         <p class="ib-hero__antetitulo caption-with-letter-spacing">{{ section.settings.antetitulo | escape }}</p>
       {%- endif -%}
       {%- if section.settings.titular != blank -%}
-        <h1 class="ib-hero__titular h0">{{ section.settings.titular | escape }}</h1>
+        <h1 class="ib-hero__titular h0">
+          {{- section.settings.titular | escape -}}
+          {%- if section.settings.titular_2 != blank %} <span class="ib-hero__titular-2">{{ section.settings.titular_2 | escape }}</span>{% endif -%}
+        </h1>
       {%- endif -%}
       {%- if section.settings.texto != blank -%}
         <p class="ib-hero__frase">{{ section.settings.texto | escape }}</p>
@@ -93,9 +99,10 @@
       "type": "select",
       "id": "disposicion",
       "label": "Disposición en ordenador",
-      "info": "A sangre: la foto ocupa todo y el texto va encima, a la derecha (para fotos con espacio libre a la derecha). A la izquierda: la foto se ve entera a la izquierda y se funde con un fondo oscuro donde va el texto (para fotos de producto).",
+      "info": "A sangre: la foto ocupa todo y el texto va encima, a la derecha (para fotos con espacio libre a la derecha). Manifiesto: foto a sangre y texto a la izquierda, centrado en alto. A la izquierda: la foto se ve entera a la izquierda y se funde con un fondo oscuro donde va el texto (para fotos de producto).",
       "options": [
         { "value": "sangre", "label": "Foto a sangre" },
+        { "value": "manifiesto", "label": "Manifiesto (texto a la izquierda)" },
         { "value": "izquierda", "label": "Foto a la izquierda" }
       ],
       "default": "sangre"
@@ -103,7 +110,7 @@
     {
       "type": "select",
       "id": "posicion_escritorio",
-      "label": "Encuadre de la foto en ordenador (foto a la izquierda)",
+      "label": "Encuadre de la foto en ordenador (foto a la izquierda y manifiesto)",
       "options": [
         { "value": "12% 45%", "label": "Izquierda" },
         { "value": "50% 42%", "label": "Centro" },
@@ -135,6 +142,7 @@
     },
     { "type": "text", "id": "antetitulo", "default": "Walkies · Emisoras · Antenas", "label": "Antetítulo" },
     { "type": "text", "id": "titular", "default": "Walkies y emisoras de las mejores marcas", "label": "Titular" },
+    { "type": "text", "id": "titular_2", "label": "Segunda línea del titular", "info": "Opcional, en el color de acento." },
     { "type": "textarea", "id": "texto", "label": "Frase" },
     { "type": "text", "id": "boton_1_texto", "default": "Ver walkies", "label": "Botón principal" },
     { "type": "url", "id": "boton_1_enlace", "label": "Enlace del botón principal" },

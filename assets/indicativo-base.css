@@ -384,6 +384,35 @@ html:not(.ib-cabecera-solida) .ib-portada .section-header:not(:has(details[open]
   }
 }
 
+/* Variante «manifiesto» (23/10/2026): foto de ambiente a sangre y el texto, que es lo importante,
+   a la izquierda y centrado en alto, sobre un degradado oscuro. La segunda línea del titular va
+   en el color de acento. */
+.ib-hero__titular-2 {
+  display: block;
+  color: #a8efe8;
+}
+
+@media screen and (min-width: 750px) {
+  .ib-hero--manifiesto .ib-hero__foto {
+    object-position: var(--ib-hero-pos-escritorio, 50% 42%);
+  }
+
+  .ib-hero--manifiesto .ib-hero__media::after {
+    background:
+      linear-gradient(to right, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.42) 42%, rgba(0, 0, 0, 0) 72%),
+      linear-gradient(to top, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0) 30%);
+  }
+
+  .ib-hero--manifiesto .ib-hero__texto {
+    align-self: flex-start;
+    max-width: 62rem;
+  }
+
+  .ib-hero--manifiesto .ib-hero__frase {
+    max-width: 50rem;
+  }
+}
+
 @media (prefers-reduced-transparency: reduce) {
   .ib-hero__cat {
     background: rgba(18, 18, 18, 0.85);
@@ -855,5 +884,397 @@ button.shopify-payment-button__button--unbranded:hover {
 
   .ib-marcas__pista > li[aria-hidden='true'] {
     display: none;
+  }
+}
+
+/* Sintonizador «Sintoniza tu afición» (sections/sintonizador.liquid, 23/10/2026): los apartados
+   como un dial de radio, discreto. Cada estación dibuja su tramo de escala (rayitas cada 10 px y
+   una marca mayor en el centro). La aguja va a la estación bajo el cursor (--ib-dial-i, reglas
+   :has() generadas en la sección) o descansa en --ib-dial-inicio; al entrar el dial en pantalla
+   recorre la escala (solo navegadores con animaciones ligadas al scroll). En móvil se desliza. */
+.ib-sinto {
+  padding: 3.2rem 0 2.8rem;
+}
+
+.ib-sinto__titulo {
+  margin: 0 0 1.6rem;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: rgba(var(--color-foreground), 0.6);
+}
+
+.ib-dial {
+  --ib-dial-aguja: #e4572e;
+  --ib-dial-alto-icono: 2.4rem;
+  --ib-dial-alto-nombre: 2rem;
+  --ib-dial-alto-marca: 1.4rem;
+  --ib-dial-hueco: 0.6rem;
+  --ib-dial-arriba: calc(var(--ib-dial-alto-icono) + var(--ib-dial-alto-nombre) + 2 * var(--ib-dial-hueco));
+}
+
+.ib-dial__pista {
+  position: relative;
+  min-width: calc(var(--ib-dial-n) * 10rem);
+}
+
+.ib-dial__estaciones {
+  display: grid;
+  grid-template-columns: repeat(var(--ib-dial-n), minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ib-dial__est > a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--ib-dial-hueco);
+  padding-bottom: 0.4rem;
+  color: rgba(var(--color-foreground), 0.62);
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.ib-dial__est > a:hover,
+.ib-dial__est > a:focus-visible {
+  color: rgb(var(--color-foreground));
+}
+
+.ib-dial__icono {
+  display: flex;
+  height: var(--ib-dial-alto-icono);
+  transition: transform 0.25s ease;
+}
+
+.ib-dial__icono .ib-icono {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.ib-dial__est > a:hover .ib-dial__icono {
+  transform: translateY(-0.2rem);
+}
+
+.ib-dial__nombre {
+  height: var(--ib-dial-alto-nombre);
+  line-height: var(--ib-dial-alto-nombre);
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.ib-dial__marca {
+  position: relative;
+  align-self: stretch;
+  height: var(--ib-dial-alto-marca);
+  border-bottom: 1px solid rgba(var(--color-foreground), 0.22);
+  background: linear-gradient(90deg, transparent 4.5px, rgba(var(--color-foreground), 0.25) 4.5px 5.5px, transparent 5.5px)
+    center bottom / 10px 45% repeat-x;
+}
+
+.ib-dial__marca::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 2px;
+  height: 100%;
+  background: rgba(var(--color-foreground), 0.5);
+  transform: translateX(-50%);
+}
+
+.ib-dial__frec {
+  font-size: 1.1rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  color: rgba(var(--color-foreground), 0.5);
+}
+
+.ib-dial__aguja {
+  position: absolute;
+  top: calc(var(--ib-dial-arriba) - 0.6rem);
+  left: calc((var(--ib-dial-i, var(--ib-dial-inicio)) + 0.5) * 100% / var(--ib-dial-n));
+  width: 2px;
+  height: calc(var(--ib-dial-alto-marca) + 1.2rem);
+  margin-left: -1px;
+  border-radius: 1px;
+  background: var(--ib-dial-aguja);
+  box-shadow: 0 0 0.8rem rgba(228, 87, 46, 0.55);
+  pointer-events: none;
+  transition: left 0.55s cubic-bezier(0.22, 0.9, 0.24, 1);
+}
+
+@supports (animation-timeline: view()) {
+  .ib-dial__aguja {
+    animation: ib-dial-barrido linear backwards;
+    animation-timeline: view();
+    animation-range: entry 10% cover 45%;
+  }
+}
+
+@keyframes ib-dial-barrido {
+  from {
+    left: 0;
+  }
+}
+
+.ib-dial__lectura {
+  display: grid;
+  margin-top: 1.4rem;
+  text-align: center;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  color: rgba(var(--color-foreground), 0.7);
+}
+
+.ib-dial__lectura > p {
+  grid-area: 1 / 1;
+  margin: 0;
+  opacity: 0;
+  transform: translateY(0.4rem);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.ib-dial__lectura > p:first-child {
+  opacity: 1;
+  transform: none;
+}
+
+.ib-dial:has(.ib-dial__est > a:is(:hover, :focus-visible)) .ib-dial__lectura > p:first-child {
+  opacity: 0;
+}
+
+.ib-dial__lectura strong {
+  font-weight: 600;
+  color: rgb(var(--color-foreground));
+}
+
+@media screen and (max-width: 749px) {
+  .ib-dial__marco {
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-mask-image: linear-gradient(to right, #000 82%, transparent);
+    mask-image: linear-gradient(to right, #000 82%, transparent);
+  }
+
+  .ib-dial__marco::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ib-dial__nombre {
+    font-size: 1.3rem;
+  }
+
+  .ib-dial__lectura {
+    font-size: 1.3rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ib-dial__aguja {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* Pilares (sections/pilares.liquid, 23/10/2026): las ideas clave del cliente en columnas
+   numeradas, separadas por una línea fina arriba. 1 columna en móvil, 2 en tablet, 4 en ordenador. */
+.ib-pilares {
+  padding: 5.6rem 0;
+}
+
+.ib-pilares__cabecera {
+  max-width: 76rem;
+  margin-bottom: 4rem;
+}
+
+.ib-pilares__antetitulo,
+.ib-pilar__num {
+  color: #1f7d76;
+  font-weight: 600;
+}
+
+.color-inverse .ib-pilares__antetitulo,
+.color-inverse .ib-pilar__num {
+  color: #6fd6cc;
+}
+
+.ib-pilares__antetitulo {
+  margin: 0 0 1.2rem;
+}
+
+.ib-pilares__titulo {
+  margin: 0;
+}
+
+.ib-pilares__lista {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ib-pilar {
+  padding: 2.4rem 0;
+  border-top: 1px solid rgba(var(--color-foreground), 0.18);
+}
+
+.ib-pilar__arriba {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.ib-pilar__num {
+  font-size: 1.2rem;
+  letter-spacing: 0.14em;
+  font-variant-numeric: tabular-nums;
+}
+
+.ib-pilar__icono .ib-icono {
+  width: 3.2rem;
+  height: 3.2rem;
+  stroke-width: 1.25;
+  color: rgba(var(--color-foreground), 0.85);
+}
+
+.ib-pilar__titulo {
+  margin: 0 0 1rem;
+  font-size: 2rem;
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.ib-pilar__texto {
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: rgba(var(--color-foreground), 0.72);
+}
+
+.ib-pilar__enlace {
+  display: inline-block;
+  margin-top: 1.6rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: rgb(var(--color-foreground));
+  text-underline-offset: 0.35rem;
+}
+
+@media screen and (min-width: 750px) {
+  .ib-pilares__lista {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 4rem;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .ib-pilares {
+    padding: 8rem 0;
+  }
+
+  .ib-pilares__lista {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: 3.2rem;
+  }
+
+  .ib-pilar {
+    padding-top: 2.8rem;
+  }
+}
+
+/* Comparte tu estación (sections/comparte-estacion.liquid, 23/10/2026): texto a la izquierda,
+   pegado al bajar, y formulario de contacto a la derecha. */
+.ib-comparte {
+  padding: 4.8rem 0 6.4rem;
+}
+
+.ib-comparte__rejilla {
+  display: grid;
+  gap: 3.2rem;
+}
+
+.ib-comparte__antetitulo {
+  margin: 0 0 1.2rem;
+  color: #1f7d76;
+  font-weight: 600;
+}
+
+.color-inverse .ib-comparte__antetitulo {
+  color: #6fd6cc;
+}
+
+.ib-comparte__titulo {
+  margin: 0 0 1.6rem;
+}
+
+.ib-comparte__texto {
+  font-size: 1.6rem;
+  line-height: 1.65;
+  color: rgba(var(--color-foreground), 0.78);
+}
+
+.ib-comparte__permiso {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.ib-comparte__permiso input {
+  flex: 0 0 auto;
+  width: 1.8rem;
+  height: 1.8rem;
+  margin: 0.2rem 0 0;
+  accent-color: #1f7d76;
+}
+
+.ib-comparte__nota {
+  margin: 1.2rem 0 0;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color: rgba(var(--color-foreground), 0.6);
+}
+
+.ib-comparte__ok {
+  padding: 3.2rem;
+  border-radius: 2rem;
+  background: rgba(69, 192, 182, 0.12);
+  border: 1px solid rgba(69, 192, 182, 0.45);
+}
+
+/* Recibe el foco al cargar (para lectores de pantalla), pero no es un control: sin anillo */
+.ib-comparte__ok:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.ib-comparte__ok-titulo {
+  margin: 0 0 0.8rem;
+}
+
+.ib-comparte__ok p:last-child {
+  margin: 0;
+}
+
+@media screen and (min-width: 990px) {
+  .ib-comparte__rejilla {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 6.4rem;
+    align-items: start;
+  }
+
+  .ib-comparte__intro {
+    position: sticky;
+    top: calc(var(--ib-cabecera, 8rem) + 2rem);
   }
 }

@@ -11,62 +11,23 @@
   "sections": {
     "hero": {
       "type": "hero-indicativo",
-      "blocks": {
-        "walkies": {
-          "type": "categoria",
-          "settings": {
-            "collection": "walkies",
-            "product": "dynascan-r-58-walkie-pmr-446-profesional-ip-67",
-            "etiqueta": "Walkies"
-          }
-        },
-        "emisoras": {
-          "type": "categoria",
-          "settings": {
-            "collection": "emisoras",
-            "product": "icom-ic-7300-transceptor-hf-sdr",
-            "etiqueta": "Emisoras"
-          }
-        },
-        "antenas": {
-          "type": "categoria",
-          "settings": {
-            "collection": "antenas",
-            "product": "diamond-srh771-antena-doble-banda-sma-macho",
-            "etiqueta": "Antenas"
-          }
-        },
-        "accesorios": {
-          "type": "categoria",
-          "settings": {
-            "collection": "accesorios-walkies",
-            "product": "jetfon-jr-1702-e-c-microauricular-para-walkies-con-conector-doble-tipo-k",
-            "etiqueta": "Accesorios"
-          }
-        }
-      },
-      "block_order": [
-        "walkies",
-        "emisoras",
-        "antenas",
-        "accesorios"
-      ],
       "settings": {
-        "image": "shopify://shop_images/entorno-hero-midland-g15.jpg",
-        "posicion_movil": "50% 50%",
+        "image": "shopify://shop_images/entorno-slide-nieve.jpg",
+        "disposicion": "manifiesto",
+        "posicion_escritorio": "50% 42%",
+        "posicion_movil": "70% 50%",
         "color_scheme": "inverse",
-        "antetitulo": "",
-        "titular": "Walkies y emisoras de las mejores marcas",
-        "texto": "Siempre en contacto, estés donde estés.",
-        "boton_1_texto": "",
-        "boton_1_enlace": "",
-        "boton_2_texto": "",
-        "boton_2_enlace": "",
+        "antetitulo": "Radio · Antenas · Náutica · Outdoor · Aviación",
+        "titular": "Mucho más que radios y antenas.",
+        "titular_2": "Tu comunidad que conecta.",
+        "texto": "Somos radioaficionados, navegantes y gente de montaña. Sabemos lo que significa confiar en tu equipo cuando estás en casa, en el mar, en la cumbre o lejos de todo.",
+        "boton_1_texto": "Descubre nuestros productos",
+        "boton_1_enlace": "/collections/all",
+        "boton_2_texto": "Únete a la comunidad",
+        "boton_2_enlace": "/pages/comparte-tu-estacion",
         "enlace_texto": "",
         "enlace_destacado": "",
-        "enlace_url": "",
-        "disposicion": "izquierda",
-        "posicion_escritorio": "50% 42%"
+        "enlace_url": ""
       }
     },
     "marcas": {
@@ -195,9 +156,9 @@
       },
       "block_order": [
         "icom",
+        "yaesu",
         "motorola",
         "kenwood",
-        "yaesu",
         "midland",
         "hytera",
         "alinco",
@@ -218,64 +179,225 @@
         "color_scheme": "background-1"
       }
     },
-    "entornos": {
-      "type": "collection-list",
+    "sintonizador": {
+      "type": "sintonizador",
       "blocks": {
-        "col_0": {
-          "type": "featured_collection",
+        "outdoor": {
+          "type": "estacion",
           "settings": {
-            "collection": "montana"
+            "collection": "camping-y-familia",
+            "nombre": "Outdoor",
+            "frecuencia": "CB · 27 MHz",
+            "icono": "outdoor",
+            "texto": "Walkies fáciles, linternas y energía para explorar, viajar y acampar.",
+            "enlace": ""
           }
         },
-        "col_1": {
-          "type": "featured_collection",
+        "aviacion": {
+          "type": "estacion",
           "settings": {
-            "collection": "nautica"
+            "collection": "aviacion",
+            "nombre": "Aviación",
+            "frecuencia": "118–137 MHz",
+            "icono": "aviacion",
+            "texto": "Walkies y emisoras de banda aérea, antenas y adaptadores para cascos.",
+            "enlace": ""
           }
         },
-        "col_2": {
-          "type": "featured_collection",
+        "radioaficion": {
+          "type": "estacion",
           "settings": {
-            "collection": "nieve"
+            "collection": "radioaficion",
+            "nombre": "Radioafición",
+            "frecuencia": "144 MHz",
+            "icono": "torre",
+            "texto": "Transceptores, emisoras, antenas y medidores para tu estación.",
+            "enlace": ""
           }
         },
-        "col_3": {
-          "type": "featured_collection",
+        "nautica": {
+          "type": "estacion",
           "settings": {
-            "collection": "camping-y-familia"
+            "collection": "nautica",
+            "nombre": "Náutica",
+            "frecuencia": "Canal 16",
+            "icono": "nautica",
+            "texto": "Radios VHF marinas, walkies que flotan y antenas para tus travesías.",
+            "enlace": ""
           }
         },
-        "col_4": {
-          "type": "featured_collection",
+        "caza": {
+          "type": "estacion",
           "settings": {
-            "collection": "caza-y-pesca"
+            "collection": "caza-y-pesca",
+            "nombre": "Caza",
+            "frecuencia": "PMR 446",
+            "icono": "caza",
+            "texto": "Walkies robustos, prismáticos y linternas para batidas y esperas.",
+            "enlace": ""
           }
         },
-        "col_5": {
-          "type": "featured_collection",
+        "montana": {
+          "type": "estacion",
           "settings": {
-            "collection": "para-empezar"
+            "collection": "montana",
+            "nombre": "Montaña",
+            "frecuencia": "PMR 446",
+            "icono": "montana",
+            "texto": "Walkies sin licencia, GPS y frontales para no perder a tu grupo.",
+            "enlace": ""
           }
         }
       },
       "block_order": [
-        "col_0",
-        "col_1",
-        "col_2",
-        "col_3",
-        "col_4",
-        "col_5"
+        "outdoor",
+        "aviacion",
+        "radioaficion",
+        "nautica",
+        "caza",
+        "montana"
       ],
       "settings": {
-        "title": "¿A dónde vas?",
-        "heading_size": "h1",
-        "image_ratio": "square",
-        "columns_desktop": 3,
+        "titulo": "Sintoniza tu afición",
+        "texto": "Pasa por el dial y elige tu frecuencia.",
+        "estacion_inicial": 3,
+        "color_scheme": "background-1"
+      }
+    },
+    "pilares": {
+      "type": "pilares",
+      "blocks": {
+        "juntos": {
+          "type": "pilar",
+          "settings": {
+            "icono": "grupo",
+            "titulo": "Compramos juntos, conseguimos más",
+            "texto": "La fuerza de una comunidad especializada para buscar mejores condiciones con fabricantes y distribuidores, y compartir las ventajas.",
+            "enlace_texto": "",
+            "enlace": ""
+          }
+        },
+        "ayuda": {
+          "type": "pilar",
+          "settings": {
+            "icono": "ayuda",
+            "titulo": "Si uno necesita ayuda, la comunidad responde",
+            "texto": "Cuando un temporal o una DANA se lleva una antena o deja un radioclub sin equipo, queremos estar ahí para ayudar a recuperarlo.",
+            "enlace_texto": "¿Conoces a alguien afectado? Avísanos",
+            "enlace": "/pages/contact"
+          }
+        },
+        "aficion": {
+          "type": "pilar",
+          "settings": {
+            "icono": "radio",
+            "titulo": "No vendemos desde fuera de la afición",
+            "texto": "Somos parte de ella: conocemos los equipos, las instalaciones y lo que hay detrás de cada compra, y lo compartimos con consejos y opiniones.",
+            "enlace_texto": "Conoce nuestra comunidad",
+            "enlace": "/pages/nuestra-comunidad"
+          }
+        },
+        "naturaleza": {
+          "type": "pilar",
+          "settings": {
+            "icono": "hoja",
+            "titulo": "Amamos la naturaleza",
+            "texto": "Menos embalaje y envíos más pensados, para cuidar los lugares donde disfrutamos de la radio.",
+            "enlace_texto": "",
+            "enlace": ""
+          }
+        }
+      },
+      "block_order": [
+        "juntos",
+        "ayuda",
+        "aficion",
+        "naturaleza"
+      ],
+      "settings": {
+        "antetitulo": "Lo que nos mueve",
+        "titulo": "Compartimos afición. Impulsamos tu aventura. Nos ayudamos entre todos.",
+        "color_scheme": "inverse"
+      }
+    },
+    "aficionados": {
+      "type": "image-with-text",
+      "blocks": {
+        "caption": {
+          "type": "caption",
+          "settings": {
+            "caption": "Quiénes somos",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "titulo": {
+          "type": "heading",
+          "settings": {
+            "heading": "Una tienda de aficionados, para aficionados",
+            "heading_size": "h1"
+          }
+        },
+        "texto": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Creemos que la radio y la aventura son mucho más que equipos y accesorios: son personas, experiencias, conocimientos compartidos y conexiones que van más allá de la distancia.</p><p>No somos una multinacional ni queremos ser una tienda más que se limita a vender y enviar paquetes. Seleccionamos con criterio equipos de radioafición, walkies, emisoras, antenas, comunicación náutica y aérea, GPS y material para montaña y outdoor.</p>",
+            "text_style": "body"
+          }
+        },
+        "boton": {
+          "type": "button",
+          "settings": {
+            "button_label": "Conoce nuestra comunidad",
+            "button_link": "/pages/nuestra-comunidad"
+          }
+        }
+      },
+      "block_order": [
+        "caption",
+        "titulo",
+        "texto",
+        "boton"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/entorno-slide-camping.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
         "color_scheme": "background-1",
-        "show_view_all": false,
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "valoramos": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Lo que más valoramos",
+        "heading_size": "h1",
+        "description": "<p>Icom y Yaesu: los equipos que más se valoran entre radioaficionados, navegantes y gente de montaña.</p>",
+        "show_description": true,
+        "description_style": "body",
+        "collection": "lo-que-mas-valoramos",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "background-1",
+        "image_ratio": "square",
+        "show_secondary_image": true,
+        "show_vendor": true,
+        "show_rating": false,
+        "enable_quick_add": true,
         "columns_mobile": "2",
         "swipe_on_mobile": false,
-        "padding_top": 48,
+        "padding_top": 36,
         "padding_bottom": 36
       }
     },
@@ -306,108 +428,165 @@
         "padding_bottom": 36
       }
     },
-    "tres_entornos": {
-      "type": "destacados-entorno",
+    "comunidad": {
+      "type": "image-with-text",
       "blocks": {
-        "montana": {
-          "type": "entorno",
+        "caption": {
+          "type": "caption",
           "settings": {
-            "image": "shopify://shop_images/photo-1643903096045-07741be1f245.jpg",
-            "etiqueta": "Montaña",
-            "product": "dynascan-r-58-walkie-pmr-446-profesional-ip-67",
-            "destacado": "Imprescindible en la montaña",
-            "frase": "Sin licencia · sumergible (IP67)",
-            "boton": "Ver producto"
+            "caption": "Esta comunidad también la construyes tú",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
           }
         },
-        "nautica": {
-          "type": "entorno",
+        "titulo": {
+          "type": "heading",
           "settings": {
-            "image": "shopify://shop_images/entorno-slide-nautica.jpg",
-            "etiqueta": "Náutica",
-            "product": "jopix-marine-515p-walkie-marina-vhf",
-            "destacado": "Imprescindible en el mar",
-            "frase": "Radio VHF marina que flota · IP67",
-            "boton": "Ver producto"
+            "heading": "Queremos conocer tu estación, tu barco y tus rutas",
+            "heading_size": "h1"
           }
         },
-        "nieve": {
-          "type": "entorno",
+        "texto": {
+          "type": "text",
           "settings": {
-            "image": "shopify://shop_images/entorno-bloque-nieve.jpg",
-            "etiqueta": "Nieve",
-            "product": "dynascan-p19-pareja-de-walkies-pmr-446-con-maletin-y-microauriculares",
-            "destacado": "Imprescindible en la nieve",
-            "frase": "Pareja sin licencia · manos libres y maletín",
-            "boton": "Ver producto"
+            "text": "<p>¿Has montado una estación de radio? ¿Has instalado una antena en tu barco? ¿Usas tus walkies en la montaña? Mándanos fotos y cuéntanos qué equipos usas, tus pruebas y tus consejos.</p><p>Tu experiencia puede ayudar a otro aficionado a elegir mejor. IndicativoBase no se construye solo con productos: se construye con las personas que los usan.</p>",
+            "text_style": "body"
+          }
+        },
+        "boton": {
+          "type": "button",
+          "settings": {
+            "button_label": "Comparte tu estación",
+            "button_link": "/pages/comparte-tu-estacion"
           }
         }
       },
       "block_order": [
-        "montana",
-        "nautica",
-        "nieve"
+        "caption",
+        "titulo",
+        "texto",
+        "boton"
       ],
       "settings": {
-        "caption": "Monte · Mar · Nieve",
-        "heading": "Donde no hay cobertura, hay radio",
-        "color_scheme": "inverse",
-        "padding_top": 48
+        "image": "shopify://shop_images/entorno-slide-nautica.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "color_scheme": "background-1",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 48,
+        "padding_bottom": 48
       }
     },
-    "temporada_nieve": {
-      "type": "featured-collection",
+    "ayuda": {
+      "type": "rich-text",
+      "disabled": true,
+      "blocks": {
+        "caption": {
+          "type": "caption",
+          "settings": {
+            "caption": "Si uno necesita ayuda, la comunidad responde",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "titulo": {
+          "type": "heading",
+          "settings": {
+            "heading": "Una antena puede ser mucho más que una antena",
+            "heading_size": "h1"
+          }
+        },
+        "texto": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Hay instalaciones que se lleva un vendaval, radioclubs que necesitan volver a ponerse en marcha y barcos que sufren una DANA. Recuperar una instalación de comunicaciones es recuperar una afición, una conexión y, a veces, una herramienta fundamental para una comunidad.</p><p>Por eso destinamos recursos a donar antenas y material de comunicaciones a radioaficionados, radioclubs y embarcaciones afectados por desastres naturales. Si conoces algún colectivo afectado, avísanos y coordinamos la ayuda.</p>"
+          }
+        },
+        "boton": {
+          "type": "button",
+          "settings": {
+            "button_label": "¿Conoces a alguien afectado? Avísanos",
+            "button_link": "/pages/contact",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "caption",
+        "titulo",
+        "texto",
+        "boton"
+      ],
       "settings": {
-        "title": "Prepárate para la nieve",
-        "heading_size": "h1",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "nieve",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
+        "desktop_content_position": "center",
+        "content_alignment": "center",
         "color_scheme": "background-1",
-        "image_ratio": "square",
-        "show_secondary_image": true,
-        "show_vendor": true,
-        "show_rating": false,
-        "enable_quick_add": true,
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "full_width": true,
+        "padding_top": 64,
+        "padding_bottom": 64
       }
     },
-    "temporada_caza": {
-      "type": "featured-collection",
+    "envio": {
+      "type": "multicolumn",
+      "blocks": {
+        "dias": {
+          "type": "column",
+          "settings": {
+            "title": "Tu pedido en 5 días hábiles",
+            "link_label": "",
+            "link": "",
+            "text": "<p>Es nuestro objetivo de entrega: a tiempo para tu próxima salida, tu instalación o tu nuevo equipo, sin prisas que nadie necesita.</p>"
+          }
+        },
+        "club": {
+          "type": "column",
+          "settings": {
+            "title": "Entrega en tu club o en un locker",
+            "link_label": "",
+            "link": "",
+            "text": "<p>Si eliges la sede de tu radioclub, tu club de montaña, tu oficina o un locker cercano, lo recibes antes y evitamos devoluciones, desplazamientos y emisiones.</p>"
+          }
+        },
+        "urgente": {
+          "type": "column",
+          "settings": {
+            "title": "¿Lo necesitas ya?",
+            "link_label": "",
+            "link": "",
+            "text": "<p>Si es urgente, escríbenos y buscamos la forma de que te llegue cuanto antes y con garantías.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "dias",
+        "club",
+        "urgente"
+      ],
       "settings": {
-        "title": "Para tus jornadas de caza y pesca",
+        "title": "Tu pedido, con sentido",
         "heading_size": "h1",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "caza-y-pesca",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "primary",
+        "button_label": "Escríbenos",
+        "button_link": "shopify://pages/contact",
         "color_scheme": "background-1",
-        "image_ratio": "square",
-        "show_secondary_image": true,
-        "show_vendor": true,
-        "show_rating": false,
-        "enable_quick_add": true,
-        "columns_mobile": "2",
+        "columns_mobile": "1",
         "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
+        "padding_top": 48,
+        "padding_bottom": 48
+      },
+      "disabled": true
     },
     "preguntas": {
       "type": "collapsible-content",
@@ -484,69 +663,70 @@
         "padding_bottom": 48
       }
     },
-    "ventajas": {
-      "type": "multicolumn",
+    "cierre": {
+      "type": "rich-text",
       "blocks": {
-        "c1": {
-          "type": "column",
+        "caption": {
+          "type": "caption",
           "settings": {
-            "title": "Te ayudamos a elegir",
-            "text": "<p>Cuéntanos tu plan y te decimos qué equipo encaja. Hablamos claro y sin tecnicismos.</p>",
-            "link_label": "",
-            "link": ""
+            "caption": "IndicativoBase.com",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
           }
         },
-        "c2": {
-          "type": "column",
+        "titulo": {
+          "type": "heading",
           "settings": {
-            "title": "Licencias, claras",
-            "text": "<p>Te indicamos si un equipo es de uso libre o necesita licencia. Así sabes lo que compras.</p>",
-            "link_label": "",
-            "link": ""
+            "heading": "No compres simplemente. Forma parte.",
+            "heading_size": "h1"
           }
         },
-        "c3": {
-          "type": "column",
+        "texto": {
+          "type": "text",
           "settings": {
-            "title": "Ordenado por dónde vas",
-            "text": "<p>Montaña, mar, nieve, camping o caza. Busca por tu plan y encuentra lo que funciona allí.</p>",
-            "link_label": "",
-            "link": ""
+            "text": "<p>Ninguna señal llega lejos si no hay alguien dispuesto a escucharla.</p>"
+          }
+        },
+        "boton": {
+          "type": "button",
+          "settings": {
+            "button_label": "Únete a la comunidad",
+            "button_link": "/pages/comparte-tu-estacion",
+            "button_style_secondary": false,
+            "button_label_2": "Descubre nuestros productos",
+            "button_link_2": "/collections/all",
+            "button_style_secondary_2": true
           }
         }
       },
       "block_order": [
-        "c1",
-        "c2",
-        "c3"
+        "caption",
+        "titulo",
+        "texto",
+        "boton"
       ],
       "settings": {
-        "title": "Cuéntanos tu plan y te recomendamos",
-        "heading_size": "h1",
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "primary",
-        "button_label": "Cuéntanos tu plan",
-        "button_link": "shopify://pages/contact",
-        "color_scheme": "background-1",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 48,
-        "padding_bottom": 48
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "inverse",
+        "full_width": true,
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     }
   },
   "order": [
     "hero",
     "marcas",
-    "entornos",
+    "sintonizador",
+    "pilares",
+    "aficionados",
+    "valoramos",
     "para_empezar",
-    "tres_entornos",
-    "temporada_nieve",
-    "temporada_caza",
+    "comunidad",
+    "ayuda",
+    "envio",
     "preguntas",
-    "ventajas"
+    "cierre"
   ]
 }

@@ -1,0 +1,84 @@
+{% comment %}
+  Pilares de la marca (portada, 23/10/2026): las ideas clave del cliente («La clave de
+  IndicativoBase.doc») en columnas cortas numeradas, con icono, frase y enlace opcional.
+  Estilos en assets/indicativo-base.css, «Pilares».
+{% endcomment %}
+<div class="ib-pilares color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width">
+    <div class="ib-pilares__cabecera">
+      {%- if section.settings.antetitulo != blank -%}
+        <p class="ib-pilares__antetitulo caption-with-letter-spacing">{{ section.settings.antetitulo | escape }}</p>
+      {%- endif -%}
+      {%- if section.settings.titulo != blank -%}
+        <h2 class="ib-pilares__titulo h1">{{ section.settings.titulo | escape }}</h2>
+      {%- endif -%}
+    </div>
+    <ol class="ib-pilares__lista" role="list">
+      {%- for block in section.blocks -%}
+        <li class="ib-pilar" {{ block.shopify_attributes }}>
+          <div class="ib-pilar__arriba">
+            <span class="ib-pilar__num">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+            <span class="ib-pilar__icono">{% render 'icono-aficion', icono: block.settings.icono %}</span>
+          </div>
+          <h3 class="ib-pilar__titulo">{{ block.settings.titulo | escape }}</h3>
+          {%- if block.settings.texto != blank -%}
+            <p class="ib-pilar__texto">{{ block.settings.texto | escape }}</p>
+          {%- endif -%}
+          {%- if block.settings.enlace_texto != blank and block.settings.enlace != blank -%}
+            <a class="ib-pilar__enlace" href="{{ block.settings.enlace }}">{{ block.settings.enlace_texto | escape }}&nbsp;<span aria-hidden="true">→</span></a>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ol>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Pilares",
+  "tag": "section",
+  "class": "section",
+  "max_blocks": 4,
+  "settings": [
+    { "type": "text", "id": "antetitulo", "label": "Antetítulo", "default": "Lo que nos mueve" },
+    { "type": "text", "id": "titulo", "label": "Título", "default": "Compartimos afición. Impulsamos tu aventura. Nos ayudamos entre todos." },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Esquema de color",
+      "options": [
+        { "value": "background-1", "label": "Fondo claro" },
+        { "value": "inverse", "label": "Oscuro" }
+      ],
+      "default": "inverse"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "pilar",
+      "name": "Pilar",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icono",
+          "label": "Icono",
+          "options": [
+            { "value": "grupo", "label": "Grupo" },
+            { "value": "ayuda", "label": "Corazón" },
+            { "value": "radio", "label": "Walkie" },
+            { "value": "hoja", "label": "Hoja" },
+            { "value": "torre", "label": "Antena" },
+            { "value": "montana", "label": "Montaña" }
+          ],
+          "default": "grupo"
+        },
+        { "type": "text", "id": "titulo", "label": "Título", "default": "Compramos juntos, conseguimos más" },
+        { "type": "textarea", "id": "texto", "label": "Texto" },
+        { "type": "text", "id": "enlace_texto", "label": "Texto del enlace" },
+        { "type": "url", "id": "enlace", "label": "Enlace" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Pilares" }]
+}
+{% endschema %}

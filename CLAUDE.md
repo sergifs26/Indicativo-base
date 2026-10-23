@@ -65,6 +65,17 @@ Ramas: **`production`** = tema publicado · **`staging`** = vista previa.
   operaciones): `git config --local credential.https://github.com.username sergifs26`. Si vuelve a
   pasar: `GIT_TERMINAL_PROMPT=0 GCM_INTERACTIVE=never git push …` lo dice sin colgarse.
 
+- **Portada «La clave» (23/10/2026, documento del cliente «La clave de IndicativoBase.doc»)**: la
+  portada pasa de «tienda» a «comunidad con tienda». Orden: banner manifiesto (`hero`, disposición
+  `manifiesto`, segunda línea del titular en acento, sin tarjetas) → marcas (Icom y Yaesu primero) →
+  `sintonizador` (dial «Sintoniza tu afición»: estaciones ordenadas por frecuencia, aguja con `:has()`
+  generado en la sección, iconos en `snippets/icono-aficion.liquid`) → `pilares` (4 ideas clave) →
+  «Una tienda de aficionados» → «Lo que más valoramos» (colección manual `lo-que-mas-valoramos`) →
+  «Lo más fácil para empezar» → comunidad → **`ayuda` y `envio` con `"disabled": true`** (donaciones
+  y 5 días hábiles: no activarlas hasta que el cliente confirme que ya funcionan) → preguntas →
+  cierre. Página «Comparte tu estación»: `templates/page.comparte.json` + `sections/comparte-estacion.liquid`
+  (formulario de contacto de Shopify; no admite archivos, las fotos se piden por email). Foto del
+  banner provisional: `entorno-slide-nieve.jpg` (libre, sin marcas) hasta tener una propia de Icom/Yaesu.
 - **Carrusel de marcas (20/10/2026)**: sección `marcas-carrusel` (clave `marcas`, justo debajo del banner): logos en bucle continuo, en gris y a color al pasar el ratón, enlazados a `marca-<x>`. La altura de cada logo se ajusta a su proporción en la propia sección. Logos y licencias: `Indicativo-base/imagen-corporativa/logos-marcas/`.
 - **Banner principal (07/10/2026)**: sección propia `hero-indicativo` (clave `hero`): foto con un walkie a la vista, texto a la derecha, botones a walkies/emisoras y 4 tarjetas de cristal por categoría con nº de modelos en vivo. Estilos «Banner principal» en `assets/indicativo-base.css`.
 - **Portada estilo The North Face (04/10/2026, a petición del usuario)**: una sola foto a pantalla

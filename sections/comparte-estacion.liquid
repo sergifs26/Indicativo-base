@@ -1,0 +1,114 @@
+{% comment %}
+  «Comparte tu estación» (página de la comunidad, 23/10/2026): formulario para que los clientes
+  cuenten su estación, su barco o sus rutas. Va por el formulario de contacto de Shopify, que llega
+  al correo de la tienda; no admite archivos, así que las fotos se piden después respondiendo por
+  email. Plantilla templates/page.comparte.json. Estilos en assets/indicativo-base.css, «Comparte
+  tu estación».
+{% endcomment %}
+{{ 'section-contact-form.css' | asset_url | stylesheet_tag }}
+
+<div class="ib-comparte color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width ib-comparte__rejilla">
+    <div class="ib-comparte__intro">
+      {%- if section.settings.antetitulo != blank -%}
+        <p class="ib-comparte__antetitulo caption-with-letter-spacing">{{ section.settings.antetitulo | escape }}</p>
+      {%- endif -%}
+      <h2 class="ib-comparte__titulo h1">{{ section.settings.titulo | escape }}</h2>
+      <div class="ib-comparte__texto rte">{{ section.settings.texto }}</div>
+    </div>
+
+    <div class="ib-comparte__form contact">
+      {%- form 'contact', id: 'ComparteForm', class: 'isolate' -%}
+        {%- if form.posted_successfully? -%}
+          <div class="ib-comparte__ok" tabindex="-1" autofocus>
+            <p class="ib-comparte__ok-titulo h2">{{ section.settings.ok_titulo | escape }}</p>
+            <p>{{ section.settings.ok_texto | escape }}</p>
+          </div>
+        {%- else -%}
+          {%- if form.errors -%}
+            <div class="form__message">
+              <h2 class="form-status caption-large text-body" role="alert" tabindex="-1" autofocus>
+                {% render 'icon-error' %}
+                {{ 'templates.contact.form.error_heading' | t }}
+              </h2>
+            </div>
+            <ul class="form-status-list caption-large" role="list">
+              <li>
+                <a href="#Comparte-email" class="link">
+                  {{ form.errors.translated_fields.email | capitalize }}
+                  {{ form.errors.messages.email }}
+                </a>
+              </li>
+            </ul>
+          {%- endif -%}
+          <input type="hidden" name="contact[Formulario]" value="Comparte tu estación">
+          <div class="contact__fields">
+            <div class="field">
+              <input class="field__input" type="text" id="Comparte-nombre" name="contact[Nombre]" autocomplete="name" value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}" placeholder="Nombre">
+              <label class="field__label" for="Comparte-nombre">Nombre</label>
+            </div>
+            <div class="field">
+              <input class="field__input" type="text" id="Comparte-indicativo" name="contact[Indicativo]" autocapitalize="characters" spellcheck="false" placeholder="Indicativo">
+              <label class="field__label" for="Comparte-indicativo">Indicativo (si tienes)</label>
+            </div>
+          </div>
+          <div class="field">
+            <input class="field__input" type="email" id="Comparte-email" name="contact[email]" autocomplete="email" spellcheck="false" autocapitalize="off" aria-required="true" required value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}" placeholder="Email"{% if form.errors contains 'email' %} aria-invalid="true"{% endif %}>
+            <label class="field__label" for="Comparte-email">Email <span aria-hidden="true">*</span></label>
+          </div>
+          <div class="contact__fields">
+            <div class="field">
+              <input class="field__input" type="text" id="Comparte-equipo" name="contact[Equipo]" placeholder="Equipo">
+              <label class="field__label" for="Comparte-equipo">Qué equipo usas</label>
+            </div>
+            <div class="field">
+              <input class="field__input" type="text" id="Comparte-lugar" name="contact[Dónde]" placeholder="Dónde">
+              <label class="field__label" for="Comparte-lugar">Dónde: estación, barco, ruta…</label>
+            </div>
+          </div>
+          <div class="field">
+            <textarea class="text-area field__input" rows="7" id="Comparte-texto" name="contact[body]" placeholder="Cuéntanos">{{ form.body }}</textarea>
+            <label class="form__label field__label" for="Comparte-texto">Cuéntanos tu experiencia, un consejo o una mejora</label>
+          </div>
+          <label class="ib-comparte__permiso" for="Comparte-permiso">
+            <input type="checkbox" id="Comparte-permiso" name="contact[Permiso para publicar]" value="Sí">
+            <span>{{ section.settings.permiso | escape }}</span>
+          </label>
+          <p class="ib-comparte__nota">{{ section.settings.nota }}</p>
+          <div class="contact__button">
+            <button type="submit" class="button">{{ section.settings.boton | escape }}</button>
+          </div>
+        {%- endif -%}
+      {%- endform -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Comparte tu estación",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "antetitulo", "label": "Antetítulo", "default": "Esta comunidad también la construyes tú" },
+    { "type": "text", "id": "titulo", "label": "Título", "default": "Comparte tu estación" },
+    { "type": "richtext", "id": "texto", "label": "Texto" },
+    { "type": "text", "id": "permiso", "label": "Casilla de permiso", "default": "Os doy permiso para publicar mi texto y mis fotos en IndicativoBase.com, con mi nombre o indicativo." },
+    { "type": "inline_richtext", "id": "nota", "label": "Nota bajo la casilla" },
+    { "type": "text", "id": "boton", "label": "Botón", "default": "Enviar mi estación" },
+    { "type": "text", "id": "ok_titulo", "label": "Título tras enviar", "default": "¡QSL! Hemos recibido tu estación" },
+    { "type": "text", "id": "ok_texto", "label": "Texto tras enviar", "default": "Te escribiremos al email que nos has dejado para que nos mandes las fotos." },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Esquema de color",
+      "options": [
+        { "value": "background-1", "label": "Fondo claro" },
+        { "value": "inverse", "label": "Oscuro" }
+      ],
+      "default": "background-1"
+    }
+  ],
+  "presets": [{ "name": "Comparte tu estación" }]
+}
+{% endschema %}
