@@ -85,6 +85,15 @@
       </ul>
     {%- endif -%}
   </div>
+
+  {%- comment -%} Crédito de la foto: obligatorio con licencias CC BY / CC BY-SA {%- endcomment -%}
+  {%- if section.settings.credito != blank -%}
+    {%- if section.settings.credito_url != blank -%}
+      <a class="ib-hero__credito" href="{{ section.settings.credito_url }}" target="_blank" rel="noopener">{{ section.settings.credito | escape }}</a>
+    {%- else -%}
+      <span class="ib-hero__credito">{{ section.settings.credito | escape }}</span>
+    {%- endif -%}
+  {%- endif -%}
 </div>
 
 {% schema %}
@@ -150,7 +159,9 @@
     { "type": "url", "id": "boton_2_enlace", "label": "Enlace del botón secundario" },
     { "type": "text", "id": "enlace_texto", "default": "¿Es tu primera radio?", "label": "Texto del enlace" },
     { "type": "text", "id": "enlace_destacado", "default": "Empieza aquí", "label": "Parte destacada del enlace" },
-    { "type": "url", "id": "enlace_url", "label": "Enlace" }
+    { "type": "url", "id": "enlace_url", "label": "Enlace" },
+    { "type": "text", "id": "credito", "label": "Crédito de la foto", "info": "Obligatorio si la foto es CC BY o CC BY-SA, p. ej. «Foto: autor · CC BY-SA 2.0»." },
+    { "type": "url", "id": "credito_url", "label": "Enlace del crédito (página de la foto)" }
   ],
   "blocks": [
     {

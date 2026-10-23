@@ -392,6 +392,23 @@ html:not(.ib-cabecera-solida) .ib-portada .section-header:not(:has(details[open]
   color: #a8efe8;
 }
 
+/* Crédito de la foto (licencias CC BY / BY-SA), discreto en la esquina inferior derecha */
+.ib-hero__credito {
+  position: absolute;
+  right: 1.6rem;
+  bottom: 1rem;
+  z-index: 1;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+}
+
+a.ib-hero__credito:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
 @media screen and (min-width: 750px) {
   .ib-hero--manifiesto .ib-hero__foto {
     object-position: var(--ib-hero-pos-escritorio, 50% 42%);

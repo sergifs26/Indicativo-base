@@ -75,7 +75,9 @@ Ramas: **`production`** = tema publicado · **`staging`** = vista previa.
   y 5 días hábiles: no activarlas hasta que el cliente confirme que ya funcionan) → preguntas →
   cierre. Página «Comparte tu estación»: `templates/page.comparte.json` + `sections/comparte-estacion.liquid`
   (formulario de contacto de Shopify; no admite archivos, las fotos se piden por email). Foto del
-  banner provisional: `entorno-slide-nieve.jpg` (libre, sin marcas) hasta tener una propia de Icom/Yaesu.
+  banner: Yaesu FT-817 en el Monte Cucco (`entorno-hero-yaesu-ft817.jpg`, CC BY-SA 2.0 de iz1ksw):
+  **lleva crédito obligatorio** (ajustes `credito`/`credito_url` del banner); ver
+  `Indicativo-base/imagen-corporativa/fotos/CREDITOS.md`.
 - **Carrusel de marcas (20/10/2026)**: sección `marcas-carrusel` (clave `marcas`, justo debajo del banner): logos en bucle continuo, en gris y a color al pasar el ratón, enlazados a `marca-<x>`. La altura de cada logo se ajusta a su proporción en la propia sección. Logos y licencias: `Indicativo-base/imagen-corporativa/logos-marcas/`.
 - **Banner principal (07/10/2026)**: sección propia `hero-indicativo` (clave `hero`): foto con un walkie a la vista, texto a la derecha, botones a walkies/emisoras y 4 tarjetas de cristal por categoría con nº de modelos en vivo. Estilos «Banner principal» en `assets/indicativo-base.css`.
 - **Portada estilo The North Face (04/10/2026, a petición del usuario)**: una sola foto a pantalla

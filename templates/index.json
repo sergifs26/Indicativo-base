@@ -12,9 +12,9 @@
     "hero": {
       "type": "hero-indicativo",
       "settings": {
-        "image": "shopify://shop_images/entorno-slide-nieve.jpg",
+        "image": "shopify://shop_images/entorno-hero-yaesu-ft817.jpg",
         "disposicion": "manifiesto",
-        "posicion_escritorio": "50% 42%",
+        "posicion_escritorio": "50% 50%",
         "posicion_movil": "70% 50%",
         "color_scheme": "inverse",
         "antetitulo": "Radio · Antenas · Náutica · Outdoor · Aviación",
@@ -27,7 +27,9 @@
         "boton_2_enlace": "/pages/comparte-tu-estacion",
         "enlace_texto": "",
         "enlace_destacado": "",
-        "enlace_url": ""
+        "enlace_url": "",
+        "credito": "Foto: iz1ksw · CC BY-SA 2.0",
+        "credito_url": "https://www.flickr.com/photos/46474281@N08/4263542844/"
       }
     },
     "marcas": {
