@@ -4,8 +4,10 @@
  * Texto de «Nuestra comunidad» en contenido/nuestra-comunidad.html: el de «La clave de
  * IndicativoBase.doc» del cliente, pulido y escrito como intención donde habla de compromisos que
  * aún no ha confirmado (compras agrupadas, donaciones). Sin el plazo de 5 días ni la entrega en
- * club/locker hasta que los confirme. «Comparte tu estación» usa la plantilla `page.comparte` del
- * tema (formulario en sections/comparte-estacion.liquid): subir el tema antes.
+ * club/locker hasta que los confirme. «Nuestra comunidad» usa la plantilla `page.comunidad` (texto +
+ * galería de aficiones con fotos y el cierre «No compres simplemente. Forma parte.», que por eso ya
+ * no está en el HTML) y «Comparte tu estación» la `page.comparte` (formulario en
+ * sections/comparte-estacion.liquid): subir el tema antes.
  * Idempotente por handle: crea o actualiza título, cuerpo y plantilla; deja las páginas publicadas.
  *
  * Uso:
@@ -20,7 +22,7 @@ import { adminGraphQL, userErrors } from './admin.mjs';
 const RAIZ = join(dirname(fileURLToPath(import.meta.url)), '..');
 const APPLY = process.argv.includes('--apply');
 const PAGINAS = [
-  { handle: 'nuestra-comunidad', title: 'Nuestra comunidad', body: readFileSync(join(RAIZ, 'contenido', 'nuestra-comunidad.html'), 'utf8'), templateSuffix: '' },
+  { handle: 'nuestra-comunidad', title: 'Nuestra comunidad', body: readFileSync(join(RAIZ, 'contenido', 'nuestra-comunidad.html'), 'utf8'), templateSuffix: 'comunidad' },
   { handle: 'comparte-tu-estacion', title: 'Comparte tu estación', body: '', templateSuffix: 'comparte' },
 ];
 

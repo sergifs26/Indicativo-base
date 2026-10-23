@@ -76,3 +76,17 @@ ninguna libre de Icom/Yaesu al aire libre.
   color medio de las 10 primeras columnas de cada fila (+ grano leve y fundido de 40 px) y escalar ×1,6.
 - Otra del mismo autor, con el logo YAESU visible: [I/LG-043 M.te Rossola](https://www.flickr.com/photos/46474281@N08/4335103338/)
   (FT-817 sobre una roca de cumbre, CC BY-SA 2.0, 1024×681; se ve blanda a tamaño de banner).
+
+## Galería de aficiones de «Nuestra comunidad» (23/10/2026)
+
+Una foto por afición en `templates/page.comunidad.json` (sección `galeria-aficiones`). Son fotos de
+ambiente, no de clientes: la página lo dice («Fotos de ambiente. Pronto, las vuestras»).
+
+| Afición | Fichero en Shopify | Origen |
+|---|---|---|
+| Radioafición | `entorno-hero-yaesu-ft817-rossola.jpg` | iz1ksw, CC BY-SA 2.0 (ver arriba): **crédito en la tarjeta** |
+| Montaña | `entorno-tile-nieve.jpg` | Unsplash, Hendrik Morkel (ver tabla de arriba) |
+| Náutica | `entorno-tile-nautica.jpg` | Unsplash, Fabrizio Saudino |
+| Outdoor | `entorno-tile-para-empezar.jpg` | Unsplash, Arthur Poulin |
+| Aviación | `entorno-comunidad-aviacion.jpg` (`comunidad-aviacion.jpg`, 2400×1600) | [Unsplash photo-1681157403973-ca5dc73d8a5c](https://unsplash.com/photos/3_zFKZGxWzs), Pasqualino Capobianco (@photoloni), licencia Unsplash. **Retocada**: borrado el logo «BOSE» de los cascos (máscara suave), para no mostrar otras marcas |
+| Caza y pesca | `entorno-slide-caza-pesca.jpg` | Unsplash, Samantha Deleo |
